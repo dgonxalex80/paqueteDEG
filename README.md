@@ -1,2 +1,40 @@
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # paqueteDEG
-Paquete del curso de Probabilidad y Estadística
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+El objetivo principal es el recopilar una serie de funciones e
+instructivos que serán utilizados en el curso de Probabilidad y
+Estadística
+
+## Installation
+
+Este paquete esta en su versión de construcción, por tanto se encontrará
+alojado en GitHub durante su etapa de elaboración.
+
+``` r
+# install.packages("devtools")
+devtools::install_github("dgonxalex80/paqueteDEG")
+```
+
+## Examplo
+
+Con el siguiente comando carga las funciones del paquete:
+
+``` r
+library(paqueteDEG)
+
+## Códigos basico para calcular el tamaño de la muestras para la estimación de la media con una confianza del 95%, una varianza estimada de 428 y un error de muestreo de 2 : (sizemu(perc_normal,varianza,error))
+sizemu(1.96,428,2) 
+#> [1] 411.0512
+
+## Códgo básico para calcular el tamaño de muestra para la estimación de una proporción con un nivel de confianza del 95%, prop=0.5 y un error de muestreo de 0.05  (sizep(perc_normal,prop,error))
+sizep(1.96,0.5,0.05)
+#> [1] 384.16
+
+## Corrección del tamaño de la muestra cuando n/N> 0.05 : adjusted_size(n,N)
+adjusted_size(385,1000)
+#> [1] 278.1792
+```
