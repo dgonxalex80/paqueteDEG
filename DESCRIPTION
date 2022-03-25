@@ -5,7 +5,9 @@ Version: 0.1.0
 Author: Daniel Enrique González Gómez
 Maintainer: The package maintainer <dgonxalex80@gmail.com>
 Description: Reune funciones utilizadas dentro del curso de Probabilidad y Estadística.
-    Tambien incluye instructivos para que sean realizados por los estudiantes durante las practicas de computo.
+             Tambien incluye instructivos para que sean realizados por los estudiantes durante las practicas de computo.
 License: CC-BY-NC Reconocimiento-NoComercial 
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    paqueteDEG (>= 0.1.0)
