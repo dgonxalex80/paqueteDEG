@@ -1,13 +1,18 @@
 Package: paqueteDEG
-Type: Package
-Title: Paquete curso de Probabilidad y Estadística - Pontificia Universidad Javeriana Cali
-Version: 0.1.0
-Author: Daniel Enrique González Gómez
-Maintainer: The package maintainer <dgonxalex80@gmail.com>
-Description: Reune funciones utilizadas dentro del curso de Probabilidad y Estadística.
-             Tambien incluye instructivos para que sean realizados por los estudiantes durante las practicas de computo.
-License: CC-BY-NC Reconocimiento-NoComercial 
+Title: Paquete curso Probabilidad y Estadistica
+Version: 0.0.0.1
+Authors@R: person("Daniel Enrique", "Gonzalez", , "dgonzalez@javerianacali.edu.co", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Paquete creado como apoyo al curso de probabilidad y estadística, Pontificia Universidad Javeriana Cali.
+             Contiene tambien tutoriales como apoyo a las monitorias del curso para  los diferentes módulos.  
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Suggests: 
+    learnr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Imports: 
-    paqueteDEG (>= 0.1.0)
+
