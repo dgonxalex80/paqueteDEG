@@ -1,5 +1,5 @@
 ---
-title: "Intervalos de confianza"
+title: "Intervalos de confianza N.1"
 author: Daniel Enrique González- [Web-u4.2](https://dgonxalex80.github.io/probabilidad20212.io/Guia402.html)
 output: 
   learnr::tutorial:
@@ -75,7 +75,7 @@ La Cámara de Comercio de Cali está interesada en estimar la cantidad promedio 
 
 
 ```{r ej6, exercise=TRUE}
-
+x=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 163)
 
 ```
 
