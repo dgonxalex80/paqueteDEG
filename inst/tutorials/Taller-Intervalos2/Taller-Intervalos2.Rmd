@@ -30,6 +30,29 @@ c Si se desea estimar la resistencia a la compresión con un error de muestreo m
 
 ```
 
+```{r eje1-hint}
+# primero se debe determinar si se trata de una o dos poblaciones
+# segundo de que parámetro se trata 
+# tercero que supuestos se tienen
+
+# media +/- z_a/2 * s/sqrt(n)
+```
+
+```{r eje1-solution}
+media.x=3250
+var.x=1000
+z2.90=qnorm(c(0.10/2,1-0.10/2))
+z2.95=qnorm(c(0.05/2,1-0.05/2))
+z2.99=qnorm(c(0.01/2,1-0.01/2))
+
+media.x + z2.90 * sqrt(var.x/12)
+media.x + z2.95 * sqrt(var.x/12)
+media.x + z2.99 * sqrt(var.x/12)
+```
+
+
+
+
 
 ## Ejercicio 2 
 
