@@ -1,0 +1,43 @@
+---
+title: "Regresión Lineal Simple"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Ejercicio 1
+
+Se requiere construir un modelo que permita estimar el valor del consumo alimentos apartir del valor de los ingresos de una familia.  Los siguiente datos corresponden al valor obtenido una muestra de 12 familias.
+ 
+```{r punto1, exercise=TRUE}
+x=c(24.3, 12.5, 31.2, 28.0, 35.1, 10.5, 23.2, 10.0,  8.5,  15.9,  14.7,  15.0)   
+y=c(16.2,  8.5, 15.0, 17.0, 24.2, 11.2, 15.0,  7.1,  3.5,  11.5, 10.7,  9.2) 
+plot(x,y, pch=19, col="blue", las=1)
+```
+
+a. Representa la relación de las variables mediante un grafico de puntos
+b. Estime el modelo $y=\beta_{0}+\beta_{1} x + u$ utilizando MCO (mínimos cuadrados ordinarios)
+c. Realice las pruebas de significancia individuales
+d. Determine el ajuste del modelo ($R^{2}$)
+e. Valide los supuestos del modelo
+f. Verifique si otro modelo puede tener un mejor ajuste
+
+
+
+## Ejercicio 2
+
+La buena previsión y el control de las actividades de preconstrucción conducen al uso más eficiente del tiempo y recursos en proyectos de construcción de autopistas. Los datos acerca de los costos de construcción (en miles de dólares) y las horas-persona de trabajo requeridas para varios proyectos se presentan en la tabla siguiente y fueron tomados del artículo “Forecasting Engineering Manpower Requirements for Highway Preconstruction Activities” (K. Persad, J. O’Connor, y K. Varghese, Journal of Management Engineering, 1995:41-47). Cada valor representa un promedio de algunos proyectos, y se han eliminado dos datos atípicos.(Problema tomados de Navidi(2006))
+
+```{r punto2, exercise=TRUE}
+x=c(939,5796,289,283,138,2698,663,1069,6945,4159,1266,1481,4716)
+y=c(251,4690,124,294,138,1385,345,355,5253,1177,802,945,2327)
+
+plot(x,y)
+```
+
+a. Estime el mejor modelo, validando los supuestos 
+b. Estime el valor de $y$ para un valor de $x=3000$

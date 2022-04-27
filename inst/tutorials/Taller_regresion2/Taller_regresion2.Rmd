@@ -1,0 +1,78 @@
+---
+title: "Regresión Lineal Simple"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## **PROBLEMAS PROPUESTOS**
+
+### Problema 1
+
+En pruebas diseñadas para medir el efecto de cierto aditivo en el tiempo de secado de pinturas se obtienen los siguientes resultados
+
+| variable      | descripción                               |
+|:------|:-------------------------------|
+|x      |Concentración del aditivo  (%)  |  
+|y      |Tiempo de secado (h)            |
+
+
+a. Construya un diagrama de dispersión de la concetración del aditivo (x) contra el tiempo de secado (y). Verifique si es adecuado un modelo lineal (Nota: el modelo puede tener otras formas como log-log, log-lin, lin-log,...)
+
+b. Estime la ecuación del modelo que permita estimar el tiempo de secado a partir de la concentración del aditivo.
+
+c. Calcule el valor los valores ajustados ($\widehat{y_{i}}$) y los residuos ($\widehat{u_{i}}$) para cada uno de los resultados obtenidos
+
+d. Si se aumenta la concentración del aditivo en un 0.1%, ¿en cuánto predecirá el modelo que aumente o disminuya el tiempo de secado?
+
+e. Realice un pronostico del tiempo de secado para una concentración del 4.4% de aditivo
+
+f. ¿Puede utilizarse el modelo estimado para realizar un pronóstico del tiempo de secado con respecto a una concentración del 7% ? . Si es así, encuentre el valor. En caso contrario explique el por qué.
+
+g. ¿Para que concentración pronosticaría un tiempo de secado de 8.2 horas?
+
+h. El objetivo de este proyecto es reducir el tiempo de secado a seis horas. Con base en los datos dados, ¿puede especificar una concentración que probablemente ocasiones este resultado? . Si es así, especifique la concentración. Si no, explique por qué.
+
+
+```{r problema1, exercise=TRUE}
+x=c(4.0, 4.2, 4.4, 4.6, 4.8, 5.0, 5.2, 5.4, 5.6, 5.8)
+y=c(8.7, 8.8, 8.3, 8.7, 8.1, 8.0, 8.1, 7.7, 7.5, 7.2)
+```
+
+Nota: se supone que para utilizar los modelos, se debe primero validar los supuestos sobre los errores
+
+## Problema 2
+
+Una mezcla de sacarosa y agua es calentada en una plancha y la temperatura (en ºC) se registró cada 20 minutos con tres termómetros. Los resultados se muestran en la siguiente tabla:
+
+|Tiempo   |   0|   1|   2|   3|   4|   5|   6|   7|   8|   9|  10|  11|  12|  13|  14|  15|  16|  17|  18|  19| 20 |
+|:-------:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+|T1       |  20|  18|  29|  32|  37|  36|  46|  46|  56|  58|  64|  72|  79|  84|  82|  87|  98| 103| 101| 103| 102|
+|T2       |  18|  22|  22|  25|  37|  46|  45|  44|  54|  64|  69|  65|  80|  74|  87|  93|  90| 100|  98| 103| 103| 
+|T3       |  21|  11|  26|  35|  33|  35|  44|  43|  63|  68|  62|  65|  80|  75|  78|  88|  91| 103| 109| 107| 104|
+|         |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |    |
+
+a. Estime la recta de MCO para estimar la temperatura como función del tiempo, usando la información obtenida con el termómetro T1
+
+b. Realice el anterior procedimiento para los datos obtenidos con los termómetros T2 y T3
+
+c. Se desea calcular una sola recta para calcular la temperatura como función del tiempo. Uno de los investigadores sugiere promediar los tres resultados de las pendientes y tambien promediar los tres estimadores de los intercepto para obtener una sola estimación. Determine la ecuación resulta de obtenida por este método.
+
+d. Otro de los investigadores sugiere promediar las tres mediciones de la temperatura para cada uno de los tiempos medidos para obtener : $\bar{T} =(T_{1}+T_{2}+T_{3})/3$ . Estime la recta de regresión por MCO usando $\bar{T}$ como valor para la temperatura
+
+f. ¿Son los resultados obtenidos en (c) y (d) diferentes?
+
+
+```{r problema2, exercise=TRUE}
+T1=c(20, 18, 29,  32,  37,  36,  46,  46,  56,  58,  64,  72, 79,  84,  82,  87,  98, 103, 101, 103, 102)
+T2=c(18, 22, 22,  25,  37,  46,  45,  44,  54,  64,  69,  65,  80,  74,  87,  93, 90, 100,  98, 103, 103) 
+T3=c(21, 11, 26,  35,  33,  35,  44,  43,  63,  68,  62,  65,  80,  75,  78,  88,  91, 103, 109, 107, 104)
+```
+
+
+Nota: se supone que para utilizar los modelos, se debe primero validar los supuestos sobre los errores

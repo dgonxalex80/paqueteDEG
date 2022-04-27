@@ -1,0 +1,160 @@
+---
+title: "Pruebas de hipótesis no paramétricas"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+##  Problema 1 
+
+Calos y Ángela, Administradoras investigadores de una firma de artículos deportivos tienen la creencia que el deporte afecta la imagen que cada persona tiene de si misma. Para investigar esta posibilidad eligieron a 18 personas de manera aleatoria, para participar en un programa de ejercicios. Antes de empezar el programa las personas respondieron un cuestionario para medir su propia imagen. Un nivel de 15 puntos en la prueba establece que la persona tiene un concepto indiferente frente a la afirmación, valores menores de 15 que afecta su imagen de forma negativa y valores por encima de 15 que afectan su imagen en forma positiva. Los siguientes son los resultados obtenidos: 
+
+```{r punto1, exercise=TRUE}
+
+x=c(16, 15, 12, 17, 18, 14, 16, 14, 16, 17, 19, 16, 14, 21, 20, 16, 16, 16)
+
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+## Problema 2 
+
+Santiago, investigador del CIPUJ  está interesado en determinar si la acupuntura reduce el dolor. Realiza un experimento en el cual elige al azar a 10 estudiantes universitarios. Cada uno de ellos es utilizado en dos condiciones  y recibe un choque eléctrico de corta duración en la pulpa de un diente, la intensidad del choque eléctrico es corta, pero produce un dolor moderado. Después de cada choque percibido, cada estudiante califica el nivel de dolor percibido en una escala de 0 a 10 ( 10 dolor máximo) Los resultados obtenidos son: 
+
+```{r punto2, exercise=TRUE}
+# Con acupuntura
+ca=c(3, 4, 6, 2, 3, 4, 5, 7, 7, 6)
+# Sin acupuntura
+sa=c(8, 9, 4, 7, 9, 4, 5, 10, 7, 4)
+```
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+##  Problema 3 
+
+Los siguientes datos se tomaron de un estudio de comparación de adolescentes sanos (G1)  y adolescentes con bulimia (G2).  El primero está conformado por 15 estudiantes y el segundo grupo (G2) por 14 estudiantes, corresponden al consumo diario de calorías.   Los datos obtenidos son los siguientes:
+
+```{r punto3, exercise=TRUE}
+
+g1=c(68,32,58,16,23,53,55,32,61,29,50,64,67,37)
+g2=c(39,10,21,29,11,26,7,12,28,82,30,27,50,19,24)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+## Problema 4 
+
+
+Suponga que le interesa analizar los efectos de la transición de la circulación fetal a la circulación postnatal entre niños prematuros. Para cada uno de 12 niños recién nacidos saludables, se midió el ritmo respiratorio en dos momentos diferentes: cuando el niño tiene menos de 15 días de nacido y de nuevo cuando tiene más de 25 días de nacido.
+
+```{r punto4, exercise=TRUE}
+# Menores de  15 dias
+m15=c(42,57,38,49,63,36,48,58,47,51,83,27)
+# Mayores de 25 dias
+M25=c(40,60,38,47,65,39,49,50,47,52,72,33)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+## Problema 5
+
+El Dueño de una panadería tiene la posibilidad de controlar los niveles de inventarios de leche  para cuatro marcas diferentes. Con el fin de establecer políticas para la realización de nuevos pedidos requiere saber si la demanda de estas marcas son iguales.  Con este propósito tomo la información de un día
+
+| Marca            |  Alpina  |San Fernando | Alqueria | Parmalat |
+|:-----------------|:--------:|:-----------:|:--------:|:--------:|
+|                  |  33      |  22         |  21      |  24      | 
+|                  |          |             |          |          |
+
+```{r punto5, exercise=TRUE}
+obs= c(33,22,21,24)       # frecuencias observadas
+esp= c(0.25,0.25,0.25,0.25)  # frecuencias esperadas
+
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+##  Problema 6 
+
+Un director de carrera de una Universidad  quiere investigar si los resultados exámenes realizados a los estudiantes de último semestre tienen una distribución normal con media 3.5 y desviación estándar 0.7 puntos.
+
+```{r punto6, exercise=TRUE}
+nf=c( 3.1, 3.3, 2.9, 3.3, 3.5, 2.8, 4.0, 2.7, 3.7, 2.7, 3.7, 3.4, 4.0, 4.4, 2.9, 4.0, 4.5, 3.5, 3.1, 4.5, 3.9, 3.7, 2.9, 4.7, 4.4, 2.7, 3.4, 2.8, 3.0, 2.9, 4.1, 3.7, 4.4, 3.0, 3.5, 2.4, 3.8, 2.2, 1.4, 3.4)
+
+```
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+## Problema 7 
+
+Comprobar que los números aleatorios generados en Excel son realmente aleatorios.  Para generarlos se tomo la función `=aleatorio()` de la hoja electrónica y la prueba no paramétrica de rachas: 
+
+0.738   0.202   0.357   0.561   0.509   0.146   0.746   0.666  0.133   0.430   0.972   0.999   0.499   0.869   0.821   0.732   0.355   0.189   0.478   0.162
+
+```{r punto7, exercise=TRUE}
+x8=c(0.738, 0.202,  0.357, 0.561, 0.509, 0.146, 0.746, 0.666, 0.133, 0.430, 0.972, 0.999, 0.499, 0.869, 0.821, 0.732, 0.355,  0.189, 0.478, 0.162)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+## Problema 8
+
+Se requiere establecer si existe relación entre el tiempo de estudio ($t$) y la nota obtenida en un examen ($n$). Como la calificación del examen corresponde a una variable cualitativa se debe utilizar una prueba no paramétrica (Coeficiente de correlación de Spearman) Los datos obtenidos son : 
+
+```{r punto8, exercise=TRUE}
+t=c(21,18,15,17,18,25,18,4,6,5)
+n=c(4,4,4,3,3,5,3,1,1,2)
+```
+
+
+## Problema 9
+
+
+Un investigador desea establecer la relación que puede existir entre la calificación un producto realizada por sus consumidores y su ubicación de residencia. Con este fin recoge información de 100 clientes :
+
+|                |Lugar de    |residencia |
+|:---------------|-----------:|:-----------|
+
+| Calificación   |  Urbano    |  Rural     | 
+|:---------------|:----------:|:-----------|
+| Buena          |      20    |     11     |     
+| Regular        |      40    |      8     |
+| Mala           |      15    |      6     |
+|                |            |            |
+
+
+
+```{r punto10, exercise=TRUE}
+
+
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+
