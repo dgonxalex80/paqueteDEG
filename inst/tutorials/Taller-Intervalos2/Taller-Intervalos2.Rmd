@@ -35,18 +35,12 @@ c Si se desea estimar la resistencia a la compresión con un error de muestreo m
 
 Una marca de margarina dietetica fué analizada para determinar el nivel de ácido graso poliinsaturado (*) que son esenciales para el ser humano- Wikipedia} ,en porcentaje . En una muestra de seis paquetes de este producto se obtuvo como resultado los siguientes datos: 16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1 .
 
-
-| Min.    |1st Qu.  |Median | Mean    |3rd Qu.   |  Max.   |  sd.    |
-|--------:|--------:|------:|........:|---------:|--------:|--------:|
-| 16.50   |16.83    |17.00  | 16.98   |17.17    |  17.40   |0.3188   |
-
-
 a. ¿Existe evidencia que apoye la hipótesis de que el nivel de ácido graso poliinsaturado se distribuye normalmente?
 b. Encuentre un intervalo de confianza del 99% sobre la media $\mu$. Interprete el resultado obtenido.
 
 
 ```{r ej2, exercise=TRUE}
-
+nivel.acido=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)
 ```
 
 Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un doble enlace entre sus carbonos. Dentro de este grupo encontramos el ácido linolénico (omega 3 y el omega 6)
