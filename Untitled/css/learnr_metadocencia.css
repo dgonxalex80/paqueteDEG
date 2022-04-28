@@ -75,17 +75,12 @@ a {
     border: none;
 }
 
-.btn-light, .btn-danger, .btn-warning {
+.btn-light {
   background-color: #aa2f2f;
   color: #fff;
 }
 
-.btn-primary, .btn-secondary , .btn-success, .btn-dark, .btn-info{
-  background-color: #C83737;
-  color: #fff;
-}
-
-.btn-group, .btn-group-toggle {
+.btn-primary , .btn-success, .btn-info{
   background-color: #C83737;
   color: #fff;
 }
@@ -104,4 +99,48 @@ code {
     background-color:  #f7f7f7;
     font-size: 14px;
 }
+
+
+/****************/
+/* Recuadro para ejemplos */
+/****************/
+
+.boxed {
+        background: lightgrey;
+        color: black;
+        border: 3px solid #C83737;
+        margin: 0px auto;
+        width: 456px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px 15px;
+    min-height: 120px;
+    color: black;
+    background-color: lightgrey;
+    border: solid 5px #C83737;
+    background-image: url("manzana.png");
+  }
+
+.note_white {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px 15px;
+    min-height: 120px;
+    color: black;
+    background-color: white;
+    border: solid 5px #C83737;
+    background-image: url("manzana.png");
+  }
+
 
