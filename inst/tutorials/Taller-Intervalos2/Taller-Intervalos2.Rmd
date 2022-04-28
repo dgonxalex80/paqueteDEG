@@ -17,8 +17,6 @@ knitr::opts_chunk$set(echo = FALSE,
                  exercise.warn_invisible = FALSE)
 ```
 
-
-
 ## Presentación 
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
@@ -64,7 +62,7 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 
 Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
 
-<br/><br/>
+
 
 ## Ejercicios propuestos
 
@@ -77,9 +75,10 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 *c Si se desea estimar la resistencia a la compresión con un error de muestreo menos de 15 psi y una confianza del 99%, ¿qué tamaño de muestra se requiere?.*
 
 
-```{r ej1, exercise=TRUE}
+```{r ej1, exercise=TRUE, exercise.lines = 8}
 
 ```
+
 
 ```{r eje1-hint}
 # primero se debe determinar si se trata de una o dos poblaciones
@@ -88,6 +87,20 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 
 # media +/- z_a/2 * s/sqrt(n)
 ```
+
+```{r ej1-hint}
+ media.x=3250
+ var.x=1000
+ z2.90=qnorm(c(0.10/2,1-0.10/2))
+ z2.95=qnorm(c(0.05/2,1-0.05/2))
+ z2.99=qnorm(c(0.01/2,1-0.01/2))
+cat("IC_mu(90%) : ", media.x + z2.90 * sqrt(var.x/12))
+cat("IC_mu(95%) : ", media.x + z2.95 * sqrt(var.x/12))
+cat("IC_mu(99%) : ", media.x + z2.99 * sqrt(var.x/12))
+```
+
+
+
 
 ```{r eje1-solution}
  media.x=3250
@@ -112,20 +125,34 @@ cat("IC_mu(99%) : ", media.x + z2.99 * sqrt(var.x/12))
 *b. Encuentre un intervalo de confianza del 99% sobre la media $\mu$. Interprete el resultado obtenido.*
 
 
-```{r ej2, exercise=TRUE}
+```{r ej2, exercise=TRUE, exercise.lines = 8}
 x2=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)
 ```
 
-```{r eje2-solution}
-# calculo parametrico
+
+```{r ej2-hint}
+# cálculo paramétrico
 x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
-t.test(x2,coef.level=0.99)$conf.int
-# calculo no parametrico
+t.test(x2,conf.level=0.99)$conf.int
+# cálculo no paramétrico
 boot=sample(x2,7000,replace=TRUE)
 b=matrix(boot,nrow=1000,ncol=7)
 mx=apply(b,1,mean)
 ic2=quantile(mx, probs=c(0.005,0.995))
 ic2
+```
+
+```{r eje2-solution}
+cat("cálculo paramétrico")
+x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
+cat("IC :",t.test(x2,conf.level=0.99)$conf.int9)
+cat("/n")
+cat("cálculo no paramétrico")
+boot=sample(x2,7000,replace=TRUE)
+b=matrix(boot,nrow=1000,ncol=7)
+mx=apply(b,1,mean)
+ic2=quantile(mx, probs=c(0.005,0.995))
+cat("IC :",ic2)
 ```
 
 Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un doble enlace entre sus carbonos. Dentro de este grupo encontramos el ácido linolénico (omega 3 y el omega 6)
@@ -136,12 +163,24 @@ Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un dob
 
 *El porcentaje de titanio contenida en una aleación utilizada en articulos para escalar fue medido en 51 partes seleccionadas de manera aleatoria. La desviación estándar de la muestra es  $s= 0,37$. Construir intervalo de confianza del 95% para $\sigma$. ¿Que ocurre en el intervalo de confianza, si se aumenta el tamaño de la muestra y el resto de información permanece igual?*
 
-```{r ej3, exercise=TRUE}
+```{r ej3, exercise=TRUE, exercise.lines = 8}
 
 ```
 
-```{r eje3-solution}
+```{r ej3-hint}
+s3=0.37
+n3=51
+chi2=qchisq(c(0.975,0.025),(n3-1))
+ic3=(n3-1)*s3^2/chi2
+ic3
+```
 
+```{r eje3-solution}
+s3=0.37
+n3=51
+chi2=qchisq(c(0.975,0.025),(n3-1))
+ic3=(n3-1)*s3^2/chi2
+cat("IC :",ic3)
 ```
 
 <br/><br/>
@@ -151,12 +190,22 @@ Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un dob
 *De 1000 casos seleccionados al azar de cáncer de pulmón, 823 resultaron en la muerte dentro de los 10 años despues de su detección. Construya un intervalo de confianza para la tasa de mortalidad por cáncer de pulmón del 95%, de acuerdo con los datos suministrados. Interprete los resulados obtenidos.*
 
 
-```{r ej4, exercise=TRUE}
+```{r ej4, exercise=TRUE, exercise.lines = 8}
 
 ```
 
-```{r eje4-solution}
+```{r ej4-hint}
+n4=1000
+x4=823
+p4=x4/n4
+prop.test(x4,n4,0.95)$conf.int
+```
 
+```{r eje4-solution}
+n4=1000
+x4=823
+p4=x4/n4
+cat("IC :", prop.test(x4,n4,0.95)$conf.int)
 ```
 
 <br/><br/>
@@ -165,16 +214,24 @@ Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un dob
 
 La siguente muestra recogen el contenido de alquitrán en 30 unidades de tabaco habano: 
 
-```{r ej5, exercise=TRUE}
-conalq=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558)
-```
+1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558
 
 *a. ¿Existe evidencia que apoye la hipótesis de que el contenido de alquitrán en los habanos se distribuye normalmente?*
 
 *b. Estime un IC del 99% para la media del contenido de alquitrán en los habanos.*
 
-```{r eje5-solution}
 
+
+```{r ej5, exercise=TRUE, exercise.lines = 8}
+x5=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558)
+```
+
+```{r ej5-hint}
+t.test(x5,coef.level=0.99)$conf.int
+```
+
+```{r ej5-solution}
+cat("IC :",t.test(x5,coef.level=0.99)$conf.int)
 ```
 
 <br/><br/>
@@ -184,13 +241,17 @@ conalq=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  
 *Las siguientes mediciones se registraron para el tiempo de secado, en horas de la nueva pintura PiNtUcAl: $3.4$, $2.5$, $4.8$, $2.9$, $3.6$, $2.8$, $3.3$, $5.6$, $3.7$, $2.8$, $4.4$, $4.0$, $5.2$, $3.0$, $4.8$ . Suponga que las mediciones proceden de una distribución normal. Calcule un intervalo de confianza para la media del tiempo de secado del 95% y un intervalo de confianza del 98% para su varianza. Interprete los resultados obtenidos.*
 
 
-```{r ej6, exercise=TRUE}
-pintucal=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)
+```{r ej6, exercise=TRUE, exercise.lines = 8}
+x6=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)
   
 ```
 
-```{r eje6-solution}
+```{r ej6-hint}
+t.test(x6,coef.level=0.95)$conf.int
+```
 
+```{r ej6-solution}
+cat("IC :",t.test(x6,coef.level=0.95)$conf.int)
 ```
 
 <br/><br/>
@@ -199,12 +260,16 @@ pintucal=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0,
 
 *El Director de una fabrica de muebles desea estimar el tiempo promedio que toma perforar tres agujeros en una placa metálica que se utiliza en la construcción de bases para mesas metálicas. Cual debe ser el tamaño de la muestra para obtener un intervalo de confianza del 95% para que la media muestral este dentro de 15 segundos de la media real. Suponga que por estudios previos se sabe que $\sigma$ = 40.*
 
-```{r ej7, exercise=TRUE}
+```{r ej7, exercise=TRUE, exercise.lines = 8}
 
 ```
 
-```{r eje7-solution}
+```{r ej7-hint}
+paqueteDEG::sizemu(1.96,40^2,15 )
+```
 
+```{r ej7-solution}
+cat("n = ",paqueteDEG::sizemu(1.96,40^2,15 ))
 ```
 
 
@@ -215,18 +280,27 @@ pintucal=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0,
 
 *En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla nuestra las tenciones de ruptura de las piezas en kilogramos por centímetro cuadrado: *
 
-```{r ej, exercise=TRUE}
+|proceso   |     |    |    |    |    |    |    |     |     |     |    |    |
+|:--------:|----:|---:|---:|---:|---:|---:|---:|----:|----:|----:|---:|---:|
+|estandar  |428  | 419| 458| 439| 441| 456| 463|  429|  438|  445| 441| 463|
+|nuevo     |462  | 448| 435| 465| 429| 472| 453|  459|  427|  468| 452| 447|
+
+*Si se supone que el muestreo se llevo a cabo sobre dos distribuciones normales e independientes con varianzas iguales, obtenga los intervalos de confianza del noventa y cinco por ciento  para la diferencia de medias. Con base en los resultados podrá concluirse que existe una diferencia real entre $\mu_{1}$ y $\mu_{2}$?.En caso de serlo cuál proceso convendría?.*
+
+```{r ej8, exercise=TRUE, exercise.lines = 8}
 pro.estandar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
 pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 
 
 ```
 
-```{r eje8-solution}
-
+```{r ej8-hint}
+t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int
 ```
 
-*Si se supone que el muestreo se llevo a cabo sobre dos distribuciones normales e independientes con varianzas iguales, obtenga los intervalos de confianza del noventa y cinco por ciento  para la diferencia de medias. Con base en los resultados podrá concluirse que existe una diferencia real entre $\mu_{1}$ y $\mu_{2}$?.En caso de serlo cuál proceso convendría?.*
+```{r ej8-solution}
+cat("IC :",t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int)
+```
 
 
 <br/><br/>
@@ -239,12 +313,16 @@ pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 
 *b. ¿Cuántas estaciones se deben muestrear para que un intervalo de confianza del 95% especifique la proporción dentro de $\pm 0.03$? . En caso de carecer de información como se podría calcular el tamaño de muestra correspondiente?. ¿Es necesario realizar ajuste por tratarse de población finita?*
 
-```{r ej9, exercise=TRUE}
+```{r ej9, exercise=TRUE, exercise.lines = 8}
 
 ```
 
-```{r eje9-solution}
-
+```{r ej9-hint}
+prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int
+paqueteDEG::sizep(1.96,0.50,0.03)
 ```
 
-
+```{r ej9-solution}
+cat("a: ",prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int)
+cat("b: ",paqueteDEG::sizep(1.96,0.50,0.03))
+```

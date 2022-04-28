@@ -224,7 +224,6 @@ establecidos</li>
 <h4>Nota</h4>
 <p>Cada ejercicio tiene su respuesta para servir de valor de comparación
 con los resultados obtenidos</p>
-<p><br/><br/></p>
 </div>
 </div>
 <div id="section-ejercicios-propuestos" class="section level2">
@@ -247,8 +246,20 @@ la resistencia a la compresión con un error de muestreo menos de 15 psi
 y una confianza del 99%, ¿qué tamaño de muestra se requiere?.</em></p>
 <div class="tutorial-exercise" data-label="ej1" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej1-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code> media.x=3250
+ var.x=1000
+ z2.90=qnorm(c(0.10/2,1-0.10/2))
+ z2.95=qnorm(c(0.05/2,1-0.05/2))
+ z2.99=qnorm(c(0.01/2,1-0.01/2))
+cat(&quot;IC_mu(90%) : &quot;, media.x + z2.90 * sqrt(var.x/12))
+cat(&quot;IC_mu(95%) : &quot;, media.x + z2.95 * sqrt(var.x/12))
+cat(&quot;IC_mu(99%) : &quot;, media.x + z2.99 * sqrt(var.x/12))</code></pre>
 </div>
 <pre><code>## IC_mu(90%) :  3234.985 3265.015</code></pre>
 <pre><code>## IC_mu(95%) :  3232.108 3267.892</code></pre>
@@ -269,15 +280,28 @@ se obtuvo como resultado los siguientes datos: 16.8, 17.2, 17.4, 16.9,
 obtenido.</em></p>
 <div class="tutorial-exercise" data-label="ej2" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <pre class="text"><code>x2=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
-<pre><code>## [1] 16.64872 17.31795
-## attr(,&quot;conf.level&quot;)
-## [1] 0.95</code></pre>
-<pre><code>##     0.5%    99.5% 
-## 16.74279 17.24286</code></pre>
+<div class="tutorial-exercise-support" data-label="ej2-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code># cálculo paramétrico
+x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
+t.test(x2,conf.level=0.99)$conf.int
+# cálculo no paramétrico
+boot=sample(x2,7000,replace=TRUE)
+b=matrix(boot,nrow=1000,ncol=7)
+mx=apply(b,1,mean)
+ic2=quantile(mx, probs=c(0.005,0.995))
+ic2</code></pre>
+</div>
+<pre><code>## cálculo paramétrico</code></pre>
+<pre><code>## IC :</code></pre>
+<pre><code>## /n</code></pre>
+<pre><code>## cálculo no paramétrico</code></pre>
+<pre><code>## IC : 16.68571 17.25729</code></pre>
 <p>Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más
 de un doble enlace entre sus carbonos. Dentro de este grupo encontramos
 el ácido linolénico (omega 3 y el omega 6)</p>
@@ -294,9 +318,19 @@ el intervalo de confianza, si se aumenta el tamaño de la muestra y el
 resto de información permanece igual?</em></p>
 <div class="tutorial-exercise" data-label="ej3" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="ej3-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>s3=0.37
+n3=51
+chi2=qchisq(c(0.975,0.025),(n3-1))
+ic3=(n3-1)*s3^2/chi2
+ic3</code></pre>
+</div>
+<pre><code>## IC : 0.09584124 0.2115438</code></pre>
 <p><br/><br/></p>
 </div>
 <div id="section-ejercicio-4" class="section level3">
@@ -308,25 +342,47 @@ cáncer de pulmón del 95%, de acuerdo con los datos suministrados.
 Interprete los resulados obtenidos.</em></p>
 <div class="tutorial-exercise" data-label="ej4" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
 </div>
+<div class="tutorial-exercise-support" data-label="ej4-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>n4=1000
+x4=823
+p4=x4/n4
+prop.test(x4,n4,0.95)$conf.int</code></pre>
+</div>
+<pre><code>## IC : 0.7975972 0.8458786</code></pre>
 <p><br/><br/></p>
 </div>
 <div id="section-ejercicio-5." class="section level3">
 <h3>Ejercicio 5.</h3>
 <p>La siguente muestra recogen el contenido de alquitrán en 30 unidades
 de tabaco habano:</p>
-<div class="tutorial-exercise" data-label="ej5" data-caption="Code"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>conalq=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558)</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
+<p>1.542, 1.622, 1.440, 1.459, 1.598, 1.585, 1.466, 1.608, 1.533, 1.498,
+1.532, 1.546, 1.520, 1.532, 1.600, 1.466, 1.494, 1.478, 1.523, 1.504,
+1.499, 1.548, 1.542, 1.397, 1.545, 1.611, 1.626, 1.511, 1.487, 1.558</p>
 <p><em>a. ¿Existe evidencia que apoye la hipótesis de que el contenido
 de alquitrán en los habanos se distribuye normalmente?</em></p>
 <p><em>b. Estime un IC del 99% para la media del contenido de alquitrán
 en los habanos.</em></p>
+<div class="tutorial-exercise" data-label="ej5" data-caption="Code"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="8">
+<pre class="text"><code>x5=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej5-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>t.test(x5,coef.level=0.99)$conf.int</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="ej5-solution"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>cat(&quot;IC :&quot;,t.test(x5,coef.level=0.99)$conf.int)</code></pre>
+</div>
 <p><br/><br/></p>
 </div>
 <div id="section-ejercicio-6" class="section level3">
@@ -353,9 +409,19 @@ media del tiempo de secado del 95% y un intervalo de confianza del 98%
 para su varianza. Interprete los resultados obtenidos.</em></p>
 <div class="tutorial-exercise" data-label="ej6" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>pintucal=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)</code></pre>
+data-lines="8">
+<pre class="text"><code>x6=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)</code></pre>
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej6-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>t.test(x6,coef.level=0.95)$conf.int</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="ej6-solution"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>cat(&quot;IC :&quot;,t.test(x6,coef.level=0.95)$conf.int)</code></pre>
 </div>
 <p><br/><br/></p>
 </div>
@@ -370,8 +436,18 @@ Suponga que por estudios previos se sabe que <span
 class="math inline">\(\sigma\)</span> = 40.</em></p>
 <div class="tutorial-exercise" data-label="ej7" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej7-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>paqueteDEG::sizemu(1.96,40^2,15 )</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="ej7-solution"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>cat(&quot;n = &quot;,paqueteDEG::sizemu(1.96,40^2,15 ))</code></pre>
 </div>
 <p><br/><br/></p>
 </div>
@@ -385,13 +461,72 @@ metales producidos por los dos procesos. Para cada metal se seleccionan
 12 piezas y cada una de estas muestras es sometida a una tensión hasta
 que se rompe. La siguiente tabla nuestra las tenciones de ruptura de las
 piezas en kilogramos por centímetro cuadrado: </em></p>
-<div class="tutorial-exercise" data-label="ej" data-caption="Code"
-data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
-<pre class="text"><code>pro.estandar&lt;-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
-pro.nuevo&lt;-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)</code></pre>
-<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
-</div>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="8%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">proceso</th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">estandar</td>
+<td align="right">428</td>
+<td align="right">419</td>
+<td align="right">458</td>
+<td align="right">439</td>
+<td align="right">441</td>
+<td align="right">456</td>
+<td align="right">463</td>
+<td align="right">429</td>
+<td align="right">438</td>
+<td align="right">445</td>
+<td align="right">441</td>
+<td align="right">463</td>
+</tr>
+<tr class="even">
+<td align="center">nuevo</td>
+<td align="right">462</td>
+<td align="right">448</td>
+<td align="right">435</td>
+<td align="right">465</td>
+<td align="right">429</td>
+<td align="right">472</td>
+<td align="right">453</td>
+<td align="right">459</td>
+<td align="right">427</td>
+<td align="right">468</td>
+<td align="right">452</td>
+<td align="right">447</td>
+</tr>
+</tbody>
+</table>
 <p><em>Si se supone que el muestreo se llevo a cabo sobre dos
 distribuciones normales e independientes con varianzas iguales, obtenga
 los intervalos de confianza del noventa y cinco por ciento para la
@@ -400,6 +535,23 @@ existe una diferencia real entre <span
 class="math inline">\(\mu_{1}\)</span> y <span
 class="math inline">\(\mu_{2}\)</span>?.En caso de serlo cuál proceso
 convendría?.</em></p>
+<div class="tutorial-exercise" data-label="ej8" data-caption="Code"
+data-completion="1" data-diagnostics="1" data-startover="1"
+data-lines="8">
+<pre class="text"><code>pro.estandar&lt;-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.nuevo&lt;-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej8-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="ej8-solution"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>cat(&quot;IC :&quot;,t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int)</code></pre>
+</div>
 <p><br/><br/></p>
 </div>
 <div id="section-ejercicio-9" class="section level3">
@@ -419,8 +571,20 @@ correspondiente?. ¿Es necesario realizar ajuste por tratarse de
 población finita?</em></p>
 <div class="tutorial-exercise" data-label="ej9" data-caption="Code"
 data-completion="1" data-diagnostics="1" data-startover="1"
-data-lines="0">
+data-lines="8">
 <script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="ej9-hint"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int
+paqueteDEG::sizep(1.96,0.50,0.03)</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="ej9-solution"
+data-caption="Code" data-completion="1" data-diagnostics="1"
+data-startover="1" data-lines="0">
+<pre class="text"><code>cat(&quot;a: &quot;,prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int)
+cat(&quot;b: &quot;,paqueteDEG::sizep(1.96,0.50,0.03))</code></pre>
 </div>
 
 <script type="application/shiny-prerendered" data-context="server-start">
@@ -494,9 +658,9 @@ output$`tutorial-exercise-ej7-output` <- renderUI({
 
 
 <script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-ej-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ej-code-editor`)), session)
-output$`tutorial-exercise-ej-output` <- renderUI({
-  `tutorial-exercise-ej-result`()
+`tutorial-exercise-ej8-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ej8-code-editor`)), session)
+output$`tutorial-exercise-ej8-output` <- renderUI({
+  `tutorial-exercise-ej8-result`()
 })
 </script>
  
