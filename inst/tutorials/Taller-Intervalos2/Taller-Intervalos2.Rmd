@@ -60,7 +60,9 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 + Determine el intervalo de confianza a realizar con su respectivo valor de confianza, dependiendo de los supuestos del problema
 + Utilice la respectiva función de R de acuerdo con los supuestos establecidos
 
-#### Nota : Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
+#### Nota  
+
+Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
 
 <br/><br/>
 
@@ -117,8 +119,6 @@ x2=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)
 ```{r eje2-solution}
 # calculo parametrico
 x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
-qqnorm(x2)
-qqline(x2)
 t.test(x2,coef.level=0.99)$conf.int
 # calculo no parametrico
 boot=sample(x2,7000,replace=TRUE)

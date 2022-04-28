@@ -3,8 +3,8 @@
 #' @param samp_size valor del tamaño de la muestra inicial
 #' @param pob_size valor del tamaño de la población
 #' @return n0 tamaño de muestra ajustado
-#' @export adj_size
-#' @examples  n0(385,500)
+#' @export adjusted_size
+#' @examples  adjusted_size(385,500)
 # '
 
 adjusted_size=function(samp_size,pob_size){
