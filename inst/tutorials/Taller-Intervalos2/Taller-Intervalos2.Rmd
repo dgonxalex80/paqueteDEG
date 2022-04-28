@@ -1,5 +1,5 @@
 ---
-title: "Intervalos de confianza"
+title: "Intervalos de confianza 2"
 author: Daniel E. Gonzalez- [Web-U4.2](https://dgonxalex80.github.io/probabilidad20212.io/Guia402.html#Gu%C3%ADa_de_aprendizaje_42)
 output: 
   learnr::tutorial:
