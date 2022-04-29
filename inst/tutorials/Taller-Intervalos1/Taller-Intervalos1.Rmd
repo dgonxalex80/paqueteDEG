@@ -44,10 +44,10 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 |$\dfrac{\sigma^{2_{1}}}{\sigma^{2}_{2}}$|`var.test(datos1 datos2)$conf.int` |
 |                  | `install.packages("devtools")`                          |
 |                  | `devtools::install_github("dgonzalez80/paquetepye")`    |
-|                  |  `library(paquetepye)`                                  |
-|                  | `nmu(1.96,345,2)     # nmu(z,sigma2,error)`             |
-|                  | `np(1.96,0.5,0.05)   # np(z,prob,error)`                |
-|                  | `no(385,2000)        # n0(n,N)`                         |
+|                  |  `library(paqueteDEG)`                                  |
+|                  | `paqueteDEG::sizemu(1.96,345,2)     # sizemu(z,sigma2,error)`|
+|                  | `paqueteDEG::sizep(1.96,0.5,0.05)   # sizep(z,prob,error)`   |
+|                  | `paqueteDEG::adjusted_size(385,2000) # adjusted_size(n,N)`   |
 
 
 </div>
