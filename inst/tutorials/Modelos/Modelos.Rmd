@@ -160,7 +160,7 @@ saveRDS(Colombia, file = "Colombia.RDS")
 
 Se fabrican placas rectangulares cuyas longitudes en pulgadas se distribuyen como $N(2.0; 0.01)$ y cuyos anchos se distribuyen $N(3.0; 0.04)$. Suponga que las longitudes y los anchos son independientes. El área de una placa esta dada por $A=XY$.
 
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
+```{r, echo=FALSE, out.width="20%", fig.align = "center"}
 knitr::include_graphics("images/lamina.png")
 ```
 
@@ -175,44 +175,6 @@ Problema 3 capitulo 4 Navidi(2006)
 
 <br/>
 
-**Solución**
-
-```{r}
-	X2=rnorm(1000,mean=2.0,sd=0.1)    #  generación de números aleatorios  de X
-	Y2=rnorm(1000,mean=3.0,sd=0.2)    #  generación de números aleatorios  de Y
-	Z2=data.frame(X2,Y2)              #  generación de matriz de X,Y
-	A2=apply(Z2,1,prod)               #  área de la placa A=XY
-	mediaA=mean(A2)                   #  media del vector de áreas 
-	varianzaA=var(A2)                 #  varianza del vector de áreas 
-	B2=as.numeric(A2>5.9 & A2<6.1)    #  generación de variable de 0,1. Con valor de 1 cundo se cumple la condición y cero en otros casos
-	Pro3c=sum(B2)/1000                #  calculo de la  probabilidad 
-	hist(A2)                          # histograma del valor de las áreas
-	qqnorm(A2)                        # gráfico de normalidad del área
-```
-
-```{r}
-summarytools::descr(A2)
-```
-
-<br/><br/>
-
-### **Problema 2**
-
-
-Se fabrican placas rectangulares cuyas longitudes en pulgadas se distribuyen como $N(2.0; 0.01)$ y cuyos anchos se distribuyen $N(3.0; 0.04)$. Suponga que las longitudes y los anchos son independientes. El área de una placa esta dada por $A=XY$.
-
-
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
-knitr::include_graphics("images/lamina.png")
-```
-
-a. Utilice una muestra simulada de tamaño $1000$ para estimar la media y la varianza de $A$.
-
-b. Estime la probabilidad de que $P(5.9 <A<6.1)$.
-
-c. Construya una gráfica de distribución normal $(qqplot)$ para el área. ¿El área de una placa sigue una distribución normal? 
-
-Problema 3 capitulo 4 Navidi(2006) 
 
 ```{r ej32, exercise=TRUE, exercise.lines = 15}
 
@@ -236,17 +198,18 @@ qqnorm(A2)
 ```
 
 
+<br/><br/><br/>
 
-#### **Problema 3**
+#### **Problema 2**
 
 Estimación del valor de $\pi$ . LA siguiente figura sugiere como estimar el valor de $\pi$ con una simulación. En la figura, un circuíto con un áreaigual a $\pi/4$, está inscrito en un cuadrado cuya área es igual a 1. Se elige de forma aleatoria 100 puntos dentro del cuadrado . La probabilidad de que un punto esté dentro del círculo es igual a la pracción del área del cuadrado que abarca a este, la cual es $\pi/4$. Por tanto, se puede estimar el valor de $\pi/4$ al contar el número de puntos dentro del círculo, que es 79 para obtener la estimación de $\pi/4 \approx 0.76$ . De este último resultado se concluye que $\pi \approx 4(0.79) =3.14$ . Este ejercicio presenta un experimento de simulación que fue diseñado para estimar el valor de $\pi$ al generar 1000 puntos en el cuadrado.
 
 <br/>
 
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("images/fig_pi.png")
 ```
-![](fig_pi.png) 
+
 
 <br/>
 
