@@ -15,6 +15,14 @@ runtime: shiny_prerendered
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE,
                  exercise.warn_invisible = FALSE)
+# colores
+c0="#0DA5A6" # VERDE CLARO
+c1="#E77C00" # NARANJA
+c2="#6666FF" # AZUL  
+c3="#4CBFBA" # VERDE CLARO  
+c4="#E09600" # AMARILLO  
+c5="#BC2B6A" # MORADO
+
 ```
 
 ## Presentación 
