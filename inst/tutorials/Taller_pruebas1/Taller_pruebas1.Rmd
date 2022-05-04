@@ -25,29 +25,50 @@ knitr::include_graphics("images/banner1.jpg")
 
 El presente Taller contiene problemas sobre **PRUEBAS DE HIPÓTESIS PARAMÉTRICAS**, complementarios a los presentados en la guía 4.3. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
 
+<br/><br/><br/>
+
 #### Conceptos
+<br/>
 
 1. **Hipótesis nula** ($Ho$) : es aquella hipótesis que resulta cierta bajo condiciones normales
 
+<br/>
+
 2. **Hipótesis alterna** ($Ha$ ) : es aquella hipótesis que es verdadera cuando Ho resulta falsa. Esto ocurre bajo condiciones extremas
+
+<br/>
 
 3. **Estadístico de Prueba** ($EdeP$) : Variable aleatoria que sigue una distribución conocida (normal estandar, t-Student, chi-cuadrado o f), que es función de los valores obtenidos en la muestra y que dá evidencia sobre el valor de verdad de $Ho$
 
+<br/>
+
 4. **Nivel de significancia** ($\alpha$) : Probabilidad de cometer error tipo I
+
+<br/>
 
 5. **Potencia de una prueba** ($1-\beta$) : La probabilidad de rechazar $Ho$ cuado ella es falsa (Rechazar cuando tengo que rechazar)
 
-6. ***valor-p* : Probabilidad de tener un resultado extremo suponiendo que $Ho$ es verdadrera. (área delimitada por el estadistico de prueba , En caso de una prueba de dos coloas el área encontrada corresponde la mitad del valor-p)
+<br/>
+
+6. **valor-p** : Probabilidad de tener un resultado extremo suponiendo que $Ho$ es verdadrera. (área delimitada por el estadistico de prueba , En caso de una prueba de dos coloas el área encontrada corresponde la mitad del valor-p)
+
+<br/>
 
 7.  **Regla de Decisión** ($RdeD$) : Regla que permite genera las condiciones sobre las cuales $Ho$ se rechaza o no se rechaza
 
+<br/>
+
 + Regla1 : Si el $EdeP$ cae en la $RdeR$, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
+
+<br/>
 
 + Regla 2 : Si el $valor-p < \alpha$, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
 
+<br/>
+
 + Regla 3: El valor-p lo podemos interpretar como el error que tenemos al rechar Ho siendo esta verdadera (Error tipo I), por tanto si consideramos que el valor-p es pequeño, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
 
-<br/><br/>
+<br/><br/><br/>
 
 #### Código R
 
@@ -73,7 +94,7 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 
 
 
-<br/><br/>
+<br/><br/><br/>
 
 #### Tipos de pruebas 
 
@@ -85,12 +106,15 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 
 
 
+<br/><br/><br/>
 
 #### Recomendaciones :
 
 + Lea el enunciado del problema
 + Determine el intervalo de confianza a realizar con su respectivo valor de confianza, dependiendo de los supuestos del problema
 + Utilice la respectiva función de R de acuerdo con los supuestos establecidos
+
+<br/>
 
 #### Nota  
 
