@@ -39,8 +39,8 @@ adjusted_size(385,1000)
 #> [1] 278.1792
 
 
-## Estimación de intervalo de confianza para una varianza : ic.var(x,98)
-ic.var(c(3,4,3,2,3,4,5),0.95)
+## Estimación de intervalo de confianza para una varianza : intervalo.var(x,98)
+intervalo.var(c(3,4,3,2,3,4,5),0.95)
 #> [1] 1.028930 1.110042
 
 ```
