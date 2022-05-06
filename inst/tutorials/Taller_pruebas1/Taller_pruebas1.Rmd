@@ -300,6 +300,99 @@ De acuerdo con los resultados podría decirse que la campaña realizada es efect
 prop.test(c(40,50), c(200,200),  conf.level = 0.95)
 ```
 
+ 
+
+### Ejercicio 9
+
+Uno de los problemas más frecuentes en jóvenes universitarios es la alte tensión que generan las evaluaciones, las cuales en algunos casos genera dolores de cabeza. La tensión muscular en la región de la cabeza se ha asociado con los dolores de cabezá, siendo razonable pensar que si la tensión muscular disminuye, es posible que los dolores de cabeza se reduzcan o desaparezcan. 
+
+Un grupo de investigadores diseña un experimento en el cual participan nueve estudiantes que padecen dolores de cabeza durante las semanas de evaluaciones. Posteriormente un grupo de profesionales del medio universitario los entrena con el fin de que aprendan a reducir la tensión muscular en la región de la cabeza, utilizando un dispositivo de biorretroalimentación.  Para este experimento el dispositivo mencionado se conecta al musculo frontal del estudiante, que se encuentra en la región del frente de la cara. El dispositivo indica al estudiante la cantidad de tensión que existe en el musculo al cual  está unido (en este caso, al frontal) y le ayuda a reducir los niveles de tensión.  Después de seis semanas de entrenamiento , los jóvenes han logrado mantener una baja tensión en el musculo frontal; entonces se lleva nuevamente un registro de los dolores de cabeza que sufren durante las dos semanas de evaluaciones. A continuación se presentan los regustros obtenidos por los estudiantes después del entrenamiento:
+
+
+**Grupo experimental**
+
+Número de dolores de cabeza ($X$)
+
+|Sujeto No. |línea base  | Después de entrenamiento |
+|:----------|-----------:|-------------------------------------------:|
+|1          |17          |3                                           |
+|2          |13          |7                                           |
+|3          |6           |2                                           |
+|4          |5           |3                                           |
+|5          |5           |6                                           |
+|6          |10          |2                                           |
+|7          |8           |1                                           |
+|8          |6           |0                                           |
+|9          |7           |2                                           |
+
+
+Dado que pueden existir ploblema de interpretación en el planteamiento anterior, debido a que los resultados aparentemente muestranuna disminución delos dolores de cabeza, es posible que esta disminución no se deba al entrenamiento realizado con la utilización del dispositivo, sino a algún otro factor tambien presente en la situación, como por ejemplo el momento en que se realiza la medición (primeros parciales, segundos parciales o finales), los investigadores incorporan un grupo que se denimina control que permita dar cuenta de estas variaciones. Este segundo grupo de jóvenes que tambien presentan dolores de cabeza fue medido durante los mismos momentos del primer grupo (grupo experimental) , salvo que no fue entrenado con el dispositivo para controlar la tensión. Durante el periodo intermedio este grupo habló con los investigadores sobre los dolores de cabeza.  El número de dolores de cabeza durante la linea base y el prediordo de segumiento para el grupo control arrojó los siguientes resultados:
+
+**Grupo control**
+
+Número de dolores de cabeza ($Y$)
+
+|Sujeto No. |línea base  | después de entrenamiento |
+|:----------|-----------:|-------------------------------------------:|
+|1          |5           |4|
+|2          |8           |9|
+|3          |14          |12|
+|4          |16          |15|
+|5          |6           |4|
+|6          |5           |3|
+|7          |8           |7|
+|8          |10          |6|
+|9          |9           |7|
+
+Se puede concluir que el tratamiento realizado con el dispositivo disminuye los dolores de cabeza ?
+
+Nota: Suponga que el número de dolores de cabeza se distribuye aproximadamente normal .
+
+Tomado de Robert Pangano (2006)
+
+```{r p9, exercise=TRUE, exercise.lines = 15}
+Xa=c(17,13,6,5,5,10,8,6,7)  # grupo experimental antes
+Xd=c(3,7,2,3,6,2,1,0,2)     # grupo experimental despues
+
+Ya=c(5,8,14,16,6,5,8,10,9)   # grupo control antes
+Yd=c(4,9,12,15,4,3,7,6,7)    # grupo control despues
+
+```
+
+```{r p9-hint}
+# problema 3 Ejercicios propuestos
+Xa=c(17,13,6,5,5,10,8,6,7)  # grupo experimental antes
+Xd=c(3,7,2,3,6,2,1,0,2)     # grupo experimental despues
+
+Ya=c(5,8,14,16,6,5,8,10,9)   # grupo control antes
+Yd=c(4,9,12,15,4,3,7,6,7)    # grupo control despues
+
+
+# prueba 1 : Ho: mu_Xa = mu_Xd vs Ha: mu_Xa != mu_Xd, grupos pareados
+t.test(Xa,Xd, paired = TRUE) # p-value = 0.003471, rechazo Ho, acepto Ha. las medias son diferentes
+
+# prueba 2 : Ho: mu_Xa = mu_Ya. grupos independientes
+var.test(Xa,Ya) # p-value = 0.8599, asumimos que las varianza son iguales
+t.test(Xa,Ya, paired = FALSE,var.equal = TRUE) #p-value = 0.8153, asumo que las medias son iguales
+# como las medias y las varianza se asumen iguales , los dos grupos son comparables
+
+
+# prueba 3 : Ho. mu_Ya = mu_Yd, grupos pareados
+t.test(Ya,Yd, paired = TRUE) # = 0.008079, son diferentes
+
+
+# prueba 4 : Ho: mu_Xd = Yd , grupos independientes
+var.test(Xd,Yd) #  p-value = 0.1315, no se rechaza Ho, se asumen varianzas iguales
+t.test(Xd,Yd, paired = FALSE, var.equal = TRUE) #p-value = 0.008654, rechazamos Ho, las medias son diferentes
+
+de=Xa-Xd # diferencia grupo experimental antes menos despues
+dc=Ya-Yd # diferencias grupo control antes menos  despues
+
+var.test(de,dc) #p-value = 0.004229, las varianzas son diferentes
+t.test(de,dc, paired = FALSE, var.equal = FALSE) #p-value = 0.01857
+t.test(de,dc, paired = FALSE, var.equal = FALSE, alternative = "greater") #p-value = 0.009285
+
+```
 
 
 
