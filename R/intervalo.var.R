@@ -11,8 +11,8 @@
 intervalo.var=function(x,niv.conf=0.95){
   n=length(x)
   per.chi2=qchisq(c(1-niv.conf/2, niv.conf/2), n-1)   # percentiles chi-cuadrado para 95% de confianza
-  ic.var=(n-1)*var(x)/per.chi2
-  return(ic.var)
+  intervalo.var=(n-1)*var(x)/per.chi2
+  return(intervalo.var)
 }
 
 

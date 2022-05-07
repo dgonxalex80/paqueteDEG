@@ -26,6 +26,10 @@ Con el siguiente comando carga las funciones del paquete:
 ``` r
 library(paqueteDEG)
 
+## Código básico para calcular la permutacion de n con k : Pnk(n,k), donde n y k son números enteros
+Pnk(10,2)
+[1] 90
+
 ## Códigos basico para calcular el tamaño de la muestras para la estimación de la media con una confianza del 95%, una varianza estimada de 428 y un error de muestreo de 2 : (sizemu(perc_normal,varianza,error))
 sizemu(1.96,428,2) 
 #> [1] 411.0512
