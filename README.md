@@ -30,6 +30,10 @@ library(paqueteDEG)
 Pnk(10,2)
 [1] 90
 
+## Código básico para calcular la combinación de n con k : Cnk(n,k), donde n y k son números enteros
+Cnk(10,2)
+[1] 45
+
 ## Códigos basico para calcular el tamaño de la muestras para la estimación de la media con una confianza del 95%, una varianza estimada de 428 y un error de muestreo de 2 : (sizemu(perc_normal,varianza,error))
 sizemu(1.96,428,2) 
 #> [1] 411.0512
