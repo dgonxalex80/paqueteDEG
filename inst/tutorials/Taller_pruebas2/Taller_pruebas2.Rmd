@@ -326,3 +326,149 @@ mosaicplot(m, col=c("blue", "orange"), main="Plot de mosaico")
 # Ha: la  calificacion es independiente del lugar 
 ```
 
+
+
+
+### Problema 10
+
+Se lanza una moneda hasta que sale una cara y se reguistra el número de lanzamientos $X$. Depués de repetir el experimento 256 veces, se observan los siguientes resultados:
+
+| $x$  | 1   |  2  |  3  |  4  |  5  |  6  |  7  |  8  |
+|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|$f(x)$|  136|   60|   34|   12|    9|    1|    3|    1|
+
+
+A un nivel de significancia de $0.05$ pruebe la hipótesis de que la distribución observada de $X$ se puede ajustar a una distribución geometrica `geom(x, 0.50)`, para $x=1,2,3,4,5....$
+
+
+```{r p10, exercise=TRUE, exercise.lines=15}
+obs=c(136,60,34,12,9,1,3,1)
+
+```
+
+
+```{r p10-hint}
+# Ho: X sigue una distribución geométrica con p=0.50
+# Ha: X NO sigue una distribución geométrica con p=0.5
+x=1:8
+obs1=c(136,60,34,12,9,1,3,1)
+esp1=dgeom(x-1,0.5)  # f(x)
+# Nota: La prueba chi-cuadrado exige que las frecuencias tengan valores superiores a 5. Esto hace que se deban agrupara los últimos valores
+obs=c(obs1[1:4], sum(obs1[5:8]))
+esp=c(esp1[1:4], sum(esp1[5:8]))
+chisq.test(obs, esp)
+```
+
+
+<br/><br/><br/>
+
+### Problema 11 
+
+Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero y el número de horas que dedica a ver la televisión durante una semana:
+
+| horas \ genero   | Masculino      | Femenino         |
+|-----------------:|:--------------:|:----------------:|
+| más de 25 horas  | 15             | 29               |
+| menos de 25 horas| 27             | 19               |
+
+Utilice un nivel de significancia del $0.01$ y pruebe la hipótesis de que el tiempo dedicado a ver televisión es independiente de si el espectador es hombre o mujer.
+
+```{r p11, exercise=TRUE, exercise.lines=15}
+# Ho: el tiempo de dedicación a la televisión y el genero son independientes
+# Ha: el tiempo de dedicación a la televisión y el genero NO son independientes
+library(tidyverse)
+m=c(15,27,29,19) %>% 
+      matrix(nrow=2)  
+row.names(m)=c("mas de 25 horas", "menos de 25 horas")
+colnames(m)=c("Masculino", "Femenino")
+m
+chisq.test(m)
+```
+
+
+```{r p11-hint}
+
+```
+
+
+<br/><br/><br/>
+
+### Problema 12 
+
+Un investigador realizó un estudio para determinar si la incidedencia de cierto tipo de delitos varia de una parte de una gran ciudad a otra. Los crímines específicos de interés eran el asalto, el robo de casas, el hurto y el homicidio. La siguiente tabla muestra el número de delitos cometidos en cuatro áreas de la ciudad durante el año pasado:
+
+
+|Comuna   | Asalto |Robo en casa| Hurto   | Homicidio|
+|:-------:|-------:|-----------:|--------:|---------:|
+|Comuna 1 |162     | 118        | 451     | 18       |
+|Comuna 2 |310     |196         | 996     | 25       | 
+|Comuna 3 |258     |193         | 458     | 10       |
+|Comuna 4 |280     |175         | 390     | 19       |
+
+¿ A partir de los datos podemos concluir, a un nivel de significancia del $0.01$ que la ocurrencia de estos topos de delitos dependen de la comuna de la ciudad?
+
+```{r p12, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p12-hint}
+# Ho: el tiempo de dedicación a la televisión y el genero son independientes
+# Ha: el tiempo de dedicación a la televisión y el genero NO son independientes
+library(tidyverse)
+m=c(162,310,258,280,118,196,193,175,451,996,458,390,18,25,10,19) %>% 
+      matrix(nrow=4)  
+row.names(m)=c("1", "2","3","4")
+colnames(m)=c("Asalto", "Robo en casa", "Hurto", "Homicidio")
+m
+chisq.test(m)
+```
+
+
+
+<br/><br/><br/>
+
+### Problema 13 
+
+Se lleva a cobo una investigación en dos ciudades del Valle para determinar la opinión de los votantes respecto a dos candidatos a la presidencia paras proximas elecciones presidenciales. En cada cuidad se seleccionaron 500 personas votantes al azar y se registraron los siguientes datos :
+
+
+|Opinión del votante | Ciudad 1    |     Ciudad 2 |
+|:------------------:|------------:|-------------:|
+| a favor de **A**   |          204|          225 |
+| a favor de **B**   |          211|          198 |
+| indeciso           |           85|           77 |
+
+
+A un nivel de significancia del $0.05$ pruebe la hipótesis nula de quelas las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
+
+```{r p13, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p13-hint}
+
+```
+
+
+
+<br/><br/><br/>
+
+### Problema 14
+
+El departamento de Bienestar Universitario realizó un estudio para determinar si 8 semanes de entrenamiento realmente reducen los niveles de colesterol de los participantes . A un grupo de tratamiento que consta de 15 colaboradores se les dieron conferencias dos veces a la semana acerca de cómo reducir el nivel de colesterol. Otro grupo de 18 colaboradores de edad similar, fue seleccionado al azar como el grupo control. Se registraron los siguientes niveles de colesterol de todos los participantes del programa de 8 semanas.
+
+`Tratamiento:` `129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126`
+
+`Control:` `151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149`
+
+```{r p14, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p14-hint}
+
+```
+
