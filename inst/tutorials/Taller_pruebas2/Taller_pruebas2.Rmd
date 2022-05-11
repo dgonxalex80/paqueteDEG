@@ -364,7 +364,7 @@ chisq.test(obs, esp)
 
 ### Problema 11 
 
-Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero y el número de horas que dedica a ver la televisión durante una semana:
+Una muestra aleatoria de 90 adultos se clasifica de acuerdo al genero y el número de horas que dedica a ver la televisión durante una semana:
 
 | horas \ genero   | Masculino      | Femenino         |
 |-----------------:|:--------------:|:----------------:|
@@ -430,7 +430,7 @@ chisq.test(m)
 
 ### Problema 13 
 
-Se lleva a cobo una investigación en dos ciudades del Valle para determinar la opinión de los votantes respecto a dos candidatos a la presidencia paras proximas elecciones presidenciales. En cada cuidad se seleccionaron 500 personas votantes al azar y se registraron los siguientes datos :
+Se lleva a cobo una investigación en dos ciudades del Valle para determinar la opinión de los votantes respecto a dos candidatos a la presidencia. En cada cuidad se seleccionaron 500 personas votantes al azar y se registraron los siguientes datos :
 
 
 |Opinión del votante | Ciudad 1    |     Ciudad 2 |
@@ -440,7 +440,7 @@ Se lleva a cobo una investigación en dos ciudades del Valle para determinar la 
 | indeciso           |           85|           77 |
 
 
-A un nivel de significancia del $0.05$ pruebe la hipótesis nula de quelas las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
+A un nivel de significancia del $0.05$ pruebe la hipótesis nula de que las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
 
 ```{r p13, exercise=TRUE, exercise.lines=15}
 
