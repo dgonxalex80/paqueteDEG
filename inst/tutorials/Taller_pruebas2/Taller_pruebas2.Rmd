@@ -405,7 +405,7 @@ Un investigador realizó un estudio para determinar si la incidedencia de cierto
 |Comuna 3 |258     |193         | 458     | 10       |
 |Comuna 4 |280     |175         | 390     | 19       |
 
-¿ A partir de los datos podemos concluir, a un nivel de significancia del $0.01$ que la ocurrencia de estos topos de delitos dependen de la comuna de la ciudad?
+¿ A partir de los datos podemos concluir, a un nivel de significancia del $0.01$ que la ocurrencia de estos tipos de delitos dependen de la comuna de la ciudad?
 
 ```{r p12, exercise=TRUE, exercise.lines=15}
 
@@ -413,8 +413,8 @@ Un investigador realizó un estudio para determinar si la incidedencia de cierto
 
 
 ```{r p12-hint}
-# Ho: el tiempo de dedicación a la televisión y el genero son independientes
-# Ha: el tiempo de dedicación a la televisión y el genero NO son independientes
+# Ho: el tipo de delito y la comuna son independientes
+# Ha: el tipo de delito y la comuna NO son independientes
 library(tidyverse)
 m=c(162,310,258,280,118,196,193,175,451,996,458,390,18,25,10,19) %>% 
       matrix(nrow=4)  
