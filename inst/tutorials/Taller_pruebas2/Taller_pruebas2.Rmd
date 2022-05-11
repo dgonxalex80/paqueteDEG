@@ -374,6 +374,11 @@ Una muestra aleatoria de 90 adultos se ckasifica de acuerdo al genero y el núme
 Utilice un nivel de significancia del $0.01$ y pruebe la hipótesis de que el tiempo dedicado a ver televisión es independiente de si el espectador es hombre o mujer.
 
 ```{r p11, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p11-hint}
 # Ho: el tiempo de dedicación a la televisión y el genero son independientes
 # Ha: el tiempo de dedicación a la televisión y el genero NO son independientes
 library(tidyverse)
@@ -383,11 +388,6 @@ row.names(m)=c("mas de 25 horas", "menos de 25 horas")
 colnames(m)=c("Masculino", "Femenino")
 m
 chisq.test(m)
-```
-
-
-```{r p11-hint}
-
 ```
 
 
@@ -448,7 +448,13 @@ A un nivel de significancia del $0.05$ pruebe la hipótesis nula de quelas las p
 
 
 ```{r p13-hint}
-
+library(tidyverse)
+m=c(204,211,85,225,198,77) %>% 
+      matrix(nrow=3)  
+row.names(m)=c("a favor de A", "a favor de B", "indeciso")
+colnames(m)=c("Ciudad 1", "Ciudad 2")
+m
+chisq.test(m)
 ```
 
 
@@ -464,11 +470,14 @@ El departamento de Bienestar Universitario realizó un estudio para determinar s
 `Control:` `151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149`
 
 ```{r p14, exercise=TRUE, exercise.lines=15}
-
+grupo.tra=c(129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126)
+grupo.con=c(151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149)
 ```
 
 
 ```{r p14-hint}
-
+grupo.tra=c(129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126)
+grupo.con=c(151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149)
+wilcox.test(grupo.tra,grupo.con, paired = FALSE)
 ```
 
