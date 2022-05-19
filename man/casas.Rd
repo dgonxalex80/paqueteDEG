@@ -20,13 +20,13 @@ Una data con 54 filas y 10 variables:
 ...
 }
 }
-\source{
-\url{http://www.diamondse.info/}
-}
 \usage{
 casas
 }
 \description{
 Esta data contiene los precios y principales caraceristica de vienes inmuebles
+}
+\examples{
+casas
 }
 \keyword{datasets}
