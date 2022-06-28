@@ -7,7 +7,7 @@ Authors@R: person("Daniel Enrique",
                   role = c("aut", "cre"),
                   comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Paquete creado como apoyo al curso de probabilidad y estadística, Pontificia Universidad Javeriana Cali.
-             Contiene tambien tutoriales como apoyo a las monitorias del curso para  los diferentes módulos.  
+             Contiene tambien tutoriales  y test como apoyo a las monitorias del curso para  los diferentes módulos.  
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

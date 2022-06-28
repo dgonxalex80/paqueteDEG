@@ -9,7 +9,7 @@
 Paquete creado como apoyo al curso de probabilidad y estadística, Pontificia Universidad Javeriana Cali. Contiene tambien tutoriales como apoyo a las monitorias del curso para los diferentes módulos.
 }
 \author{
-\strong{Maintainer}: Daniel Enrique Gonzalez \email{dgonzalez@javerianacali.edu.co} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Daniel Enrique Gonzalez Gomez \email{dgonzalez@javerianacali.edu.co} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
 }
 \keyword{internal}
