@@ -7,7 +7,7 @@
 
 El objetivo principal es el recopilar una serie de funciones e
 instructivos que serán utilizados en el curso de Probabilidad y
-Estadística
+Estadística 2022-2
 
 ## Installation
 
