@@ -1,11 +1,23 @@
 Package: paqueteDEG
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Paquete curso Probabilidad y Estadistica  
+Version: 0.0.0.1
+Authors@R: person("Daniel Enrique", 
+                  "Gonzalez Gomez", , 
+                  "dgonzalez@javerianacali.edu.co", 
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Paquete creado como apoyo al curso de probabilidad y estadística, Pontificia Universidad Javeriana Cali.
+             Contiene tambien tutoriales  y test como apoyo a las monitorias del curso para  los diferentes módulos.  
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Suggests: 
+    learnr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+Imports: 
+    tibble

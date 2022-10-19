@@ -1,0 +1,191 @@
+---
+title: "Regresión Lineal Simple"
+author: Daniel E. Gonzalez- [Web-U4.3]()
+output: 
+  learnr::tutorial:
+    css: css/learnr_metadocencia.css
+    progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente     allow_skip: true # permite saltearse los ejercicios. 
+    language:
+      es: tutorial_es.json
+description: "Tutorial regresión lineal unidad 5.1" # Esta descripción se ve en el panel Tutorial de RStudio 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE,
+                 exercise.warn_invisible = FALSE)
+# install.packages("BSDA")
+library(BSDA)
+```
+
+## Presentación 
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("images/banner1.jpg")
+```
+
+El presente Taller contiene problemas sobre **REGRESIÓN LINEAL**, complementarios a los presentados en la guía 5.1. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
+
+$$y_{i} = \beta_{_{0}} + \beta_{_{1}} x_{i} + u_{i}$$
+Donde:
+
++ $y_{i}$ : variable dependiente, variable que interesa ser estimada por el modelo
++ $\beta_{_{0}}$ : coeficiente constante a estimar. Intercepto que explica la parte de $y$ que no depende del modelo
++ $\beta_{_{1}}$ : coeficiente constante a estimar. Pendiente que explica el incremento (decreciemiento) de $y$ causado por un aumento de una unidad en $x$
++ $u_{i}$ : los errores corresponden a las variaciones en $y$ generadas por todas aquellas variables que no estan en el modelo y que se suponen no importantes 
+
+
+La siguiente tabla contiene ayudas de los códigos correspondientes a la estimación de intervalos de confianza utilizando RStudio : 
+
+
+|                               | Código R                                                |
+|:------------------------------|:--------------------------------------------------------|
+|Representación gráfica         |`plot(x,y)`                                              |
+|Estimación modelo              |`modelo=lm(y~x)`                                         |
+|Visualización de resultados    |`summary(modelo)`                                        |
+|Visualización de la recta      |`plot(y~x, xlab="variable x", ylab="variable y", pch=19)`|
+|                               |`abline(modelo)`                                         |
+|Guardado de y estimados        |`yhat=modelo$fitted.values`                              |
+|Guardado de los residuos       |`uhat=modelo$residuals`                                  |
+|Intervalo de confianza para predicción|                                                  |
+|IC predicción $y_{0}$          |`nuevo <- data.frame(x=18)`                              |
+|                               |`predict(object=modelo, newdata=nuevo, interval="prediction", level=0.95) ` |
+|Intervalo de confianza para  $E[y|x_{o}]$  |                                                          |
+| IC predicción $\mu_{Y|x_{0}}$ |`predict(object=modelo, newdata=nuevo, interval="confidence", level=0.95)`|
+
+#### Recomendaciones :
+
++ Lea el enunciado del problema
++ Determine el modelo a estimar. Cual es la variable dependiente y cual la independiente.
++ Genere el diagrama de dispesión para determinar la relación que hay entre las variables
++ Genere las transformaciones en las variables si es del caso
++ Estime el modelo por Mínimos Cuadrados Ordinarios (MCO)
++ Realice la validación de los supuestos sobre los errores
+  + El valor esperado de los erores es cero . $E[u] = 0$
+  + Los errores son normales. $x ~ norm(0 , \sigma^2)$  
+  + Los errores tienen varianza constante (Homoscedasticidad). $V[u] = \sigma^2$
+  + Los errores no estan autocorrelacionados. $Cov[u_i, u_j]=0$
+  + El modelo está correctamente especificado. 
++ Realice la interpretación de los resultados
++ Realice estimaciones si es del caso
+  
+
+#### Nota  
+
+Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
+
+
+
+
+## Ejercicios propuestos
+
+## Problema 1
+
+Se requiere construir un modelo que permita estimar el valor del consumo alimentos apartir del valor de los ingresos de una familia.  Los siguiente datos corresponden al valor obtenido una muestra de 12 familias.
+ 
+```{r p1, exercise=TRUE, exercise.lines=30}
+x=c(24.3, 12.5, 31.2, 28.0, 35.1, 10.5, 23.2, 10.0,  8.5,  15.9,  14.7,  15.0)   
+y=c(16.2,  8.5, 15.0, 17.0, 24.2, 11.2, 15.0,  7.1,  3.5,  11.5, 10.7,  9.2) 
+plot(x,y, pch=19, col="blue", las=1)
+
+```
+
+```{r p1-hint}
+library("lmtest")
+x=c(24.3, 12.5, 31.2, 28.0, 35.1, 10.5, 23.2, 10.0,  8.5,  15.9,  14.7,  15.0)   
+y=c(16.2,  8.5, 15.0, 17.0, 24.2, 11.2, 15.0,  7.1,  3.5,  11.5, 10.7,  9.2) 
+# Represntación grafica
+plot(x,y, pch=19, col="blue", las=1)
+# Correlación
+Rho=cor(x,y)
+Rho
+# Estimacion del modelo y= b0 + b1 x + u
+modelo=lm(y~x)
+summary(modelo)
+# Determinación del ajuste del modelo
+plot(y~x, xlab = "ingresos", ylab = "consumo", pch=19)
+abline(modelo)
+Rho^2  # coeficiente de determinación
+# Validez del modelo -Analisis de la varianza’
+anova(regresion)
+# Verificacion de los supuestos sobre los errores del modelo
+# Residuos - realización de los errores
+u <- rstandard(modelo)
+yhat<- fitted(modelo)
+
+# supuesto 1. E[u] =0
+t.test(u, mu=0)
+# supuesto 2. u ~ norm  
+shapiro.test(u)
+# supuesto 3. V[u] es constante . Homoscedasticidad
+bgtest(y~x)  # prueba de Breusch-Golfrey
+gqtest(y~x)  # prueba de Goldfeld-Quandt
+# supuesto 4.  
+dwtest(y~x)  # prueba de Durvin-Watson
+```
+
+
+a. Representa la relación de las variables mediante un grafico de puntos
+b. Estime el modelo $y=\beta_{0}+\beta_{1} x + u$ utilizando MCO (mínimos cuadrados ordinarios)
+c. Realice las pruebas de significancia individuales
+d. Determine el ajuste del modelo ($R^{2}$)
+e. Valide los supuestos del modelo
+f. Verifique si otro modelo puede tener un mejor ajuste
+
+
+## Problema 2
+
+La buena previsión y el control de las actividades de preconstrucción conducen al uso más eficiente del tiempo y recursos en proyectos de construcción de autopistas. Los datos acerca de los costos de construcción (en miles de dólares) y las horas-persona de trabajo requeridas para varios proyectos se presentan en la tabla siguiente y fueron tomados del artículo “Forecasting Engineering Manpower Requirements for Highway Preconstruction Activities” (K. Persad, J. O’Connor, y K. Varghese, Journal of Management Engineering, 1995:41-47). Cada valor representa un promedio de algunos proyectos, y se han eliminado dos datos atípicos.(Problema tomados de Navidi(2006))
+
+```{r p2, exercise=TRUE, exercise.lines=30}
+x=c(939,5796,289,283,138,2698,663,1069,6945,4159,1266,1481,4716)
+y=c(251,4690,124,294,138,1385,345,355,5253,1177,802,945,2327)
+plot(x,y)
+
+```
+
+```{r p2-hint}
+library("lmtest")
+x=c(939,5796,289,283,138,2698,663,1069,6945,4159,1266,1481,4716)
+y=c(251,4690,124,294,138,1385,345,355,5253,1177,802,945,2327) 
+# Represntación grafica  -------
+plot(x,y, pch=19, col="blue", las=1)
+# Correlación
+Rho=cor(x,y)
+Rho
+# Estimacion del modelo y= b0 + b1 x + u  -------
+modelo=lm(y~x)
+summary(modelo)
+# Determinación del ajuste del modelo  -------
+plot(y~x, xlab = "ingresos", ylab = "consumo", pch=19)
+abline(modelo)
+Rho^2  # coeficiente de determinación
+# Validez del modelo -Analisis de la varianza -----
+anova(regresion)
+# Verificacion de los supuestos sobre los errores del modelo
+# Residuos - realización de los errores
+u <- rstandard(modelo)
+yhat<- fitted(modelo)
+# supuesto 1. E[u] =0
+t.test(u, mu=0)
+# supuesto 2. u ~ norm  
+shapiro.test(u)
+# supuesto 3. V[u] es constante . Homoscedasticidad
+bgtest(y~x)  # prueba de Breusch-Golfrey
+gqtest(y~x)  # prueba de Goldfeld-Quandt
+# supuesto 4.  
+dwtest(y~x)  # prueba de Durvin-Watson
+# Estimación de modelos ------
+
+
+# Estimación del valor de y para un valor de x=3000 -----
+nuevo <- data.frame(x=3000)
+# intervalo de confianza para la estimación para un x=3000 
+predict(object=modelo, newdata=nuevo, interval="confidence",level=0.95)
+# intervalo de confianza para la estimación de un valor promedio de 3000
+predict(object=modelo, newdata=nuevo, interval="prediction",level=0.95)
+```
+
+a. Estime el mejor modelo, validando los supuestos 
+b. Estime el valor de $y$ para un valor de $x=3000$

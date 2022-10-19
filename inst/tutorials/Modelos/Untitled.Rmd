@@ -1,0 +1,53 @@
+---
+title: "Modelación estadística"
+author: Daniel E. González - [Web](https://dgonxalex80.github.io/probabilidad20212.io)
+output:  
+  learnr::tutorial:
+    css: css/learnr_metadocencia.css
+    progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente 
+    allow_skip: true # permite saltearse los ejercicios. 
+    language:
+      es: tutorial_es.json
+description: "Mi super genial tutorial de R" # Esta descripción se ve en el panel Tutorial de RStudio 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE,
+                 exercise.warn_invisible = FALSE)
+```
+
+
+## Tema 1
+
+### Ejercicios de analisis de datos
+
+```{r ej1, exercise=TRUE, exercise.lines = 15}
+
+```
+
+
+## Tema 2
+
+### Ejercicio de clasificación
+
+
+```{r ej2, exercise=TRUE, exercise.lines = 15}
+
+```
+
+
+## Tema 3
+
+### Ejercicio de sumulación
+
+```{r ej3, exercise=TRUE, exercise.lines = 15}
+
+```
+
+
+
+
+
+

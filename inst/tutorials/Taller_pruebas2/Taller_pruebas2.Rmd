@@ -1,0 +1,529 @@
+---
+title: "Pruebas de hipótesis no paramétricas"
+author: Daniel E. Gonzalez- [Web-U4.3](https://dgonxalex80.github.io/probabilidad20212.io/Guia403.html)
+output: 
+  learnr::tutorial:
+    css: css/learnr_metadocencia.css
+    progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente     allow_skip: true # permite saltearse los ejercicios. 
+    language:
+      es: tutorial_es.json
+description: "Tutorial interactivo intervalos de confianza unidad 4.2" # Esta descripción se ve en el panel Tutorial de RStudio 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE,
+                 exercise.warn_invisible = FALSE)
+# install.packages("BSDA")
+library(BSDA)
+```
+
+## Presentación 
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("images/banner1.jpg")
+```
+
+El presente Taller contiene problemas sobre **PRUEBAS DE HIPÓTESIS NO PARAMÉTRICAS**, complementarios a los presentados en la guía 4.3. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
+
+La siguiente tabla contiene ayudas de los códigos correspondientes a la estimación de intervalos de confianza utilizando RStudio : 
+
+
+|                   | **Pruebas no paramétricas**                              |
+|:------------------|:---------------------------------------------------------|
+|                   | `chisq.test(x=obs,p=esp)`                                |
+| paquete: MASS     | `library(MASS)`                                          |
+|                   |`chisq.test(M)`  # Donde: M es una  matriz                |
+|paquete: BSDA      |`library(BSDA)`                                           |
+|                   |`SIGN.test(x,md=15,alternative = "greater")`              |
+|                   |`wilcox.test(g1,g2,paired = FALSE,alternative = "less")`  |
+|                   |**Pruebas de normalidad**                                 |
+|                   |`shapiro.test(x)`                                         |
+| paquete:normtest  |` library(normtest)`                                      |
+|                   |`ajb.norm.test(x)`                                        |
+|                   |`frosini.norm.test(x)`                                    |
+|                   |`geary.norm.test(x)`                                      |
+|                   |`hegazy1.norm.test(x)	`                                  |
+|                   |`hegazy2.norm.test(x)`                                    |
+|                   |`jb.norm.test(x)	`                                        |
+|                   |`kurtosis.norm.test(x)`                                   |
+|                   |`skewness.norm.test(x)	`                                  |
+|                   |`spiegelhalter.norm.test(x)`                              |
+|                   |`wb.norm.test(x)	`                                        |
+|paquete: nortest   |`library(nortest)`                                        |
+|                   |`ad.test(x)`                                              |
+|                   |`cvm.test(x)`                                             |
+|                   |`lillie.test(x)`                                          |
+|                   |`pearson.test(x)`                                         |
+|                   |`sf.test(x)`                                              |
+
+
+<br/><br/>
+
+
+
+|Tipos de pruebas   |                                                                 |
+|:------------------|:----------------------------------------------------------------|
+|Dos colas          |$H_{0}: \theta = \theta_{o}$ vs $H_{0}: \theta \neq \theta_{o}$  |
+|Cola superior      |$H_{0}: \theta \leq \theta_{o}$ vs $H_{0}: \theta > \theta_{o}$  |
+|Cola inferior      |$H_{0}: \theta \geq \theta_{o}$ vs $H_{0}: \theta < \theta_{o}$  |
+
+
+
+#### Recomendaciones :
+
++ Lea el enunciado del problema
++ Determine el intervalo de confianza a realizar con su respectivo valor de confianza, dependiendo de los supuestos del problema
++ Utilice la respectiva función de R de acuerdo con los supuestos establecidos
+
+#### Nota  
+
+Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
+
+
+
+## Ejercicios propuestos
+
+
+###  Problema 1 
+
+Calos y Ángela, Administradoras investigadores de una firma de artículos deportivos tienen la creencia que el deporte afecta la imagen que cada persona tiene de si misma. Para investigar esta posibilidad eligieron a 18 personas de manera aleatoria, para participar en un programa de ejercicios. Antes de empezar el programa las personas respondieron un cuestionario para medir su propia imagen. Un nivel de 15 puntos en la prueba establece que la persona tiene un concepto indiferente frente a la afirmación, valores menores de 15 que afecta su imagen de forma negativa y valores por encima de 15 que afectan su imagen en forma positiva. Los siguientes son los resultados obtenidos: 
+
+```{r p1, exercise=TRUE, exercise.lines=15}
+
+x=c(16, 15, 12, 17, 18, 14, 16, 14, 16, 17, 19, 16, 14, 21, 20, 16, 16, 16)
+
+```
+
+
+```{r p1-hint}
+# install.packages("BSDA")
+library(BSDA)
+x=c(16, 15, 12, 17, 18, 14, 16, 14, 16, 17, 19, 16, 14, 21, 20, 16, 16, 16)
+# Ho: Me <= 15  
+# Ha: Me >  15
+SIGN.test(x, md = 15,alternative = "greater")
+```
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+### Problema 2 
+
+Santiago, investigador del CIPUJ  está interesado en determinar si la acupuntura reduce el dolor. Realiza un experimento en el cual elige al azar a 10 estudiantes universitarios. Cada uno de ellos es utilizado en dos condiciones  y recibe un choque eléctrico de corta duración en la pulpa de un diente, la intensidad del choque eléctrico es corta, pero produce un dolor moderado. Después de cada choque percibido, cada estudiante califica el nivel de dolor percibido en una escala de 0 a 10 ( 10 dolor máximo) Los resultados obtenidos son: 
+
+```{r p2, exercise=TRUE, exercise.lines=15}
+# Con acupuntura
+ca=c(3, 4, 6, 2, 3, 4, 5, 7, 7, 6)
+# Sin acupuntura
+sa=c(8, 9, 4, 7, 9, 4, 5, 10, 7, 4)
+```
+
+
+```{r p2-hint}
+# install.packages("BSDA")
+library(BSDA)
+# Con acupuntura
+ca=c(3, 4, 6, 2, 3, 4, 5, 7, 7, 6)
+# Sin acupuntura
+sa=c(8, 9, 4, 7, 9, 4, 5, 10, 7, 4)
+
+# Prueba< de signos comparacion pareada
+SIGN.test(ca,sa,md=0)
+
+```
+
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+###  Problema 3 
+
+Los siguientes datos se tomaron de un estudio de comparación de adolescentes sanos (G1)  y adolescentes con bulimia (G2).  El primero está conformado por 15 estudiantes y el segundo grupo (G2) por 14 estudiantes, corresponden al consumo diario de calorías.   Los datos obtenidos son los siguientes:
+
+```{r p3, exercise=TRUE, exercise.lines=15}
+g1=c(68,32,58,16,23,53,55,32,61,29,50,64,67,37)
+g2=c(39,10,21,29,11,26,7,12,28,82,30,27,50,19,24)
+```
+
+
+```{r p3-hint}
+# independent 2-group Mann-Whitney U Test 
+wilcox.test(g1,g2)
+# Ho: Me1    = Me2
+# Ha: Me1 no = M2
+
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+### Problema 4 
+
+
+Suponga que le interesa analizar los efectos de la transición de la circulación fetal a la circulación postnatal entre niños prematuros. Para cada uno de 12 niños recién nacidos saludables, se midió el ritmo respiratorio en dos momentos diferentes: cuando el niño tiene menos de 15 días de nacido y de nuevo cuando tiene más de 25 días de nacido.
+
+```{r p4, exercise=TRUE, exercise.lines=15}
+# Menores de  15 dias
+m15=c(42,57,38,49,63,36,48,58,47,51,83,27)
+# Mayores de 25 dias
+M25=c(40,60,38,47,65,39,49,50,47,52,72,33)
+
+```
+
+
+```{r p4-hint}
+# install.packages("BSDA")
+library(BSDA)
+# Menores de  15 dias
+m15=c(42,57,38,49,63,36,48,58,47,51,83,27)
+# Mayores de 25 dias
+M25=c(40,60,38,47,65,39,49,50,47,52,72,33)
+
+SIGN.test(m15,M25,md=0)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+### Problema 5
+
+El Dueño de una panadería tiene la posibilidad de controlar los niveles de inventarios de leche  para cuatro marcas diferentes. Con el fin de establecer políticas para la realización de nuevos pedidos requiere saber si la demanda de estas marcas son iguales.  Con este propósito tomo la información de un día
+
+| Marca            |  Alpina  |San Fernando | Alqueria | Parmalat |
+|:-----------------|:--------:|:-----------:|:--------:|:--------:|
+|                  |  33      |  22         |  21      |  24      | 
+|                  |          |             |          |          |
+
+```{r p5, exercise=TRUE, exercise.lines=15}
+obs= c(33,22,21,24)       # frecuencias observadas
+esp=c()
+
+```
+
+```{r}
+obs= c(33,22,21,24)       # frecuencias observadas
+esp= c(0.25,0.25,0.25,0.25)  # frecuencias esperadas
+chisq.test(x = obs,p = esp)
+
+# Ho : la demanda de leche  es uniforme
+# Ha : la demanda de leche no es unifirme
+```
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+###  Problema 6 
+
+Un director de carrera de una Universidad  quiere investigar si los resultados exámenes realizados a los estudiantes de último semestre tienen una distribución normal con media 3.5 y desviación estándar 0.7 puntos.
+
+```{r p6,exercise=TRUE, exercise.lines=15}
+nf=c( 3.1, 3.3, 2.9, 3.3, 3.5, 2.8, 4.0, 2.7, 3.7, 2.7, 3.7, 3.4, 4.0, 4.4, 2.9, 4.0, 4.5, 3.5, 3.1, 4.5, 3.9, 3.7, 2.9, 4.7, 4.4, 2.7, 3.4, 2.8, 3.0, 2.9, 4.1, 3.7, 4.4, 3.0, 3.5, 2.4, 3.8, 2.2, 1.4, 3.4)
+
+```
+
+```{r p6-hint}
+nf=c( 3.1, 3.3, 2.9, 3.3, 3.5, 2.8, 4.0, 2.7, 3.7, 2.7, 3.7, 3.4, 4.0, 4.4, 2.9, 4.0, 4.5, 3.5, 3.1, 4.5, 3.9, 3.7, 2.9, 4.7, 4.4, 2.7, 3.4, 2.8, 3.0, 2.9, 4.1, 3.7, 4.4, 3.0, 3.5, 2.4, 3.8, 2.2, 1.4, 3.4)
+shapiro.test(nf)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+### Problema 7 
+
+Comprobar que los números aleatorios generados en Excel son realmente aleatorios.  Para generarlos se tomo la función `=aleatorio()` de la hoja electrónica y la prueba no paramétrica de rachas: 
+
+0.738   0.202   0.357   0.561   0.509   0.146   0.746   0.666  0.133   0.430   0.972   0.999   0.499   0.869   0.821   0.732   0.355   0.189   0.478   0.162
+
+```{r p7, exercise=TRUE, exercise.lines=15}
+x8=c(0.738, 0.202,  0.357, 0.561, 0.509, 0.146, 0.746, 0.666, 0.133, 0.430, 0.972, 0.999, 0.499, 0.869, 0.821, 0.732, 0.355,  0.189, 0.478, 0.162)
+```
+
+
+```{r p7-hint}
+# install.packages("randtests")
+library(randtests)
+x8=c(0.738,   0.202,   0.357,   0.561,   0.509,   0.146,   0.746,   0.666,  0.133,   0.430,   0.972,   0.999,   0.499,   0.869,   0.821,     0.732,   0.355,   0.189,   0.478,  0.162)
+# prueba de aleatoriedad
+# Ho: X es una variable aleatoria
+# Ha: X no es una variable aleatoria
+runs.test(x8)
+```
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+### Problema 8
+
+Se requiere establecer si existe relación entre el tiempo de estudio ($t$) y la nota obtenida en un examen ($n$). Como la calificación del examen corresponde a una variable cualitativa se debe utilizar una prueba no paramétrica (Coeficiente de correlación de Spearman) Los datos obtenidos son : 
+
+```{r p8, exercise=TRUE, exercise.lines=15}
+t=c(21,18,15,17,18,25,18,4,6,5)
+n=c(4,4,4,3,3,5,3,1,1,2)
+```
+
+```{r p8-hint}
+t=c(21,18,15,17,18,25,18,4,6,5)
+n=c(4,4,4,3,3,5,3,1,1,2)
+
+plot(t,n,
+     main="Nota obtenida vs tiempo de estudio",
+     xlab="t", ylab="nota")
+cor.test(x=t, y=n, method = 'spearman')
+```
+
+### Problema 9
+
+
+Un investigador desea establecer la relación que puede existir entre la calificación un producto realizada por sus consumidores y su ubicación de residencia. Con este fin recoge información de 100 clientes :
+
+|                |Lugar de    |residencia |
+|:---------------|-----------:|:-----------|
+
+| Calificación   |  Urbano    |  Rural     | 
+|:---------------|:----------:|:-----------|
+| Buena          |      20    |     11     |     
+| Regular        |      40    |      8     |
+| Mala           |      15    |      6     |
+|                |            |            |
+
+
++ ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
++ ¿Cuál es la prueba apropiada en este caso?
++ ¿Cuales son las hipótesis a contrastar?
+
+
+```{r p9, exercise=TRUE, exercise.lines=15}
+m=matrix(c(20,40,15,11,8,6), ncol=2)
+rownames(m)=c("Buena","Regular","Mala")
+colnames(m)=c("Urbano","Rural")
+m
+```
+
+```{r p9-hint}
+m=matrix(c(20,40,15,11,8,6), ncol=2)
+rownames(m)=c("Buena","Regular","Mala")
+colnames(m)=c("Urbano","Rural")
+m
+chisq.test(m)
+#chisq.test(t2,simulate.p.value=T, B=5000)
+mosaicplot(m, col=c("blue", "orange"), main="Plot de mosaico")
+# Ho: la calificacion y el lugar son variables inependientes
+# Ha: la  calificacion es independiente del lugar 
+```
+
+
+
+
+### Problema 10
+
+Se lanza una moneda hasta que sale una cara y se reguistra el número de lanzamientos $X$. Depués de repetir el experimento 256 veces, se observan los siguientes resultados:
+
+| $x$  | 1   |  2  |  3  |  4  |  5  |  6  |  7  |  8  |
+|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|$f(x)$|  136|   60|   34|   12|    9|    1|    3|    1|
+
+
+A un nivel de significancia de $0.05$ pruebe la hipótesis de que la distribución observada de $X$ se puede ajustar a una distribución geometrica `geom(x, 0.50)`, para $x=1,2,3,4,5....$
+
+
+```{r p10, exercise=TRUE, exercise.lines=15}
+obs=c(136,60,34,12,9,1,3,1)
+
+```
+
+
+```{r p10-hint}
+# Ho: X sigue una distribución geométrica con p=0.50
+# Ha: X NO sigue una distribución geométrica con p=0.5
+x=1:8
+obs1=c(136,60,34,12,9,1,3,1)
+esp1=dgeom(x-1,0.5)  # f(x)
+# Nota: La prueba chi-cuadrado exige que las frecuencias tengan valores superiores a 5. Esto hace que se deban agrupara los últimos valores
+obs=c(obs1[1:4], sum(obs1[5:8]))
+esp=c(esp1[1:4], sum(esp1[5:8]))
+chisq.test(obs, esp)
+```
+
+
+<br/><br/><br/>
+
+### Problema 11 
+
+Una muestra aleatoria de 90 adultos se clasifica de acuerdo al genero y el número de horas que dedica a ver la televisión durante una semana:
+
+| horas \ genero   | Masculino      | Femenino         |
+|-----------------:|:--------------:|:----------------:|
+| más de 25 horas  | 15             | 29               |
+| menos de 25 horas| 27             | 19               |
+
+Utilice un nivel de significancia del $0.01$ y pruebe la hipótesis de que el tiempo dedicado a ver televisión es independiente de si el espectador es hombre o mujer.
+
+```{r p11, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p11-hint}
+# Ho: el tiempo de dedicación a la televisión y el genero son independientes
+# Ha: el tiempo de dedicación a la televisión y el genero NO son independientes
+library(tidyverse)
+m=c(15,27,29,19) %>% 
+      matrix(nrow=2)  
+row.names(m)=c("mas de 25 horas", "menos de 25 horas")
+colnames(m)=c("Masculino", "Femenino")
+m
+chisq.test(m)
+```
+
+
+<br/><br/><br/>
+
+### Problema 12 
+
+Un investigador realizó un estudio para determinar si la incidedencia de cierto tipo de delitos varia de una parte de una gran ciudad a otra. Los crímines específicos de interés eran el asalto, el robo de casas, el hurto y el homicidio. La siguiente tabla muestra el número de delitos cometidos en cuatro áreas de la ciudad durante el año pasado:
+
+
+|Comuna   | Asalto |Robo en casa| Hurto   | Homicidio|
+|:-------:|-------:|-----------:|--------:|---------:|
+|Comuna 1 |162     | 118        | 451     | 18       |
+|Comuna 2 |310     |196         | 996     | 25       | 
+|Comuna 3 |258     |193         | 458     | 10       |
+|Comuna 4 |280     |175         | 390     | 19       |
+
+¿ A partir de los datos podemos concluir, a un nivel de significancia del $0.01$ que la ocurrencia de estos tipos de delitos dependen de la comuna de la ciudad?
+
+```{r p12, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p12-hint}
+# Ho: el tipo de delito y la comuna son independientes
+# Ha: el tipo de delito y la comuna NO son independientes
+library(tidyverse)
+m=c(162,310,258,280,118,196,193,175,451,996,458,390,18,25,10,19) %>% 
+      matrix(nrow=4)  
+row.names(m)=c("1", "2","3","4")
+colnames(m)=c("Asalto", "Robo en casa", "Hurto", "Homicidio")
+m
+chi2=chisq.test(m)
+chi2$observed
+round(chi2$expected,2)
+chi2
+```
+
+
+
+<br/><br/><br/>
+
+### Problema 13 
+
+Se lleva a cobo una investigación en dos ciudades del Valle para determinar la opinión de los votantes respecto a dos candidatos a la presidencia. En cada cuidad se seleccionaron 500 personas votantes al azar y se registraron los siguientes datos :
+
+
+|Opinión del votante | Ciudad 1    |     Ciudad 2 |
+|:------------------:|------------:|-------------:|
+| a favor de **A**   |          204|          225 |
+| a favor de **B**   |          211|          198 |
+| indeciso           |           85|           77 |
+
+
+A un nivel de significancia del $0.05$ pruebe la hipótesis nula de que las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
+
+```{r p13, exercise=TRUE, exercise.lines=15}
+
+```
+
+
+```{r p13-hint}
+library(tidyverse)
+m=c(204,211,85,225,198,77) %>% 
+      matrix(nrow=3)  
+row.names(m)=c("a favor de A", "a favor de B", "indeciso")
+colnames(m)=c("Ciudad 1", "Ciudad 2")
+m
+chisq.test(m)
+```
+
+
+
+<br/><br/><br/>
+
+### Problema 14
+
+El departamento de Bienestar Universitario realizó un estudio para determinar si 8 semanes de entrenamiento realmente reducen los niveles de colesterol de los participantes . A un grupo de tratamiento que consta de 15 colaboradores se les dieron conferencias dos veces a la semana acerca de cómo reducir el nivel de colesterol. Otro grupo de 18 colaboradores de edad similar, fue seleccionado al azar como el grupo control. Se registraron los siguientes niveles de colesterol de todos los participantes del programa de 8 semanas.
+
+`Tratamiento:` `129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126`
+
+`Control:` `151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149`
+
+```{r p14, exercise=TRUE, exercise.lines=15}
+grupo.tra=c(129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126)
+grupo.con=c(151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149)
+```
+
+
+```{r p14-hint}
+grupo.tra=c(129, 131,154,172, 115, 126, 175, 171, 122, 238, 159, 156, 176, 175, 126)
+grupo.con=c(151, 132, 196, 195, 188, 198, 187, 168, 115, 165, 137, 208, 133, 217, 191, 193, 140, 149)
+wilcox.test(grupo.tra,grupo.con, paired = FALSE)
+```
+
+
+<br/><br/><br/>
+
+### Problema 15
+
+# **Actividad M&M**
+
+El sitio web de la compañía Mars publica los siguientes porcentajes de los distintos colores de sus dulces M&M para la variedad de chocolate candies de 49.3 g.
+
+
+```{r, echo=FALSE, out.width="40%", fig.align = "center"}
+knitr::include_graphics("img/peanutmm.jpg")
+```
+
+|café  | amarillo | rojo | azul | naranja | verde |
+|:----:|:--------:|:----:|:----:|:-------:|:------|
+| 13%  | 14%      | 13%  | 24%  | 20%     | 16%   |
+
+
+La siguiente información fue recogia en una bolas que contenia 54 dulces :  
+
+|café  | amarillo | rojo | azul | naranja | verde |
+|:----:|:--------:|:----:|:----:|:-------:|:------|
+| 6    |   3      |  10  |  21  |  7      | 7     |
+
+se puede afirmar que los datos obtenidos respaldan la información suministrada por la compañia en su pagina?. Use una prueba de hipótesis apropiada. Adjunte el proceso realizado
+
+
+```{r p10, exercise=TRUE, exercise.lines=15}
+obs=c(6, 3, 10, 21, 7, 7)
+
+```
+
+
+```{r p10-hint}
+# Ho: X sigue distribución publicada en la página de la compañia
+# Ha: X NO sigue distribción publicada en la página de la compañia
+obs=c(6, 3, 10, 21, 7, 7)
+esp=c(0.13, 0.14, 0.13, 0.24, 0.20, 0.16)  # f(x)
+# Nota: La prueba chi-cuadrado exige que las frecuencias tengan valores superiores a 5. Esto hace que se deban agrupara los últimos valores
+chisq.test(obs, esp)
+```
+

@@ -1,0 +1,405 @@
+---
+title: "Pruebas de hipótesis paramétricas"
+author: Daniel E. Gonzalez- [Web-U4.3]()
+output: 
+  learnr::tutorial:
+    css: css/learnr_metadocencia.css
+    progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente     allow_skip: true # permite saltearse los ejercicios. 
+    language:
+      es: tutorial_es.json
+description: "Tutorial interactivo pruebas de hipótesis unidad 4.3" # Esta descripción se ve en el panel Tutorial de RStudio 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE,
+                 exercise.warn_invisible = FALSE)
+# colores
+c0="#0DA5A6" # VERDE CLARO
+c1="#E77C00" # NARANJA
+c2="#6666FF" # AZUL  
+c3="#4CBFBA" # VERDE CLARO  
+c4="#E09600" # AMARILLO  
+c5="#BC2B6A" # MORADO
+
+```
+
+## Presentación 
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("images/banner1.jpg")
+```
+
+El presente Taller contiene problemas sobre **PRUEBAS DE HIPÓTESIS PARAMÉTRICAS**, complementarios a los presentados en la guía 4.3. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
+
+<br/><br/><br/>
+
+#### Conceptos
+<br/>
+
+1. **Hipótesis nula** ($Ho$) : es aquella hipótesis que resulta cierta bajo condiciones normales
+
+<br/>
+
+2. **Hipótesis alterna** ($Ha$ ) : es aquella hipótesis que es verdadera cuando Ho resulta falsa. Esto ocurre bajo condiciones extremas
+
+<br/>
+
+3. **Estadístico de Prueba** ($EdeP$) : Variable aleatoria que sigue una distribución conocida (normal estandar, t-Student, chi-cuadrado o f), que es función de los valores obtenidos en la muestra y que dá evidencia sobre el valor de verdad de $Ho$
+
+<br/>
+
+4. **Nivel de significancia** ($\alpha$) : Probabilidad de cometer error tipo I
+
+<br/>
+
+5. **Potencia de una prueba** ($1-\beta$) : La probabilidad de rechazar $Ho$ cuado ella es falsa (Rechazar cuando tengo que rechazar)
+
+<br/>
+
+6. **valor-p** : Probabilidad de tener un resultado extremo suponiendo que $Ho$ es verdadrera. (área delimitada por el estadistico de prueba , En caso de una prueba de dos coloas el área encontrada corresponde la mitad del valor-p)
+
+<br/>
+
+7.  **Regla de Decisión** ($RdeD$) : Regla que permite genera las condiciones sobre las cuales $Ho$ se rechaza o no se rechaza
+
+<br/>
+
++ Regla1 : Si el $EdeP$ cae en la $RdeR$, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
+
+<br/>
+
++ Regla 2 : Si el $valor-p < \alpha$, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
+
+<br/>
+
++ Regla 3: El valor-p lo podemos interpretar como el error que tenemos al rechar Ho siendo esta verdadera (Error tipo I), por tanto si consideramos que el valor-p es pequeño, RECHAZAMOS $Ho$, ACEPTAMOS $Ha$ como verdadera. De lo contrario no existe suficiente evidencia en la muestra que permita rechazar $Ho$, ASUMIMOS que Ho es verdadera.
+
+<br/><br/><br/>
+
+#### Código R
+
+La siguiente tabla contiene ayudas de los códigos correspondientes a la estimación de intervalos de confianza utilizando RStudio : 
+
+|                   |**Pruebas paramétricas**                                  |
+|:------------------|:---------------------------------------------------------|
+|Entrada de datos   |                                                          |
+|                   |`x1=c(7, 13, 6, 5, 5, 10, 8, 6, 7)`                       |
+|                   |`x2=c(3,7,2,3,6,2,1,0,2)`                                 |  
+|Una población      |                                                          |
+||`z.test(datos,mu=10,stdev=4, conf.level=0.98)`                               |
+||`t.test(datos, mu=10,conf.level=0.98)`                                       |
+||`t.test(datos, mu=10,conf.level=0.98,alternative="greater")`                 |
+||`t.test(datos, mu=10,conf.level=0.98,alternative="less)`                     |
+||`prop.test(x=22,n=100, p=0.20, conf.level=0.98)`                             |
+|Dos poblaciones    |                                                          |
+|                   |`t.test(x1,x2,  paired=TRUE)`                             |    
+|                   |`t.test(x1,x2,  paired=FALSE, var.equal=TRUE, conf.level=0.95)` |
+|                   |`t.test(x1,x2,  paired=FALSE, var.equal=FALSE, conf.level=0.98)`|
+|                   |`var.test(x,y)`                                           |
+|                   |`prop.test(c(x1,x2), c(n1,n2))`                           |
+
+
+
+<br/><br/><br/>
+
+#### Tipos de pruebas 
+
+|                   |                                                               |
+|:------------------|:----------------------------------------------------------------|
+|Dos colas          |$H_{0}: \theta = \theta_{o}$ vs $H_{0}: \theta \neq \theta_{o}$  |
+|Cola superior      |$H_{0}: \theta \leq \theta_{o}$ vs $H_{0}: \theta > \theta_{o}$  |
+|Cola inferior      |$H_{0}: \theta \geq \theta_{o}$ vs $H_{0}: \theta < \theta_{o}$  |
+
+
+
+<br/><br/><br/>
+
+#### Recomendaciones :
+
++ Lea el enunciado del problema
++ Determine el intervalo de confianza a realizar con su respectivo valor de confianza, dependiendo de los supuestos del problema
++ Utilice la respectiva función de R de acuerdo con los supuestos establecidos
+
+<br/>
+
+#### Nota  
+
+Cada ejercicio tiene su respuesta para servir de valor de comparación con los resultados obtenidos
+
+
+
+## Ejercicios propuestos
+
+### Ejercicio 1
+
+Suponga que se estudia la compra de una nueva maquina para una empresa. Se comprará si la proporción de la producción que necesita ser reprecesados por tener defectos es inferior al 5%. Se examina una muestra de 40 artículos construidos por la máquina y 3 necesitan ser reprocesados.  ¿Que decisión se toma? (Se compra o no la máquina?)
+
+
+```{r p1, exercise=TRUE, exercise.lines = 15}
+
+```
+
+
+```{r p1-hint}
+prop.test(x=3,n=40, p=0.05, conf.level=0.95, alternative = "less")
+```
+### Ejercicio 2
+
+Suponga que una empresa desarrolla un curso de entrenamiento para sus empleados, formando dos grupos y aplicándoles dos métodos distintos de entrenamiento. El primer grupo lo componen 36 empleados, mientras que el segundo grupo por 40 empleados. Los resultados en calificaciones entre 0 y 10, se presentan a continuación:
+
+
+```{r p2, exercise=TRUE, exercise.lines = 15}
+g1=c(6.2,  5.0,  6.9,  7.5,  8.6,  9.0,  7.0,  6.3, 9.9,  7.2,  8.1,  6.3,  5.2,  7.7,  5.7,  7.1,  6.4,  7.1,  8.3,  8.2,  6.4,  7.0,  7.8,  6.9,  8.5,  7.7,  8.2,  5.9,  9.8,  5.9,  6.7,  6.3,  6.7,  5.4,  7.2,  6.4)
+
+g2=c(8.2,  6.7,  7.6,  8.3,  9.4,  7.3,  6.7,  7.2,  9.8,  9.6,  8.9,  7.3,  9.7,  7.9,  9.1,  9.0,  9.2, 7.4,  8.3,  8.6,  8.5,  9.2,  7.0,  6.6,  8.4, 8.3,  7.5,  6.8,  7.0,  7.3, 8.9,  6.2,  7.1,  8.5, 9.1,  7.9,  8.1,  8.6,  6.8,  9.0)
+
+par(mfrow = c(1, 2))
+boxplot(g1, las=1, col = c2, ylim=c(0,10))
+boxplot(g2, las=1, col = c3, ylim=c(0,10))
+
+```
+
+
+```{r p2-hint}
+# test de normalidd
+shapiro.test(g1) ; shapiro.test(g2)
+# test de comparacion de variaznas
+var.test(g1,g2) 
+# test de comparacion de medias, independientes,varianzas iguales
+t.test(g1,g2, paired=FALSE, var.equal=TRUE, conf.level=0.95)
+```
+
+### Ejercicio 3
+
+Los ingenieros de una ensambladora de automóviles requieren decidir sobre cual de dos de las marcas de neumáticos de  deben comprar. La marca FB o la marca KT. Con el fin de tomar una decisión basada en evidencias estadísticas, deciden realizar un experimento en el que usan 12 neumáticos de cada marca. Los neumáticos se utilizan hasta su terminación . Los resultados   obtenidos (en miles de kilometros) se presentan a continuación :
+
+
+```{r p3, exercise=TRUE, exercise.lines = 15}
+
+FB=c(41.8, 41.6, 31.5, 48.7, 40.8, 31.2, 36.5, 36.2, 32.8, 36.3, 38.6, 30.5)
+KT=c(40.5, 38.4, 44.0, 34.9, 44.0, 44.7, 44.0, 47.1, 39.8, 43.9, 38.5, 40.2)
+par(mfrow = c(1, 2))
+boxplot(FB, las=1, col = c2, ylim=c(0,50))
+boxplot(KT, las=1, col = c3, ylim=c(0,50))
+```
+
+```{r p3-hint}
+
+```
+
+
+¿Cual de las marcas de neumáticos recomendaría comprar? ¿Que supuestos deberá confirmar?. Utilice un $\alpha=0.05$
+
+### Ejercicio 4
+
+Un ingeniero desea establecer si existen diferencias entre dos métodos diferentes de realizar el ensamble de una casa prefabricada. Para comprobarlo recogen información del tiempo empleado en el ensamble de una pieza para ambos métodos en horas, los cuales se presentan a continuación:
+
+
+```{r p4, exercise=TRUE, exercise.lines = 15}
+
+met.nue=c(32, 37, 35, 28, 41, 44, 35, 31, 34) 
+met.est=c(35, 31, 29, 25, 34, 40, 27, 32, 31)
+
+par(mfrow = c(1, 2))
+boxplot(met.nue, las=1, col = c2, ylim=c(0,45))
+boxplot(met.est, las=1, col = c3, ylim=c(0,45))
+
+```
+
+```{r-hint}
+var.test(FB,KT) 
+t.test(FB,KT,                 # variables 
+       paired=FALSE,          # grupos independientes
+       var.equal=TRUE,        # varianzas iguales
+       conf.level=0.95,       # alpha = 0.05
+       alternative = "less"  )
+```
+
+
+Presentan los datos suficiente evidencia que permita afirmar que el nuevo método es mas eficiente que el método estándar? (Utilice un  $\alpha=0.05$)
+
+
+### Ejercicio 5
+
+El director de un gimnasio quiere determinar si un instructor de ejercicios debe ser contratado o no para su campaña estrella "Reducción de peso". Para tomar la decisión indica a un candidato que pruebe con 16 personas que asisten habitualmente al gimnasio. Los siguientes datos corresponden a los pesos tomados al inicio del programa ($x1$) y sus pesos al finalizar el programa ($x2$)
+
+```{r p5, exercise=TRUE, exercise.lines = 15}
+x1=c(104, 89, 84, 106, 90, 96, 79, 90, 85, 76, 91, 82, 100, 89, 121, 72)
+x2=c( 98, 85, 85, 103, 88, 95, 79, 90, 82, 76, 89, 81,  99, 86, 111, 70)
+```
+
+¿Que supuestos se deben verificar? ¿Se podría decir que las rutinas empleadas por el instructor producen los efectos indicados?  
+
+### Ejercicio 6
+
+Se realizan pruebas de un nuevo lector láser manual para uso en la realización de inventarios y del lector utilizado actualmente, con el fin de decidir si se adquiere el primero. Se obtienen los datos  sobre el número de códigos de barra leídos por segundo con el cada uno de los dispositivos.
+
+```{r p6, exercise=TRUE, exercise.lines = 15}
+lec.nue=c(35, 40, 36, 42, 41, 52, 36, 41, 49, 41, 45, 38, 31, 54, 37, 47, 38, 34, 46, 39, 45, 44, 41, 42, 36, 43, 35, 31, 38, 38, 41, 41, 44, 44, 35, 44, 38, 33, 38, 49, 45, 45,  38, 46, 28, 40, 41, 47, 43, 50, 39, 36, 39, 38, 37, 37, 47, 37, 41, 40, 35)
+lec.act=c(41, 33, 22, 27, 31, 25, 28, 36, 29, 32, 25, 31, 31, 30, 31, 36, 26, 29, 29, 26, 27, 27, 30, 34, 26, 30, 23, 22, 29, 31, 37, 32, 34, 25, 25, 36, 32, 30, 23, 31, 33, 27, 27, 29, 35, 36, 27, 29, 25, 34, 27, 25, 32, 37, 31, 33, 27, 31, 26, 25, 24)
+
+par(mfrow = c(1, 2))
+boxplot(lec.nue, las=1, col = c2, ylim=c(0,60))
+boxplot(lec.act, las=1, col = c3, ylim=c(0,60))
+```
+
+```{r p6-hint}
+# prueba de normalidad
+shapiro.test(lec.nue) 
+shapiro.test(lec.act)
+# prueba para comparacion de varianzas
+var.test(lec.nue, lec.act) 
+# prueba de comparacion de medias
+t.test(lec.nue,lec.act,  paired=FALSE, var.equal=TRUE, conf.level=0.95, alternative = "greater")
+```
+
+
+De acuerdo con la información, es posible preferir alguno de ellos?
+¿Que supuestos se deben verificar?
+
+
+
+### Ejercicio 7
+
+Un empresario registro el número de artículos producidos durante 10 días  para un grupo conformado por 15 obreros los cuales tienen un salario fijo (grupo 1). El gerente piensa que si se cambia la forma del salario tendrán mejores resultados. Para verificarlo introduce cambios en la forma de pago a un segundo grupo (grupo 2) . El numero de artículos producidos por ambos grupos son los siguientes: 
+
+```{r p7, exercise=TRUE, exercise.lines = 15}
+g1=c(75, 76, 74, 80, 72, 78, 76, 73, 72, 75)
+g2=c(86, 78, 86, 84, 81, 79, 78, 84, 88, 80)
+
+par(mfrow = c(1, 2))
+boxplot(g1, las=1, col = c2, ylim=c(70,90))
+boxplot(g2, las=1, col = c3, ylim=c(70,90))
+```
+
+```{r p7-hint}
+# prueba de  comparacion de varianas
+var.test(g1,g2) 
+# prueba de comparacion de medias
+t.test(g1,g2,  paired=FALSE, var.equal=TRUE, conf.level=0.95, alternative = "less")
+```
+
+
+
+Suponiendo que los salarios pagados a ambos grupos son equivalentes, se podría afirmar que el plan de incentivos es efectivo? ¿Que supuestos se deben verificar? 
+
+### Ejercicio 8
+
+La pizzeria P20 realizó el mes pasado una encuestas ($n_1=200$) para determinar la proporción de clientes que prefieren el tamaño familiar. La encuesta recogida muestra que el 20% de sus clientes prefieren el tamaño familiar. Con el fin de aumentar las ventas, realiza una estrategia de publicidad en redes. Pasado dos meses de la campaña la empresa realizó una segunda encuesta ($n_2=200$), obteniendo en este caso una proporción de  25%.
+
+De acuerdo con los resultados podría decirse que la campaña realizada es efectiva? (utilice un $\alpha=0.05$)
+
+```{r p8, exercise=TRUE, exercise.lines = 15}
+
+
+```
+
+```{r p8-hint}
+prop.test(c(40,50), c(200,200),  conf.level = 0.95)
+```
+
+ 
+
+### Ejercicio 9
+
+Uno de los problemas más frecuentes en jóvenes universitarios es la alte tensión que generan las evaluaciones, las cuales en algunos casos genera dolores de cabeza. La tensión muscular en la región de la cabeza se ha asociado con los dolores de cabezá, siendo razonable pensar que si la tensión muscular disminuye, es posible que los dolores de cabeza se reduzcan o desaparezcan. 
+
+Un grupo de investigadores diseña un experimento en el cual participan nueve estudiantes que padecen dolores de cabeza durante las semanas de evaluaciones. Posteriormente un grupo de profesionales del medio universitario los entrena con el fin de que aprendan a reducir la tensión muscular en la región de la cabeza, utilizando un dispositivo de biorretroalimentación.  Para este experimento el dispositivo mencionado se conecta al musculo frontal del estudiante, que se encuentra en la región del frente de la cara. El dispositivo indica al estudiante la cantidad de tensión que existe en el musculo al cual  está unido (en este caso, al frontal) y le ayuda a reducir los niveles de tensión.  Después de seis semanas de entrenamiento , los jóvenes han logrado mantener una baja tensión en el musculo frontal; entonces se lleva nuevamente un registro de los dolores de cabeza que sufren durante las dos semanas de evaluaciones. A continuación se presentan los regustros obtenidos por los estudiantes después del entrenamiento:
+
+
+**Grupo experimental**
+
+Número de dolores de cabeza ($X$)
+
+|Sujeto No. |línea base  | Después de entrenamiento |
+|:----------|-----------:|-------------------------------------------:|
+|1          |17          |3                                           |
+|2          |13          |7                                           |
+|3          |6           |2                                           |
+|4          |5           |3                                           |
+|5          |5           |6                                           |
+|6          |10          |2                                           |
+|7          |8           |1                                           |
+|8          |6           |0                                           |
+|9          |7           |2                                           |
+
+
+Dado que pueden existir ploblema de interpretación en el planteamiento anterior, debido a que los resultados aparentemente muestranuna disminución delos dolores de cabeza, es posible que esta disminución no se deba al entrenamiento realizado con la utilización del dispositivo, sino a algún otro factor tambien presente en la situación, como por ejemplo el momento en que se realiza la medición (primeros parciales, segundos parciales o finales), los investigadores incorporan un grupo que se denimina control que permita dar cuenta de estas variaciones. Este segundo grupo de jóvenes que tambien presentan dolores de cabeza fue medido durante los mismos momentos del primer grupo (grupo experimental) , salvo que no fue entrenado con el dispositivo para controlar la tensión. Durante el periodo intermedio este grupo habló con los investigadores sobre los dolores de cabeza.  El número de dolores de cabeza durante la linea base y el prediordo de segumiento para el grupo control arrojó los siguientes resultados:
+
+**Grupo control**
+
+Número de dolores de cabeza ($Y$)
+
+|Sujeto No. |línea base  | después de entrenamiento |
+|:----------|-----------:|-------------------------------------------:|
+|1          |5           |4|
+|2          |8           |9|
+|3          |14          |12|
+|4          |16          |15|
+|5          |6           |4|
+|6          |5           |3|
+|7          |8           |7|
+|8          |10          |6|
+|9          |9           |7|
+
+Se puede concluir que el tratamiento realizado con el dispositivo disminuye los dolores de cabeza ?
+
+Nota: Suponga que el número de dolores de cabeza se distribuye aproximadamente normal .
+
+Tomado de Robert Pangano (2006)
+
+```{r p9, exercise=TRUE, exercise.lines = 25}
+Xa=c(17,13,6,5,5,10,8,6,7)  # grupo experimental antes
+Xd=c(3,7,2,3,6,2,1,0,2)     # grupo experimental despues
+
+Ya=c(5,8,14,16,6,5,8,10,9)   # grupo control antes
+Yd=c(4,9,12,15,4,3,7,6,7)    # grupo control despues
+
+```
+
+```{r p9-hint}
+# problema 3 Ejercicios propuestos
+Xa=c(17,13,6,5,5,10,8,6,7)  # grupo experimental antes
+Xd=c(3,7,2,3,6,2,1,0,2)     # grupo experimental despues
+
+Ya=c(5,8,14,16,6,5,8,10,9)   # grupo control antes
+Yd=c(4,9,12,15,4,3,7,6,7)    # grupo control despues
+
+# prueba 1 : Ho: mu_Xa = mu_Xd vs Ha: mu_Xa != mu_Xd, grupos pareados
+t.test(Xa,Xd, paired = TRUE) # p-value = 0.003471, rechazo Ho, acepto Ha. las medias son diferentes
+
+# prueba 2 : Ho: mu_Xa = mu_Ya. grupos independientes
+var.test(Xa,Ya) # p-value = 0.8599, asumimos que las varianza son iguales
+t.test(Xa,Ya, paired = FALSE,var.equal = TRUE) #p-value = 0.8153, asumo que las medias son iguales
+# como las medias y las varianza se asumen iguales , los dos grupos son comparables
+
+# prueba 3 : Ho. mu_Ya = mu_Yd, grupos pareados
+t.test(Ya,Yd, paired = TRUE) # = 0.008079, son diferentes
+
+
+# prueba 4 : Ho: mu_Xd = Yd , grupos independientes
+var.test(Xd,Yd) #  p-value = 0.1315, no se rechaza Ho, se asumen varianzas iguales
+t.test(Xd,Yd, paired = FALSE, var.equal = TRUE) #p-value = 0.008654, rechazamos Ho, las medias son diferentes
+
+de=Xa-Xd # diferencia grupo experimental antes menos despues
+dc=Ya-Yd # diferencias grupo control antes menos  despues
+
+var.test(de,dc) #p-value = 0.004229, las varianzas son diferentes
+t.test(de,dc, paired = FALSE, var.equal = FALSE) #p-value = 0.01857
+t.test(de,dc, paired = FALSE, var.equal = FALSE, alternative = "greater") #p-value = 0.009285
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
