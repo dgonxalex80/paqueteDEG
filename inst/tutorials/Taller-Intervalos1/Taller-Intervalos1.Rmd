@@ -1,6 +1,6 @@
 ---
 title: "Intervalos de confianza 1"
-author: Daniel E. Gonzalez- [Web-U4.2](https://dgonxalex80.github.io/probabilidad20212.io/Guia402.html#Gu%C3%ADa_de_aprendizaje_42)
+author: Daniel E. Gonzalez- [Recursos 4.2](https://dgonxalex80.github.io/pye20222/recurso402.html)
 output: 
   learnr::tutorial:
     css: css/learnr_metadocencia.css
@@ -41,7 +41,7 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 |                  | `t.test(datos1 datos2, var.equal=T)$conf.int`           |
 |                  | `t.test(datos1 datos2, var.equal=F)$conf.int`           |
 |$p_{1} − p_{2}$   | `prop.test(c(x1,x2), c(n1,n2))$conf.int`                |
-|$\dfrac{\sigma^{2_{1}}}{\sigma^{2}_{2}}$|`var.test(datos1 datos2)$conf.int` |
+|$\dfrac{\sigma^{2_{1}}}{\sigma^{2}_{2}}$|`var.test(datos1, datos2)$conf.int` |
 |                  | `install.packages("devtools")`                          |
 |                  | `devtools::install_github("dgonzalez80/paquetepye")`    |
 |                  |  `library(paqueteDEG)`                                  |
@@ -76,12 +76,31 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 ```
 
+
+```{r ej1-hint}
+# En este caso la media tiene distribucion normal con media 3.2 y desviacion 1.6/8
+# a. 
+pnorm(2.7, 3.2, 1.6/8)
+# b.
+pnorm(3.5, 3.2, 1.6/8, lower.tail = FALSE)
+# c
+pnorm(3.4, 3.2, 1.6/8) - pnorm(3.2, 3.2, 1.6/8)
+
+```
+
 ### Ejercicio 2 
 
 *Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ?Qué conclusión deberia tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estandar de $s=5$ horas?. Suponga que la duración de las baterías tiene una distribución normal.*
 
 ```{r ej2, exercise=TRUE}
 
+```
+
+```{r ej2-hint}
+# valor de T
+(27.5-30)/(5/4)
+# intervalo 
+c(qt(0.025,15), qt(0.975,15))
 ```
 
 
@@ -92,8 +111,14 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 ```{r ej3, exercise=TRUE}
 
-
 ```
+
+```{r ej3-hint}
+x3=c(0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 , 0.2)
+# intervalo de confianza para una media, variable normal, con varianza desconocida
+t.test(x3, coef.level= 0.95)$conf.int
+```
+
 
 ### Ejercicio 4 
 
@@ -101,19 +126,33 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 ```{r ej4, exercise=TRUE}
 
+```
+
+```{r ej4-hint}
+# valor chi-cuadrado
+X2=19*20/8
+# intervalo 
+c(qchisq(0.05,19), qchisq(0.95,19))
 
 ```
 
-
 ### Ejercicio 5 
 
-*Una muestra de 100 propietarios de automóviles indica que en el departamento del Valle del Cauca se maneja en promedio 23500 km al año con una desviación estándar de 3900 km. Suponga que la distribución de las mediciones es aproximadamente normal. Construya un intervalo de confianza del 95% para el numero promedio de kilómetros que recorre un automóvil anualmente en el Valle del Cauca. Usted desea comprar un carro usado y su actual propietario y único dueño le informa que el carro en venta lo compro el 5 de Junio de 2008 y al inspeccionar velocímetro indica que ha recorrido 43265 kilómetros. A que conclusión podrá llegar al comparar los resultados obtenidos con los datos del vehículo?*
+*Una muestra de 100 propietarios de automóviles indica que en el departamento del Valle del Cauca se maneja en promedio 23500 km al año con una desviación estándar de 3900 km. Suponga que la distribución de las mediciones es aproximadamente normal. Construya un intervalo de confianza del 95% para el numero promedio de kilómetros que recorre un automóvil anualmente en el Valle del Cauca. Usted desea comprar un carro usado y su actual propietario y único dueño le informa que el carro en venta tiene un año de usu. Al inspeccionar velocímetro indica que ha recorrido 27265 kilómetros. A que conclusión podrá llegar al comparar los resultados obtenidos con los datos del vehículo?*
 
 ```{r ej5, exercise=TRUE}
 
 
 ```
 
+```{r ej5-hint}
+n=100 # tamaño de muestra
+mx=23500 # media muestral
+sx=3900  # desviacion estandar muestral
+# intervalo de confianza para una media con distribucion normal y varianza desconocida
+IC= mx + c(qt(0.025,99), qt(0.975,99))* sx/sqrt(100)
+IC
+```
 
 ### Ejercicio 6 
 
@@ -121,7 +160,22 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 
 ```{r ej6, exercise=TRUE}
-x=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 163)
+
+```
+
+```{r ej6-hint}
+# intervalo de confianza para una media, 
+#  variable con distribucion normal
+#  con varianza desconocida
+x6=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 163)
+# IC del 90
+t.test(x6, coef.level= 0.90)$conf.int
+# IC del 95
+t.test(x6, coef.level= 0.95)$conf.int
+# IC del 98
+t.test(x6, coef.level= 0.98)$conf.int
+# IC del 99
+t.test(x6, coef.level= 0.99)$conf.int
 
 ```
 
@@ -130,15 +184,24 @@ x=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 16
 *Dos de las Facultades de la Universidad (FIC y FCEA) tienen procedimientos distintos para inscribir a sus estudiantes a primer semestre. El Vicerrector Académico desea comparar los tiempos promedios que les toma el trámite de inscripción. En cada Facultad se tomaron los tiempos de 100 neojaverianos seleccionados de manera aleatoria. Los datos se muestran a continuación :*
 
 ```{r ej7, exercise=TRUE}
-fic=c(47.0, 47.7, 47.2, 51.0, 49.0, 52.1, 56.2, 47.0, 46.3, 46.7, 54.0, 47.1, 52.1, 57.2, 52.8, 42.0, 48.9, 47.5, 38.8, 46.9, 53.9, 49.1, 48.8, 50.9, 43.1, 50.3, 48.0, 48.4, 54.6, 56.3, 43.2, 41.0, 46.3, 50.6, 49.9, 53.3, 42.6, 47.9, 59.9, 44.6, 43.3, 54.5, 43.3, 55.7, 58.3, 45.8, 62.5, 46.2, 48.7, 57.0, 57.6, 52.1, 57.8, 49.0, 51.2, 42.6, 50.1, 56.3, 59.9, 48.3, 49.4, 56.2, 47.6, 55.0, 57.0, 54.7, 48.5, 56.5, 49.5, 53.8, 49.4, 46.9, 49.8, 43.8, 43.2, 45.0, 47.0, 53.5, 48.5, 44.9, 47.4, 51.9, 45.5, 49.9, 50.6, 55.9, 53.8, 50.7, 46.8, 58.0, 55.9, 55.9,
-46.7, 48.2, 47.3, 53.3, 49.6, 53.0, 56.9, 50.4)
+fic=c(47.0, 47.7, 47.2, 51.0, 49.0, 52.1, 56.2, 47.0, 46.3, 46.7, 54.0, 47.1, 52.1, 57.2, 52.8, 42.0, 48.9, 47.5, 38.8, 46.9, 53.9, 49.1, 48.8, 50.9, 43.1, 50.3, 48.0, 48.4, 54.6, 56.3, 43.2, 41.0, 46.3, 50.6, 49.9, 53.3, 42.6, 47.9, 59.9, 44.6, 43.3, 54.5, 43.3, 55.7, 58.3, 45.8, 62.5, 46.2, 48.7, 57.0, 57.6, 52.1, 57.8, 49.0, 51.2, 42.6, 50.1, 56.3, 59.9, 48.3, 49.4, 56.2, 47.6, 55.0, 57.0, 54.7, 48.5, 56.5, 49.5, 53.8, 49.4, 46.9, 49.8, 43.8, 43.2, 45.0, 47.0, 53.5, 48.5, 44.9, 47.4, 51.9, 45.5, 49.9, 50.6, 55.9, 53.8, 50.7, 46.8, 58.0, 55.9, 55.9, 46.7, 48.2, 47.3, 53.3, 49.6, 53.0, 56.9, 50.4)
 
-fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 52.1, 49.8, 42.2, 64.4, 49.6, 53.9, 55.2, 58.1, 51.0, 49.8, 57.7, 65.1, 47.4, 38.4, 47.6, 48.8, 53.6, 54.5, 57.4, 60.9, 61.2, 55.0, 54.6, 56.4, 50.1, 59.3, 56.8, 48.6, 56.2, 56.4, 52.8, 44.6, 43.1, 53.4, 49.5, 57.9, 44.9, 55.1, 58.5, 47.0, 55.2, 50.4, 49.5, 49.1, 53.2, 48.0, 50.1, 46.5, 61.3, 68.0, 52.5, 52.0, 63.4, 50.1, 50.2, 44.9, 44.2, 54.0, 49.3, 50.8, 59.1, 57.3, 57.4, 57.2, 54.7, 52.8, 51.4, 45.3, 49.5, 52.3, 39.5, 46.5, 58.9, 63.1, 55.1, 48.5, 54.7, 56.6, 54.6, 47.0,
-57.6, 43.3, 50.4, 50.9, 48.3, 57.2, 55.8, 48.4)
-
+fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 52.1, 49.8, 42.2, 64.4, 49.6, 53.9, 55.2, 58.1, 51.0, 49.8, 57.7, 65.1, 47.4, 38.4, 47.6, 48.8, 53.6, 54.5, 57.4, 60.9, 61.2, 55.0, 54.6, 56.4, 50.1, 59.3, 56.8, 48.6, 56.2, 56.4, 52.8, 44.6, 43.1, 53.4, 49.5, 57.9, 44.9, 55.1, 58.5, 47.0, 55.2, 50.4, 49.5, 49.1, 53.2, 48.0, 50.1, 46.5, 61.3, 68.0, 52.5, 52.0, 63.4, 50.1, 50.2, 44.9, 44.2, 54.0, 49.3, 50.8, 59.1, 57.3, 57.4, 57.2, 54.7, 52.8, 51.4, 45.3, 49.5, 52.3, 39.5, 46.5, 58.9, 63.1, 55.1, 48.5, 54.7, 56.6, 54.6, 47.0, 57.6, 43.3, 50.4, 50.9, 48.3, 57.2, 55.8, 48.4)
 
 ```
 
+```{r ej7-hint}
+
+fic=c(47.0, 47.7, 47.2, 51.0, 49.0, 52.1, 56.2, 47.0, 46.3, 46.7, 54.0, 47.1, 52.1, 57.2, 52.8, 42.0, 48.9, 47.5, 38.8, 46.9, 53.9, 49.1, 48.8, 50.9, 43.1, 50.3, 48.0, 48.4, 54.6, 56.3, 43.2, 41.0, 46.3, 50.6, 49.9, 53.3, 42.6, 47.9, 59.9, 44.6, 43.3, 54.5, 43.3, 55.7, 58.3, 45.8, 62.5, 46.2, 48.7, 57.0, 57.6, 52.1, 57.8, 49.0, 51.2, 42.6, 50.1, 56.3, 59.9, 48.3, 49.4, 56.2, 47.6, 55.0, 57.0, 54.7, 48.5, 56.5, 49.5, 53.8, 49.4, 46.9, 49.8, 43.8, 43.2, 45.0, 47.0, 53.5, 48.5, 44.9, 47.4, 51.9, 45.5, 49.9, 50.6, 55.9, 53.8, 50.7, 46.8, 58.0, 55.9, 55.9, 46.7, 48.2, 47.3, 53.3, 49.6, 53.0, 56.9, 50.4)
+
+fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 52.1, 49.8, 42.2, 64.4, 49.6, 53.9, 55.2, 58.1, 51.0, 49.8, 57.7, 65.1, 47.4, 38.4, 47.6, 48.8, 53.6, 54.5, 57.4, 60.9, 61.2, 55.0, 54.6, 56.4, 50.1, 59.3, 56.8, 48.6, 56.2, 56.4, 52.8, 44.6, 43.1, 53.4, 49.5, 57.9, 44.9, 55.1, 58.5, 47.0, 55.2, 50.4, 49.5, 49.1, 53.2, 48.0, 50.1, 46.5, 61.3, 68.0, 52.5, 52.0, 63.4, 50.1, 50.2, 44.9, 44.2, 54.0, 49.3, 50.8, 59.1, 57.3, 57.4, 57.2, 54.7, 52.8, 51.4, 45.3, 49.5, 52.3, 39.5, 46.5, 58.9, 63.1, 55.1, 48.5, 54.7, 56.6, 54.6, 47.0, 57.6, 43.3, 50.4, 50.9, 48.3, 57.2, 55.8, 48.4)
+
+# comparacion de varianzas
+var.test(fic, fcea)$conf.int
+# comparacion de medias, grupos independientes
+t.test(fic, fcea, var.equal=T)$conf.int
+
+```
 
 ### Ejercicio 8 
 
@@ -149,6 +212,17 @@ fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 5
 ```{r ej8, exercise=TRUE}
 pro.est= c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
 pro.nue = c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
+```
+
+
+```{r ej8-hint}
+pro.est= c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.nue = c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
+
+# comparacion de varianzas
+var.test(pro.est, pro.nue)$conf.int
+# comparacion de medias , grupos independientes
+t.test(pro.est, pro.nue, var.equal=T)$conf.int
 
 ```
 
@@ -163,6 +237,15 @@ pro.nue = c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 
 ```
 
+```{r ej9-hint}
+n1=400
+x1= 80
+n2=400
+x2=88
+# intervalo de confianza para la diferencia de proporciones
+prop.test(c(x1,x2), c(n1,n2))$conf.int
+
+```
 
 ### Ejercicio 10 
 
@@ -174,6 +257,13 @@ pro.nue = c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 ```{r ej10, exercise=TRUE}
 peso.ant=c(104.5, 89.3, 84.5, 106.8,  90.1,  96.5,  79.5,  90.4,  85.2,  76.5,  91.5,  82.5, 100.5,  89.5, 121.6,  72.0)
 peso.des=c(98.6,  85.5,  85.6, 103.0,  88.5,  95.6,  79.5,  90.3,  82.6,  76.0,  89.5,  81.5,  99.4,  86.5, 115.2,  70.1)
+```
+
+```{r ej10-hint}
+peso.ant=c(104.5, 89.3, 84.5, 106.8,  90.1,  96.5,  79.5,  90.4,  85.2,  76.5,  91.5,  82.5, 100.5,  89.5, 121.6,  72.0)
+peso.des=c(98.6,  85.5,  85.6, 103.0,  88.5,  95.6,  79.5,  90.3,  82.6,  76.0,  89.5,  81.5,  99.4,  86.5, 115.2,  70.1)
+# comparacion de medias, grupos pareados
+t.test(peso.ant, peso.des, paired=T)$conf.int
 ```
 
 ¿Los grupos se consideran pareados o independientes? Justifique
@@ -200,5 +290,22 @@ Tomado de Navidi(2006)
 x=c(7.69, 4.97, 4.56, 6.49, 4.34, 6.24, 4.45)
 ```
 
+```{r ej11-hint}
+# muestra de datos
+x=c(7.69, 4.97, 4.56, 6.49, 4.34, 6.24, 4.45)
+# tamo de muestras a generar
+n=1000
+# matriz de 1000 muestras de tamaño 7 con repeticion
+m11=sample(x, n*7, replace = TRUE)
+mx=matrix(m11, nrow=n)
 
+# estimacion de las 1000 medias
+medias=apply(mx,1,mean)
 
+# generacion IC metodo1
+quantile(medias, c(0.025, 0.975))
+
+# generacion IC metodo2
+2*mean(medias)-quantile(medias, c(0.975,0.025))
+quantile(medias, c(0.025, 0.975))
+```
