@@ -1,6 +1,6 @@
 ---
 title: "Intervalos de confianza 2"
-author: Daniel E. Gonzalez- [Web-U4.2](https://dgonxalex80.github.io/probabilidad20212.io/Guia402.html#Gu%C3%ADa_de_aprendizaje_42)
+author: Daniel E. Gonzalez- [Recursos 4.2](https://dgonxalex80.github.io/pye20222/recurso402.html)
 output: 
   learnr::tutorial:
     css: css/learnr_metadocencia.css
@@ -75,43 +75,22 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 *c Si se desea estimar la resistencia a la compresión con un error de muestreo menos de 15 psi y una confianza del 99%, ¿qué tamaño de muestra se requiere?.*
 
 
-```{r ej1, exercise=TRUE, exercise.lines = 8}
+```{r ej1, exercise=TRUE, exercise.lines = 10}
 
 ```
 
-
-```{r eje1-hint}
-# primero se debe determinar si se trata de una o dos poblaciones
-# segundo de que parámetro se trata 
-# tercero que supuestos se tienen
-
-# media +/- z_a/2 * s/sqrt(n)
-```
 
 ```{r ej1-hint}
- media.x=3250
- var.x=1000
- z2.90=qnorm(c(0.10/2,1-0.10/2))
- z2.95=qnorm(c(0.05/2,1-0.05/2))
- z2.99=qnorm(c(0.01/2,1-0.01/2))
+ media.x=3250  # media muestral
+ var.x=1000   # varianza poblacional - se conoce la varianza
+ z2.90=qnorm(c(0.10/2,1-0.10/2)) # percentiles P5 y P95
+ z2.95=qnorm(c(0.05/2,1-0.05/2)) # percentiles P2.5 y P97.5
+ z2.99=qnorm(c(0.01/2,1-0.01/2)) # percentiles P0.5 y P99.5
 cat("IC_mu(90%) : ", media.x + z2.90 * sqrt(var.x/12))
 cat("IC_mu(95%) : ", media.x + z2.95 * sqrt(var.x/12))
 cat("IC_mu(99%) : ", media.x + z2.99 * sqrt(var.x/12))
 ```
 
-
-
-
-```{r eje1-solution}
- media.x=3250
- var.x=1000
- z2.90=qnorm(c(0.10/2,1-0.10/2))
- z2.95=qnorm(c(0.05/2,1-0.05/2))
- z2.99=qnorm(c(0.01/2,1-0.01/2))
-cat("IC_mu(90%) : ", media.x + z2.90 * sqrt(var.x/12))
-cat("IC_mu(95%) : ", media.x + z2.95 * sqrt(var.x/12))
-cat("IC_mu(99%) : ", media.x + z2.99 * sqrt(var.x/12))
-```
 
 
 <br/><br/>
@@ -125,16 +104,17 @@ cat("IC_mu(99%) : ", media.x + z2.99 * sqrt(var.x/12))
 *b. Encuentre un intervalo de confianza del 99% sobre la media $\mu$. Interprete el resultado obtenido.*
 
 
-```{r ej2, exercise=TRUE, exercise.lines = 8}
+```{r ej2, exercise=TRUE, exercise.lines = 10}
 x2=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)
 ```
 
 
 ```{r ej2-hint}
-# cálculo paramétrico
+# cálculo paramétrico - suponiendo que la variable tiene distribucion normal
 x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
 t.test(x2,conf.level=0.99)$conf.int
-# cálculo no paramétrico
+
+# cálculo no paramétrico - ccuando no se conoce la distribucion de la variable
 boot=sample(x2,7000,replace=TRUE)
 b=matrix(boot,nrow=1000,ncol=7)
 mx=apply(b,1,mean)
@@ -142,17 +122,6 @@ ic2=quantile(mx, probs=c(0.005,0.995))
 ic2
 ```
 
-```{r eje2-solution}
-cat("cálculo paramétrico")
-x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
-cat("IC :",t.test(x2,conf.level=0.99)$conf.int9)
-cat("cálculo no paramétrico")
-boot=sample(x2,7000,replace=TRUE)
-b=matrix(boot,nrow=1000,ncol=7)
-mx=apply(b,1,mean)
-ic2=quantile(mx, probs=c(0.005,0.995))
-cat("IC :",ic2)
-```
 
 Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un doble enlace entre sus carbonos. Dentro de este grupo encontramos el ácido linolénico (omega 3 y el omega 6)
 
@@ -167,19 +136,15 @@ Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un dob
 ```
 
 ```{r ej3-hint}
-s3=0.37
-n3=51
+s3=0.37  # desviacion estandar muestral
+n3=51   # tamaño de muestra
+
+# percentiles chi-cuadrado  P97.5 y P2.5
 chi2=qchisq(c(0.975,0.025),(n3-1))
+
+# intervalo de confianza para la varianza
 ic3=(n3-1)*s3^2/chi2
 ic3
-```
-
-```{r eje3-solution}
-s3=0.37
-n3=51
-chi2=qchisq(c(0.975,0.025),(n3-1))
-ic3=(n3-1)*s3^2/chi2
-cat("IC :",ic3)
 ```
 
 <br/><br/>
@@ -194,17 +159,12 @@ cat("IC :",ic3)
 ```
 
 ```{r ej4-hint}
-n4=1000
-x4=823
-p4=x4/n4
-prop.test(x4,n4,0.95)$conf.int
-```
+n4=1000 # tamaño de muestra
+x4=823 # numero de muertes por cancer de pulmon
+p4=x4/n4  # proporcion muestral
 
-```{r eje4-solution}
-n4=1000
-x4=823
-p4=x4/n4
-cat("IC :", prop.test(x4,n4,0.95)$conf.int)
+# intervalo de confianza para la proporcion
+prop.test(x4,n4,0.95)$conf.int
 ```
 
 <br/><br/>
@@ -226,12 +186,10 @@ x5=c(1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.49
 ```
 
 ```{r ej5-hint}
+# intervalo de confianza para la media
 t.test(x5,coef.level=0.99)$conf.int
 ```
 
-```{r ej5-solution}
-cat("IC :",t.test(x5,coef.level=0.99)$conf.int)
-```
 
 <br/><br/>
 
@@ -246,11 +204,8 @@ x6=c(3.4, 2.5, 4.8, 2.9, 3.6, 2.8, 3.3, 5.6, 3.7, 2.8, 4.4, 4.0, 5.2, 3.0, 4.8)
 ```
 
 ```{r ej6-hint}
+# intervalo de confianza para la media
 t.test(x6,coef.level=0.95)$conf.int
-```
-
-```{r ej6-solution}
-cat("IC :",t.test(x6,coef.level=0.95)$conf.int)
 ```
 
 <br/><br/>
@@ -264,11 +219,8 @@ cat("IC :",t.test(x6,coef.level=0.95)$conf.int)
 ```
 
 ```{r ej7-hint}
+# calculo del tamaño de la muestra para la estimacion de una media
 paqueteDEG::sizemu(1.96,40^2,15 )
-```
-
-```{r ej7-solution}
-cat("n = ",paqueteDEG::sizemu(1.96,40^2,15 ))
 ```
 
 
@@ -294,12 +246,14 @@ pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 ```
 
 ```{r ej8-hint}
+pro.estandar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
+# intervalo de confianza para la comparacion de varianzas
+var.test(pro.estandar,pro.nuevo)
+# intervalo de confianza para la comparacion de medias, grupos independientes
 t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int
 ```
 
-```{r ej8-solution}
-cat("IC :",t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int)
-```
 
 
 <br/><br/>
@@ -317,11 +271,9 @@ cat("IC :",t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int)
 ```
 
 ```{r ej9-hint}
+# intervalo de confianza para una proporcion
 prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int
+# calculo del tamaño de muestra para la estimacion de una proporcion con varianza maxima (p=0.50)
 paqueteDEG::sizep(1.96,0.50,0.03)
 ```
 
-```{r ej9-solution}
-cat("a: ",prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int)
-cat("b: ",paqueteDEG::sizep(1.96,0.50,0.03))
-```
