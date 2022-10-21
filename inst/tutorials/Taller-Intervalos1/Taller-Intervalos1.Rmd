@@ -173,19 +173,22 @@ IC
 #  con varianza desconocida
 x6=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 163)
 # IC del 90
-t.test(x6, coef.level= 0.90)$conf.int
+t.test(x6, conf.level= 0.90)$conf.int
 # IC del 95
-t.test(x6, coef.level= 0.95)$conf.int
+t.test(x6, conf.level= 0.95)$conf.int
 # IC del 98
-t.test(x6, coef.level= 0.98)$conf.int
+t.test(x6, conf.level= 0.98)$conf.int
 # IC del 99
-t.test(x6, coef.level= 0.99)$conf.int
+t.test(x6, conf.level= 0.99)$conf.int
 
 ```
 
 ### Ejercicio 7 
 
 *Dos de las Facultades de la Universidad (FIC y FCEA) tienen procedimientos distintos para inscribir a sus estudiantes a primer semestre. El Vicerrector Académico desea comparar los tiempos promedios que les toma el trámite de inscripción. En cada Facultad se tomaron los tiempos de 100 neojaverianos seleccionados de manera aleatoria. Los datos se muestran a continuación :*
+
+*Qué podemos concluir a parrtir de los resultados obtenidos?*
+
 
 ```{r ej7, exercise=TRUE}
 fic=c(47.0, 47.7, 47.2, 51.0, 49.0, 52.1, 56.2, 47.0, 46.3, 46.7, 54.0, 47.1, 52.1, 57.2, 52.8, 42.0, 48.9, 47.5, 38.8, 46.9, 53.9, 49.1, 48.8, 50.9, 43.1, 50.3, 48.0, 48.4, 54.6, 56.3, 43.2, 41.0, 46.3, 50.6, 49.9, 53.3, 42.6, 47.9, 59.9, 44.6, 43.3, 54.5, 43.3, 55.7, 58.3, 45.8, 62.5, 46.2, 48.7, 57.0, 57.6, 52.1, 57.8, 49.0, 51.2, 42.6, 50.1, 56.3, 59.9, 48.3, 49.4, 56.2, 47.6, 55.0, 57.0, 54.7, 48.5, 56.5, 49.5, 53.8, 49.4, 46.9, 49.8, 43.8, 43.2, 45.0, 47.0, 53.5, 48.5, 44.9, 47.4, 51.9, 45.5, 49.9, 50.6, 55.9, 53.8, 50.7, 46.8, 58.0, 55.9, 55.9, 46.7, 48.2, 47.3, 53.3, 49.6, 53.0, 56.9, 50.4)
@@ -235,7 +238,7 @@ t.test(pro.est, pro.nue, var.equal=T)$conf.int
 
 ### Ejercicio 9 
 
-*En una muestra de 400 clientes, el 20% indica preferencia por tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizan da en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?*
+*En una muestra de 400 clientes, el 20% indica preferencia por un tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?*
 
 ```{r ej9, exercise=TRUE}
 
@@ -253,7 +256,7 @@ prop.test(c(x1,x2), c(n1,n2))$conf.int
 
 ### Ejercicio 10 
 
-*El propietario de un prestigioso gimnasio quiere determinar si un instructor de ejercicio debe ser contratado o no para su campaña estrella **Rebaje mas de 5 kg de peso en un solo mes**, Para tomar la decisión le dice a un de los candidatos que pruebe con 16 de las personas que habitualmente concurren al gimnasio, tomadas de manera aleatoria. De acuerdo con los datos recogidos ¿qué podría concluir? *
+*El propietario de un prestigioso gimnasio quiere determinar si un instructor de ejercicio debe ser contratado o no para su campaña estrella **Rebaje más de 5 kg de peso en un solo mes**, Para tomar la decisión le dice a un de los candidatos que pruebe con 16 de las personas que habitualmente concurren al gimnasio, tomadas de manera aleatoria. De acuerdo con los datos recogidos ¿qué podría concluir? *
 
 *Los datos que se tomaron antes y después de haber realizado un mes de ejercicios a cargo del candidato son los siguientes: *
 
