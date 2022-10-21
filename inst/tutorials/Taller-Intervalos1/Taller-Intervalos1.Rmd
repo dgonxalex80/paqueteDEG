@@ -20,8 +20,10 @@ knitr::opts_chunk$set(echo = FALSE,
 ## Presentación 
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("images/banner1.jpg")
+knitr::include_graphics("images/bosque2.png")
 ```
+Imagen : https://www.freepik.com/
+
 
 El presente Taller contiene problemas complementarios a los presentados en la guía 4.2. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
 
@@ -41,11 +43,13 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 |                  | `t.test(datos1 datos2, var.equal=T)$conf.int`           |
 |                  | `t.test(datos1 datos2, var.equal=F)$conf.int`           |
 |$p_{1} − p_{2}$   | `prop.test(c(x1,x2), c(n1,n2))$conf.int`                |
-|$\dfrac{\sigma^{2_{1}}}{\sigma^{2}_{2}}$|`var.test(datos1, datos2)$conf.int` |
+|$\sigma^{2_{1}} / \sigma^{2}_{2}$|`var.test(datos1, datos2)$conf.int`       |
+|                  |                                                         |
 |                  | `install.packages("devtools")`                          |
 |                  | `devtools::install_github("dgonzalez80/paquetepye")`    |
 |                  |  `library(paqueteDEG)`                                  |
-|                  | `paqueteDEG::sizemu(1.96,345,2)     # sizemu(z,sigma2,error)`|
+|                  |                                                         |
+| tamaño de muestra| `paqueteDEG::sizemu(1.96,345,2)     # sizemu(z,sigma2,error)`|
 |                  | `paqueteDEG::sizep(1.96,0.5,0.05)   # sizep(z,prob,error)`   |
 |                  | `paqueteDEG::adjusted_size(385,2000) # adjusted_size(n,N)`   |
 
