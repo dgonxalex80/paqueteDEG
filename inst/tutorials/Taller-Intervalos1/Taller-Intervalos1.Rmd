@@ -309,3 +309,23 @@ quantile(medias, c(0.025, 0.975))
 2*mean(medias)-quantile(medias, c(0.975,0.025))
 quantile(medias, c(0.025, 0.975))
 ```
+
+
+
+### Ejercicio 12
+
+*Una empresa requiere realizar un estudio para establecer la proporción de fallas en el seguimiento del servicio que presta la empresa . El auditor encargado del estudio decide que la tasa de error máximo tolerable debe ser del 5% y el nivel de confianza del 99%?. Con  esta información una firma de auditores externa presenta una propuesta a la empresa por valor de $ 11.2 millones para realizar el estudio y justifica su costo asi:*
+
+*Por costos administrativos y de logística corresponde un valor de \$5.4 millones y cada encuesta realizada tiene un valor de \$20 mil pesos. El Director de la empresa le encarga a usted revisar la información darle un concepto sobre la propuesta realizada por la firma de auditores a la mayor brevedad.*
+
+
+```{r ej12, exercise=TRUE}
+
+```
+
+
+```{r ej12-hint}
+z=qnorm(0.995)
+paqueteDEG::sizep(z,0.5,0.05)
+```
+
