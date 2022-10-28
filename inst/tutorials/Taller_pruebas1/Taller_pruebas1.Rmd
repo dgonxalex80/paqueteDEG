@@ -27,9 +27,11 @@ c5="#BC2B6A" # MORADO
 
 ## Presentación 
 
+
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("images/banner1.jpg")
+knitr::include_graphics("images/bannerPdeH1.png", error = FALSE)
 ```
+imagen : https://www.freepik.com/
 
 El presente Taller contiene problemas sobre **PRUEBAS DE HIPÓTESIS PARAMÉTRICAS**, complementarios a los presentados en la guía 4.3. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
 

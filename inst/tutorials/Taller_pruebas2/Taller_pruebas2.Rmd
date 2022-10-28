@@ -22,8 +22,10 @@ library(BSDA)
 ## Presentación 
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("images/banner1.jpg")
+knitr::include_graphics("images/bannerPdeH2.png", error = FALSE)
 ```
+imagen : https://www.freepik.com/
+
 
 El presente Taller contiene problemas sobre **PRUEBAS DE HIPÓTESIS NO PARAMÉTRICAS**, complementarios a los presentados en la guía 4.3. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
 
@@ -489,14 +491,15 @@ wilcox.test(grupo.tra,grupo.con, paired = FALSE)
 
 ### Problema 15
 
-# **Actividad M&M**
+**Actividad M&M**
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("images/mym.png", error = FALSE)
+```
+imagen : https://www.freepik.com/
 
 El sitio web de la compañía Mars publica los siguientes porcentajes de los distintos colores de sus dulces M&M para la variedad de chocolate candies de 49.3 g.
 
-
-```{r, echo=FALSE, out.width="40%", fig.align = "center"}
-knitr::include_graphics("img/peanutmm.jpg")
-```
 
 |café  | amarillo | rojo | azul | naranja | verde |
 |:----:|:--------:|:----:|:----:|:-------:|:------|
@@ -512,13 +515,13 @@ La siguiente información fue recogia en una bolas que contenia 54 dulces :
 se puede afirmar que los datos obtenidos respaldan la información suministrada por la compañia en su pagina?. Use una prueba de hipótesis apropiada. Adjunte el proceso realizado
 
 
-```{r p10, exercise=TRUE, exercise.lines=15}
+```{r p15, exercise=TRUE, exercise.lines=15}
 obs=c(6, 3, 10, 21, 7, 7)
 
 ```
 
 
-```{r p10-hint}
+```{r p15-hint}
 # Ho: X sigue distribución publicada en la página de la compañia
 # Ha: X NO sigue distribción publicada en la página de la compañia
 obs=c(6, 3, 10, 21, 7, 7)
