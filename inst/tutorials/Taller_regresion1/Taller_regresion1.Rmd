@@ -7,7 +7,7 @@ output:
     progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente     allow_skip: true # permite saltearse los ejercicios. 
     language:
       es: tutorial_es.json
-description: "Tutorial regresión lineal unidad 5.1" # Esta descripción se ve en el panel Tutorial de RStudio 
+description: "Tutorial interactivo pruebas de hipótesis unidad 4.3" # Esta descripción se ve en el panel Tutorial de RStudio 
 runtime: shiny_prerendered
 ---
 
@@ -15,15 +15,28 @@ runtime: shiny_prerendered
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE,
                  exercise.warn_invisible = FALSE)
+
 # install.packages("BSDA")
 library(BSDA)
+
+# colores
+c0="#0DA5A6" # VERDE CLARO
+c1="#E77C00" # NARANJA
+c2="#6666FF" # AZUL  
+c3="#4CBFBA" # VERDE CLARO  
+c4="#E09600" # AMARILLO  
+c5="#BC2B6A" # MORADO
+
 ```
 
 ## Presentación 
 
+
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
-knitr::include_graphics("images/banner1.jpg")
+knitr::include_graphics("images/banner501.png", error = FALSE)
 ```
+imagen : https://www.freepik.com/
+
 
 El presente Taller contiene problemas sobre **REGRESIÓN LINEAL**, complementarios a los presentados en la guía 5.1. En cada caso se presentan ayudas que permiten al estudiante avazar en su proceso de aprendizaje.
 
@@ -77,10 +90,9 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 
 
 
-
 ## Ejercicios propuestos
 
-## Problema 1
+### Problema 1
 
 Se requiere construir un modelo que permita estimar el valor del consumo alimentos apartir del valor de los ingresos de una familia.  Los siguiente datos corresponden al valor obtenido una muestra de 12 familias.
  
@@ -134,7 +146,7 @@ e. Valide los supuestos del modelo
 f. Verifique si otro modelo puede tener un mejor ajuste
 
 
-## Problema 2
+### Problema 2
 
 La buena previsión y el control de las actividades de preconstrucción conducen al uso más eficiente del tiempo y recursos en proyectos de construcción de autopistas. Los datos acerca de los costos de construcción (en miles de dólares) y las horas-persona de trabajo requeridas para varios proyectos se presentan en la tabla siguiente y fueron tomados del artículo “Forecasting Engineering Manpower Requirements for Highway Preconstruction Activities” (K. Persad, J. O’Connor, y K. Varghese, Journal of Management Engineering, 1995:41-47). Cada valor representa un promedio de algunos proyectos, y se han eliminado dos datos atípicos.(Problema tomados de Navidi(2006))
 
