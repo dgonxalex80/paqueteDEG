@@ -1,6 +1,6 @@
 ---
-title: "Regresión Lineal Simple"
-author: Daniel E. Gonzalez- [Web-U4.3]()
+title: "Regresión Lineal Simple 1"
+author: Daniel E. Gonzalez- [Web-U5.1]()
 output: 
   learnr::tutorial:
     css: css/learnr_metadocencia.css

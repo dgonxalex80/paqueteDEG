@@ -19,7 +19,7 @@ alojado en GitHub durante su etapa de elaboración.
 devtools::install_github("dgonxalex80/paqueteDEG")
 ```
 
-## Examplo
+## Exjemplo
 
 Con el siguiente comando carga las funciones del paquete:
 
