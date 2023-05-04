@@ -22,6 +22,6 @@ beer
 Esta data recoge algunas de las caracteristicas de la cerveza
 }
 \examples{
-beer
+data(beer)
 }
 \keyword{datasets}

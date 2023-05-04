@@ -23,6 +23,6 @@ ausentismo
 Esta data contiene caracteristicas de trabajadores que faltan a su trabajo
 }
 \examples{
-ausentismo
+data(ausentismo)
 }
 \keyword{datasets}

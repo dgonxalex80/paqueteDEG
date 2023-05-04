@@ -3,30 +3,29 @@
 \docType{data}
 \name{casas}
 \alias{casas}
-\title{Pricios y caracteristicas de viviendas.}
+\title{Caracteristicas de casas.}
 \format{
-Una data con 54 filas y 10 variables:
+Data con 54 registros y 10 variables
 \describe{
-\item{id}{consecutivo}
-\item{precio}{precio de la vivienda en miles de U$D}
-\item{imp.pred}{valor impuesto predial}
-\item{num.ban}{número de baños}
-\item{area.lot}{área del lote}
-\item{area.con}{área construida}
-\item{num.gar}{número de garajes}
-\item{num.cua}{número de cuartos}
-\item{num.hab}{número de habitaciones}
-\item{edad}{edad de la vivienda}
-...
+\item{id}{Identificador único de la casa.}
+\item{precio}{Precio en millones de pesos.}
+\item{imp.pred}{Impuesto predial anual en miles de pesos.}
+\item{num.ban}{Número de baños.}
+\item{area.lot}{Área total del lote en metros cuadrados.}
+\item{area.con}{Área construida en metros cuadrados.}
+\item{num.gar}{Número de parqueaderos.}
+\item{num.cua}{Número de ventanas.}
+\item{num.hab}{Número de habitaciones.}
+\item{edad}{Edad en años.}
 }
 }
 \usage{
-casas
+  casas
 }
 \description{
-Esta data contiene los precios y principales caraceristica de vienes inmuebles
+  Esta data extraida mediante web scraping contiene caracteristicas de casas.
 }
 \examples{
-casas
+  data(casas)
 }
 \keyword{datasets}
