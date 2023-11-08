@@ -174,7 +174,7 @@ plot(y~x, xlab = "ingresos", ylab = "consumo", pch=19)
 abline(modelo)
 Rho^2  # coeficiente de determinación
 # Validez del modelo -Analisis de la varianza -----
-anova(regresion)
+anova(modelo)
 # Verificacion de los supuestos sobre los errores del modelo
 # Residuos - realización de los errores
 u <- rstandard(modelo)
