@@ -1,0 +1,157 @@
+---
+title: "Introducción a la inferencia estadística"
+author: Daniel Enrique González Gómez - [Web-u4.2](https://dgonxalex80.github.io/probabilidad20212.io/Guia402.html)
+output: 
+  learnr::tutorial:
+    css: css/learnr_metadocencia.css
+    progressive: true # los encabezados de tercer nivel (###) son revelados progresivamente     allow_skip: true # permite saltearse los ejercicios. 
+    language:
+      es: tutorial_es.json
+description: "Tutorial interactivo con recursos para facilitar compartirlos y reusarlos" # Esta descripción se ve en el panel Tutorial de RStudio 
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE,
+                 exercise.warn_invisible = FALSE)
+```
+
+## Ejercicio 1 
+
+El tiempo en que un cajero de un banco con servicio en el automovil atiende a un cliente es una variable aleatoria con una media $\mu=3.2$ minutos y una desviación estandar de $\sigma=1.6$ minutos. Si se obtiene una muestra de $n=64$ clientes, encuentre la probabilidad de que el tiempo medio con el cajero sea:
+
+a) a lo más de 2.7 minutos
+b) más de 3.5 minutos
+c) al menos 3.2 minutos, pero menos de 3.4 minutos
+
+```{r ej1, exercise=TRUE}
+
+```
+
+## Ejercicio 2 
+
+Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ?Qué conclusión deberia tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estandar de $s=5$ horas?. Suponga que la duración de las baterías tiene una distribución normal.
+
+```{r ej2, exercise=TRUE}
+
+```
+
+
+
+## Ejercicio 3 
+
+Un fabricante de barras de cereal bajos en grasas afirma que su cantenido promedio de grasas saturadas es de 0.5 gramos. En una muestra aleatoria de 8 barras del cereal, el contenidio de grasas saturadas fue de : 0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 y 0.2 gramos. ¿Estaría de acuerdo con la afirmación realizada por el fabricante?. Suponga que el contenido de grasas saturadas en la barra es una variable aleatoria que se distribuye de manera normal.
+
+```{r ej3, exercise=TRUE}
+
+
+```
+
+## Ejercicio 4 
+
+La calificación de un examen de admisión a la universidad que se aplica a estudiantes durante los últimos cinco años está distribuido normal con media $\mu=74$ y varianza $\sigma^{2}=8$. En una muestra de $n=20$ estudiantes, se encontro un valor de $s^{2}=20$. Se considera que el valor de 8 para la varianza puede ser aceptado, si el valor de la variable $X^{2}=(n-1)S^{2} /8$, esta entre $\chi^{2}_{0.05;v=19}$ y $\chi^{2}_{0.95;v=19}$.?Que conclusión debe tomar?, en caso contrario se rechaza esta afirmación.
+
+```{r ej4, exercise=TRUE}
+
+
+```
+
+
+## Ejercicio 5 
+
+Una muestra de 100 propietarios de automóviles indica que en el departamento del Valle del Cauca se maneja en promedio 23500 km al año con una desviación estándar de 3900 km. Suponga que la distribución de las mediciones es aproximadamente normal. Construya un intervalo de confianza del 95% para el numero promedio de kilómetros que recorre un automóvil anualmente en el Valle del Cauca. Usted desea comprar un carro usado y su actual propietario y único dueño le informa que el carro en venta lo compro el 5 de Junio de 2008 y al inspeccionar velocímetro indica que ha recorrido 43265 kilómetros. A que conclusión podrá llegar al comparar los resultados obtenidos con los datos
+del vehículo?
+
+```{r ej5, exercise=TRUE}
+
+
+```
+
+
+## Ejercicio 6 
+
+La Cámara de Comercio de Cali está interesada en estimar la cantidad promedio de dinero que gasta la gente que asiste a convenciones, calculando comidas, alojamiento y entretenimiento por día. De las distintas convenciones que se han realizado en Cali durante el último mes fueron seleccionadas 16 personas a las que se les pregunto la cantidad de dinero que habían gastado por día. El resultado en dólares fueron los siguientes: 150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155 y 163. Si se supone que la cantidad de dinero gastada en un día es una variable aleatoria con distribución aproximadamente normal. Obtenga los intervalos de confianza estimados del 90%, 95% 98% y 99% para la cantidad promedio real. Analice los resultados y a partir de ellos concluya sobre el efecto que genera un aumento en el nivel de confianza.
+
+
+```{r ej6, exercise=TRUE}
+
+
+```
+
+## Ejercicio 7 
+
+Dos de las Facultades de la Universidad (FIC y FCEA) tienen procedimientos distintos para inscribir a sus estudiantes a primer semestre. El Vicerrector Académico desea comparar los tiempos promedios que les toma el trámite de inscripción. En cada Facultad se tomaron los tiempos de 100 neojaverianos seleccionados de manera aleatoria. Los datos se muestran a continuación :
+
+```{r ej7, exercise=TRUE}
+fic=c(47.0, 47.7, 47.2, 51.0, 49.0, 52.1, 56.2, 47.0, 46.3, 46.7, 54.0, 47.1, 52.1, 57.2, 52.8, 42.0, 48.9, 47.5, 38.8, 46.9, 53.9, 49.1, 48.8, 50.9, 43.1, 50.3, 48.0, 48.4, 54.6, 56.3, 43.2, 41.0, 46.3, 50.6, 49.9, 53.3, 42.6, 47.9, 59.9, 44.6, 43.3, 54.5, 43.3, 55.7, 58.3, 45.8, 62.5, 46.2, 48.7, 57.0, 57.6, 52.1, 57.8, 49.0, 51.2, 42.6, 50.1, 56.3, 59.9, 48.3, 49.4, 56.2, 47.6, 55.0, 57.0, 54.7, 48.5, 56.5, 49.5, 53.8, 49.4, 46.9, 49.8, 43.8, 43.2, 45.0, 47.0, 53.5, 48.5, 44.9, 47.4, 51.9, 45.5, 49.9, 50.6, 55.9, 53.8, 50.7, 46.8, 58.0, 55.9, 55.9,
+46.7, 48.2, 47.3, 53.3, 49.6, 53.0, 56.9, 50.4)
+
+fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 52.1, 49.8, 42.2, 64.4, 49.6, 53.9, 55.2, 58.1, 51.0, 49.8, 57.7, 65.1, 47.4, 38.4, 47.6, 48.8, 53.6, 54.5, 57.4, 60.9, 61.2, 55.0, 54.6, 56.4, 50.1, 59.3, 56.8, 48.6, 56.2, 56.4, 52.8, 44.6, 43.1, 53.4, 49.5, 57.9, 44.9, 55.1, 58.5, 47.0, 55.2, 50.4, 49.5, 49.1, 53.2, 48.0, 50.1, 46.5, 61.3, 68.0, 52.5, 52.0, 63.4, 50.1, 50.2, 44.9, 44.2, 54.0, 49.3, 50.8, 59.1, 57.3, 57.4, 57.2, 54.7, 52.8, 51.4, 45.3, 49.5, 52.3, 39.5, 46.5, 58.9, 63.1, 55.1, 48.5, 54.7, 56.6, 54.6, 47.0,
+57.6, 43.3, 50.4, 50.9, 48.3, 57.2, 55.8, 48.4)
+
+
+```
+
+
+## Ejercicio 8 
+
+En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla nuestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado.
+
+Si se supone que el muestreo se llevo a cabo sobre dos poblaciones con distribuciones normales e independientes. Obtenga los intervalos de confianza del 90%, 95% y 99% para la diferencia de medias. Con base en los resultados podría concluir que existe una diferencia real entre los promedios de las tensiones de ruptura de los dos materiales?.
+
+```{r ej8, exercise=TRUE}
+pro.est= c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.nue = c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
+
+```
+
+En este caso se trata de :¿ Una o dos poblaciones? 
+¿Qué supuestos se deben verificar?
+
+## Ejercicio 9 
+
+En una muestra de 400 clientes, el 20% indica preferencia por tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizan da en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?
+
+```{r ej9, exercise=TRUE}
+
+```
+
+
+## Ejercicio 10 
+
+El propietario de un prestigioso gimnasio quiere determinar si un instructor de ejercicio debe ser contratado o no para su campaña estrella **Rebaje mas de 5 kg de peso en un solo mes**, Para tomar la decisión le dice a un de los candidatos que pruebe con 16 de las personas que habitualmente concurren al gimnasio, tomadas de manera aleatoria. De acuerdo con los datos recogidos ¿qué podría concluir? 
+
+Los datos que se tomaron antes y después de haber realizado un mes de ejercicios a cargo del candidato son los siguientes: 
+
+
+```{r ej10, exercise=TRUE}
+peso.ant=c(104.5, 89.3, 84.5, 106.8,  90.1,  96.5,  79.5,  90.4,  85.2,  76.5,  91.5,  82.5, 100.5,  89.5, 121.6,  72.0)
+peso.des=c(98.6,  85.5,  85.6, 103.0,  88.5,  95.6,  79.5,  90.3,  82.6,  76.0,  89.5,  81.5,  99.4,  86.5, 115.2,  70.1)
+```
+
+¿Los grupos se consideran pareados o independientes? Justifique
+
+
+## Ejercicio 11
+
+Cuando se extrae una muestra de una población que no es normal y se requiere estimar un intervalo de confianza se pueden utilizar los métodos de estimación **bootstrap**. Existen varias versiones del método. Una presentación básica del método se describe a continuación:
+
+El artículo de In-use Emissions from Heavy Duty Dissel Vehicles (J.Yanowitz, 2001) presenta las mediciones de eficiencia de combustible en millas/galón de una muestra de siete camiones. Los datos obtenidos son los siguientes: 7.69, 4.97, 4.56, 6.49, 4.34, 6.24 y 4.45. Se supone que es una muestra aleatoria de camiones y que se desea construir un intervalo de confianza del 95 % para la media  de la eficiencia de combustible de esta población. No se tiene información de la distribución de los datos. El método bootstrap permite construir intervalos de confianza del 95 % - Para ilustrar el método suponga que coloca los valores de la muestra en una caja y extrae uno al azar. Este correspondería al primer valor de la muestra bootstrap $X^{∗}_{1}$. Después de anotado el valor se regresa $X^{∗}_{1}$  a la caja y se extrae el valor $X^{∗}_{2}$ , regresandolo nuevamente. Este procedimiento se repite hasta completar una muestra de tamaño $n$, $X^{∗}_{1}$,$X^{∗}_{2}$,$X^{∗}_{2}$,\cdot $X^{∗}_{n}$, conformando la muestra bootstrap.
+
+Es necesario extraer un gran número de muestras (suponga k = 1000). Para cada una de las muestra bootstrap obtenidas se calcula la media $\bar{X^{∗}_{i}}$, obteniéndose un valor para cada muestra. El intervalo de confianza queda conformado por los percentiles $P_{2.5}$ y $P_{97.5}$. Existen dos métodos para estimarlo:
+
+|        |                                              |
+|:-------|:--------------------------------------------:|
+|Método 1| $(P_{2.5}; P_{97.5})$                        |
+|Método 2| $(2\bar{X} − P_{97.5}; 2\bar{X} − P_{2.5})$  |
+
+Construya el intervalo de confianza por los dos métodos y compare los resultados obtenidos.
+Tomado de Navidi(2006)
+
+```{r ej11, exercise=TRUE}
+x=c(7.69, 4.97, 4.56, 6.49, 4.34, 6.24, 4.45)
+```
+
+
+

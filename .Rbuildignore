@@ -1,2 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^data-raw$
+^\.git$
+^\.gitignore$
+^\.Rhistory$
+^\.Rcheck$
+^\.\.Rcheck$
+^.*\.Rcheck$
+^paqueteDEG_.*\.tar\.gz$

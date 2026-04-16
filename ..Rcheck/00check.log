@@ -1,0 +1,288 @@
+* using log directory ‘/home/deg/Documentos/JAVERIANA/repository/paqueteDEG/..Rcheck’
+* using R version 4.5.3 (2026-03-11)
+* using platform: x86_64-pc-linux-gnu
+* R was compiled by
+    gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+    GNU Fortran (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+* running under: Ubuntu 24.04.4 LTS
+* using session charset: UTF-8
+* using option ‘--no-manual’
+* checking for file ‘./DESCRIPTION’ ... OK
+* this is package ‘paqueteDEG’ version ‘0.0.0.1’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... NOTE
+Subdirectory ‘paqueteDEG.Rcheck/paqueteDEG’ seems to contain an installed version of the package.
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .gitignore
+  .Rhistory
+  data-raw/.R
+  inst/tutorials/Taller_pruebas1/.gitignore
+  inst/tutorials/Taller_pruebas2/.gitignore
+  inst/tutorials/Taller-VAContinua/.gitignore
+  inst/tutorials/Taller-VADiscreta/.gitignore
+  inst/tutorials/Taller-variable1/.gitignore
+  inst/tutorials/Taller-variable2/.gitignore
+  inst/tutorials/Taller-variable3/.gitignore
+  ..Rcheck
+  .git
+  .Rproj.user
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... NOTE
+Found the following non-portable file paths:
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-5-1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-5-2.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-6-1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-6-2.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/bannerPdeH1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas1/Taller_pruebas1.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/bannerPdeH2.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/peanutmm.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_pruebas2/Taller_pruebas2.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/banner1.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/banner4.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/banner501.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/content.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/Taller_regresion1.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion1/Taller_regresion1.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/banner1.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/banner4.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/banner5012.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/content.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/Taller_regresion2.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller_regresion2/Taller_regresion2.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-bases/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-bases/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-bases/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/img/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/Taller-indicadores.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/Taller-indicadores.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-indicadores/tutorial_es.json
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/banner1.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/banner4.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/bosque1.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/bosque2.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/img/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/Taller-Intervalos1.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos1/Taller-Intervalos1.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/banner1.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/banner4.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/content.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/pajaros1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/img/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/Taller-Intervalos2.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/Taller-Intervalos2.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-Intervalos2/tutorial_es.json
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/img/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/Taller-metodologia.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/Taller-metodologia.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-metodologia/tutorial_es.json
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/img/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/Taller-productoria.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/Taller-productoria.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-productoria/tutorial_es.json
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner2.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner3.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner4.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/banner5.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/bannerG.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/licencia.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/resumen1.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/Taller-sumatoria.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-sumatoria/Taller-sumatoria.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VAContinua/Taller-VAContinua.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-VADiscreta/Taller-VADiscreta.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable1/Taller-variable1.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable2/Taller-variable2.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable3/Taller-variable3.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/img/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/img/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/img/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/img/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/Taller-variable4.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Taller-variable4/Taller-variable4.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/css/learnr_metadocencia.css
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/images/CC_BY-SA_4.0.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/images/gentecompu.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/images/mapa_conceptual.png
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/images/tutorial_encabezado.jpg
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/Tutorial_prueba.html
+  paqueteDEG/paqueteDEG.Rcheck/00_pkg_src/paqueteDEG/inst/tutorials/Tutorial_prueba/Tutorial_prueba.Rmd
+  paqueteDEG/paqueteDEG.Rcheck/paqueteDEG/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-5-1.png
+  paqueteDEG/paqueteDEG.Rcheck/paqueteDEG/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-5-2.png
+  paqueteDEG/paqueteDEG.Rcheck/paqueteDEG/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-6-1.png
+  paqueteDEG/paqueteDEG.Rcheck/paqueteDEG/tutorials/Modelos/Modelos_files/figure-html/unnamed-chunk-6-2.png
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘paqueteDEG’ can be installed ... OK
+* checking installed package size ... INFO
+  installed size is 94.0Mb
+  sub-directories of 1Mb or more:
+    tutorials  93.3Mb
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directories with names of check directories:
+  ./..Rcheck
+  ./paqueteDEG.Rcheck
+Most likely, these were included erroneously.
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking LazyData ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking examples ... OK
+* DONE
+Status: 1 WARNING, 4 NOTEs
