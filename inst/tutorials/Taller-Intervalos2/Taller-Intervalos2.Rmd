@@ -70,11 +70,11 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 
 ### Ejercicio 1 
 
-*Santiago está analizando la resistencia a la compresión de piezas que son utilizadas en la fabricación motores para vehículos. La resistencia a la compresión se distribuye normalmente con $\sigma^{2}=1000$ (psi)$^{2}$. Una muestra aleatoria de 12 piezas presenta una media en la resistencia de compresión $\bar{x}=3250$ psi. Santiago desea realizar las siguientes estimaciones:* 
+*Santiago está analizando la resistencia a la compresión de piezas que son utilizadas en la fabricación de motores para vehículos. La resistencia a la compresión se distribuye normalmente con $\sigma^{2}=1000$ (psi)$^{2}$. Una muestra aleatoria de 12 piezas presenta una media en la resistencia de compresión $\bar{x}=3250$ psi. Santiago desea realizar las siguientes estimaciones:* 
 
 *a. un intervalo de confianza del 95% de la media de la resistencia a la compresión.*
-*b. un intervalo de confianza del 90% y otro del 99% para la media resistencia a la compresión. Comparelos con el ancho obtenido en (a). Generalice.*
-*c Si se desea estimar la resistencia a la compresión con un error de muestreo menos de 15 psi y una confianza del 99%, ¿qué tamaño de muestra se requiere?.*
+*b. un intervalo de confianza del 90% y otro del 99% para la media resistencia a la compresión. Compárelos con el ancho obtenido en (a). Generalice.*
+*c Si se desea estimar la resistencia a la compresión con un error de muestreo menos de 15 psi y una confianza del 99%, ¿qué tamaño de muestra se requiere*
 
 
 ```{r ej1, exercise=TRUE, exercise.lines = 10}
@@ -112,11 +112,11 @@ x2=c(16.8 , 17.2 , 17.4 , 16.9 ,  16.5 ,  17.1)
 
 
 ```{r ej2-hint}
-# cálculo paramétrico - suponiendo que la variable tiene distribucion normal
+# cálculo paramétrico - suponiendo que la variable tiene distribución normal
 x2=c(16.8, 17.2, 17.4, 16.9, 16.5, 17.1)
 t.test(x2,conf.level=0.99)$conf.int
 
-# cálculo no paramétrico - ccuando no se conoce la distribucion de la variable
+# cálculo no paramétrico - cuando no se conoce la distribución de la variable
 boot=sample(x2,7000,replace=TRUE)
 b=matrix(boot,nrow=1000,ncol=7)
 mx=apply(b,1,mean)
@@ -131,14 +131,14 @@ Nota: ácido graso poliinsaturado : son ácidos grasos que poseen más de un dob
 
 ### Ejercicio 3
 
-*El porcentaje de titanio contenida en una aleación utilizada en articulos para escalar fue medido en 51 partes seleccionadas de manera aleatoria. La desviación estándar de la muestra es  $s= 0,37$. Construir intervalo de confianza del 95% para $\sigma$. ¿Que ocurre en el intervalo de confianza, si se aumenta el tamaño de la muestra y el resto de información permanece igual?*
+*El porcentaje de titanio contenido en una aleación utilizada en artículos para escalar fue medido en 51 partes seleccionadas de manera aleatoria. La desviación estándar de la muestra es $s=0,37$. Construya un intervalo de confianza del 95% para $\sigma$. ¿Qué ocurre con el intervalo de confianza si se aumenta el tamaño de la muestra y el resto de la información permanece igual?*
 
 ```{r ej3, exercise=TRUE, exercise.lines = 8}
 
 ```
 
 ```{r ej3-hint}
-s3=0.37  # desviacion estandar muestral
+s3=0.37  # desviación estándar muestral
 n3=51   # tamaño de muestra
 
 # percentiles chi-cuadrado  P97.5 y P2.5
@@ -153,7 +153,7 @@ ic3
 
 ### Ejercicio 4
 
-*De 1000 casos seleccionados al azar de cáncer de pulmón, 823 resultaron en la muerte dentro de los 10 años despues de su detección. Construya un intervalo de confianza para la tasa de mortalidad por cáncer de pulmón del 95%, de acuerdo con los datos suministrados. Interprete los resulados obtenidos.*
+*De 1000 casos seleccionados al azar de cáncer de pulmón, 823 resultaron en la muerte dentro de los 10 años después de su detección. Construya un intervalo de confianza para la tasa de mortalidad por cáncer de pulmón del 95%, de acuerdo con los datos suministrados. Interprete los resultados obtenidos.*
 
 
 ```{r ej4, exercise=TRUE, exercise.lines = 8}
@@ -163,9 +163,9 @@ ic3
 ```{r ej4-hint}
 n4=1000 # tamaño de muestra
 x4=823 # numero de muertes por cancer de pulmon
-p4=x4/n4  # proporcion muestral
+p4=x4/n4  # proporción muestral
 
-# intervalo de confianza para la proporcion
+# intervalo de confianza para la proporción
 prop.test(x4,n4,0.95)$conf.int
 ```
 
@@ -173,7 +173,7 @@ prop.test(x4,n4,0.95)$conf.int
 
 ### Ejercicio 5.
 
-La siguente muestra recogen el contenido de alquitrán en 30 unidades de tabaco habano: 
+La siguiente muestra recogen el contenido de alquitrán en 30 unidades de tabaco habano: 
 
 1.542,  1.622,  1.440,  1.459,  1.598,  1.585,  1.466,  1.608, 1.533,  1.498,  1.532,  1.546,  1.520,  1.532,  1.600,  1.466, 1.494,  1.478,  1.523,  1.504,  1.499,  1.548,  1.542,  1.397,  1.545,  1.611,  1.626,  1.511,  1.487,  1.558
 
@@ -214,14 +214,14 @@ t.test(x6,coef.level=0.95)$conf.int
 
 ### Ejercicio 7
 
-*El Director de una fabrica de muebles desea estimar el tiempo promedio que toma perforar tres agujeros en una placa metálica que se utiliza en la construcción de bases para mesas metálicas. Cual debe ser el tamaño de la muestra para obtener un intervalo de confianza del 95% para que la media muestral este dentro de 15 segundos de la media real. Suponga que por estudios previos se sabe que $\sigma$ = 40.*
+*El Director de una fábrica de muebles desea estimar el tiempo promedio que toma perforar tres agujeros en una placa metálica que se utiliza en la construcción de bases para mesas metálicas. Cuál debe ser el tamaño de la muestra para obtener un intervalo de confianza del 95% para que la media muestral esté dentro de 15 segundos de la media real. Suponga que por estudios previos se sabe que $\sigma$ = 40.*
 
 ```{r ej7, exercise=TRUE, exercise.lines = 8}
 
 ```
 
 ```{r ej7-hint}
-# calculo del tamaño de la muestra para la estimacion de una media
+# cálculo del tamaño de la muestra para la estimación de una media
 paqueteDEG::sizemu(1.96,40^2,15 )
 ```
 
@@ -231,29 +231,29 @@ paqueteDEG::sizemu(1.96,40^2,15 )
 
 ### Ejercicio 8
 
-*En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla nuestra las tenciones de ruptura de las piezas en kilogramos por centímetro cuadrado: *
+*En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla muestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado: *
 
 |proceso   |     |    |    |    |    |    |    |     |     |     |    |    |
 |:--------:|----:|---:|---:|---:|---:|---:|---:|----:|----:|----:|---:|---:|
-|estandar  |428  | 419| 458| 439| 441| 456| 463|  429|  438|  445| 441| 463|
+|estándar  |428  | 419| 458| 439| 441| 456| 463|  429|  438|  445| 441| 463|
 |nuevo     |462  | 448| 435| 465| 429| 472| 453|  459|  427|  468| 452| 447|
 
-*Si se supone que el muestreo se llevo a cabo sobre dos distribuciones normales e independientes con varianzas iguales, obtenga los intervalos de confianza del noventa y cinco por ciento  para la diferencia de medias. Con base en los resultados podrá concluirse que existe una diferencia real entre $\mu_{1}$ y $\mu_{2}$?.En caso de serlo cuál proceso convendría?.*
+*Si se supone que el muestreo se llevó a cabo sobre dos distribuciones normales e independientes con varianzas iguales, obtenga los intervalos de confianza del noventa y cinco por ciento  para la diferencia de medias. Con base en los resultados podrá concluirse que existe una diferencia real entre $\mu_{1}$ y $\mu_{2}$En caso de serlo cuál proceso convendría*
 
 ```{r ej8, exercise=TRUE, exercise.lines = 8}
-pro.estandar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.estándar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
 pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 
 
 ```
 
 ```{r ej8-hint}
-pro.estandar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
+pro.estándar<-c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
 pro.nuevo<-c(462, 448, 435, 465, 429, 472, 453, 459, 427, 468, 452, 447)
 # intervalo de confianza para la comparacion de varianzas
-var.test(pro.estandar,pro.nuevo)
+var.test(pro.estándar,pro.nuevo)
 # intervalo de confianza para la comparacion de medias, grupos independientes
-t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int
+t.test(pro.estándar,pro.nuevo,var.equal=T)$conf.int
 ```
 
 
@@ -266,16 +266,15 @@ t.test(pro.estandar,pro.nuevo,var.equal=T)$conf.int
 
 *a. Determine un intervalo de confianza del 95% para la proporción de  estaciones de gasolina, con por lo menos un tanque subterráneo con fuga.*
 
-*b. ¿Cuántas estaciones se deben muestrear para que un intervalo de confianza del 95% especifique la proporción dentro de $\pm 0.03$? . En caso de carecer de información como se podría calcular el tamaño de muestra correspondiente?. ¿Es necesario realizar ajuste por tratarse de población finita?*
+*b. ¿Cuántas estaciones se deben muestrear para que un intervalo de confianza del 95% especifique la proporción dentro de $\pm 0.03$? . En caso de carecer de información como se podría calcular el tamaño de muestra correspondiente ¿Es necesario realizar ajuste por tratarse de población finita?*
 
 ```{r ej9, exercise=TRUE, exercise.lines = 8}
 
 ```
 
 ```{r ej9-hint}
-# intervalo de confianza para una proporcion
+# intervalo de confianza para una proporción
 prop.test(x=13,n=87,p=NULL,conf.level=0.95)$conf.int
-# calculo del tamaño de muestra para la estimacion de una proporcion con varianza maxima (p=0.50)
+# cálculo del tamaño de muestra para la estimación de una proporción con varianza máxima (p=0.50)
 paqueteDEG::sizep(1.96,0.50,0.03)
 ```
-

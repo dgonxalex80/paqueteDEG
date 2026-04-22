@@ -7,15 +7,15 @@
 intervalo.var(x, niv.conf = 0.95)
 }
 \arguments{
-\item{x}{vector con variable numérica}
+\item{x}{vector con variable numerica}
 
-\item{niv.conf}{nivel de confianza . p.ej:95}
+\item{niv.conf}{nivel de confianza (por ejemplo, 0.95)}
 }
 \value{
-ic.var intervalo de confiaza para una varianza
+Vector con los limites inferior y superior del intervalo de confianza.
 }
 \description{
-Función que calcula Calcula intervalo de confianza para una varianza :
+Funcion que calcula un intervalo de confianza para una varianza.
 }
 \examples{
 intervalo.var(c(3,4,3,2,3,4,5),0.95)

@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ## Tema 1
 
-### Ejercicios de analisis de datos
+### Ejercicios de análisis de datos
 
 ```{r ej1, exercise=TRUE, exercise.lines = 15}
 

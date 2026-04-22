@@ -11,8 +11,11 @@ ic.var(x, conf.level)
 
 \item{conf.level}{Nivel de confianza (por ejemplo, 0.95 para un 95\% de confianza).}
 }
+\value{
+Vector con los limites inferior y superior del intervalo de confianza.
+}
 \description{
-Función que calcula un intervalo de confianza para una varianza.
+Funcion que calcula un intervalo de confianza para una varianza.
 }
 \examples{
 ic.var(c(12, 15, 18, 21, 24, 27, 30), 0.95)

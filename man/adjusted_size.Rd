@@ -2,20 +2,20 @@
 % Please edit documentation in R/adjusted_size.R
 \name{adjusted_size}
 \alias{adjusted_size}
-\title{Corrección del tamaño de la muestra por el factor de población finita}
+\title{Correccion del tamano de la muestra por el factor de poblacion finita}
 \usage{
 adjusted_size(samp_size, pob_size)
 }
 \arguments{
-\item{samp_size}{valor del tamaño de la muestra inicial}
+\item{samp_size}{valor del tamano de la muestra inicial}
 
-\item{pob_size}{valor del tamaño de la población}
+\item{pob_size}{valor del tamano de la poblacion}
 }
 \value{
-n0 tamaño de muestra ajustado
+n0 tamano de muestra ajustado
 }
 \description{
-Función que corrige el tamaño de la muestra cuando n/N>0.05
+Funcion que corrige el tamano de la muestra cuando n/N>0.05
 }
 \examples{
  adjusted_size(385,500)

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE,
 knitr::include_graphics("images/banner1.jpg")
 ```
 
-Este taller contiene ejercicios y problemas relacionados con los modelos de probabilidad para variables continuas. La siguente tabla contiene las funciones en R relacionadas con estos modelos:
+Este taller contiene ejercicios y problemas relacionados con los modelos de probabilidad para variables continuas. La siguiente tabla contiene las funciones en R relacionadas con estos modelos:
 
 |*modelo*            |  $F(x)$  |  $X_{p}$ |  $f(x)$  | aleatorio   |
 |--------------------|----------|----------|----------|-------------|
@@ -221,7 +221,7 @@ d.  Realice la gráfica de $f_{_{X}}(x)$
 
 ### Ejercicio 6
 
-Sea $X$  una variable aleatoria continua con funcion de distribucion lognormal con parametros $\mu=10$ y $\sigma^2=16$. Determine.
+Sea $X$  una variable aleatoria continua con función de distribución lognormal con parametros $\mu=10$ y $\sigma^2=16$. Determine.
 
 
 a. $P(X<10000)$
@@ -253,7 +253,7 @@ d. Regalice una gráfica de $f(x)$
 
 ### Ejercicio 7
 
-Sea $X$  una variable aleatoria continua con funcion de distribucion gamma parametros $a=3$ y $b=1$. Determine.
+Sea $X$  una variable aleatoria continua con función de distribución gamma parametros $a=3$ y $b=1$. Determine.
 
 a.  $P(X<5)$
 
@@ -317,7 +317,7 @@ e. Realice la gráfica de la función de  densidad de probabilidad de $X$
 
 ### Ejercicio 9
  
- Suponga que X tiene una distribucion beta con con parametros a=4, b=2.
+ Suponga que X tiene una distribución beta con con parametros a=4, b=2.
 
 a. $P(X<0.40)$
 
@@ -388,7 +388,7 @@ e. Realice la gráfica de la función de  densidad de probabilidad de $X$
 
 ### Ejercicio 11
 
-Suponga que $X$ tiene una distribucion de Caucy con parametros $\mu=0.75$ y $\theta =5$, determine:
+Suponga que $X$ tiene una distribución de Caucy con parametros $\mu=0.75$ y $\theta =5$, determine:
 
 a. $P(X > 7.2)$
 
@@ -538,7 +538,7 @@ d. Determine el percentil 95° de los tiempos de vida
 
 ### Ejercicio 16
 		
-Un indicador importante para el control del estado físico de una persona es el Indice de Masa Corporal (IMC).  Este indice se obtiene al dividir el valor de la masa  corporal de  una persona ($kg$) entre el cuadrado de la talla de la persona ($m^{2}$). En su artículo W.Bolch y E Farfan establecen que este indice (en $kg/m^{2}$)se distribuye  aproximadamente lognormal con media $\mu=3.215$ y $\sigma = 0.157$ para hombre con edad entre 17 y 25 años. La organización mundial de la salud ha establecido rangos para este indice y los ha clasificado de acuerdo al riesgo así: De 25.0 a 29.9,  sobrepeso o no obeso ; Entre 30 a 34.9 : Obesidad clase 1 o de bajo riesgo. Más de 40: Obesidad clase 3 o de alto riesgo.  Con el fin de establecer una campaña sobre buenos hábitos en el deporte y la dieta el Centro de Bienestar Universitario desea conocer las proporciones de una población de jóvenes con estas edades, en cada uno de los rangos establecidos. 
+Un indicador importante para el control del estado físico de una persona es el Índice de Masa Corporal (IMC). Este índice se obtiene al dividir el valor de la masa corporal de una persona ($kg$) entre el cuadrado de la talla de la persona ($m^{2}$). En su artículo, W. Bolch y E. Farfán establecen que este índice (en $kg/m^{2}$) se distribuye aproximadamente lognormal con media $\mu=3.215$ y $\sigma = 0.157$ para hombres con edades entre 17 y 25 años. La Organización Mundial de la Salud ha establecido rangos para este índice y los ha clasificado de acuerdo con el riesgo así: de 25.0 a 29.9, sobrepeso o no obeso; entre 30 y 34.9, obesidad clase 1 o de bajo riesgo; más de 40, obesidad clase 3 o de alto riesgo. Con el fin de establecer una campaña sobre buenos hábitos en el deporte y la dieta, el Centro de Bienestar Universitario desea conocer las proporciones de una población de jóvenes con estas edades en cada uno de los rangos establecidos.
 
 ```{r 16a, exercise=TRUE}
 
@@ -546,7 +546,7 @@ Un indicador importante para el control del estado físico de una persona es el 
  
 ### Ejercicio 17
 
-Un fabricante manifiesta que su producto principal (un ventilador para el  hogar ) dura más de 9000 horas.de uso. Que si algún cliente presenta una avería en su producto antes de este tiempo,el garantiza la entrega de otro de similares condiciones como parte de su estrategia de venta. Uno de  sus asesores le indica que no es adecuado realizar esta promoción y que será muy costosa realizarla. Con  el fin de validad quien tiene la razón, le entregan a Usted la siguiente información:  La variable  tiempo de vida de un ventilador de similares condiciones se puede modelar mediante una distribución Weibull con parámetros : $\alpha=1.5$ y $\beta=0.0001$ . ¿quien tiene la razón?
+Un fabricante manifiesta que su producto principal (un ventilador para el hogar) dura más de 9000 horas de uso. Si algún cliente presenta una avería en su producto antes de este tiempo, él garantiza la entrega de otro de similares condiciones como parte de su estrategia de venta. Uno de sus asesores le indica que no es adecuado realizar esta promoción y que será muy costosa. Con el fin de validar quién tiene la razón, le entregan a usted la siguiente información: la variable tiempo de vida de un ventilador de similares condiciones se puede modelar mediante una distribución Weibull con parámetros $\alpha=1.5$ y $\beta=0.0001$. ¿Quién tiene la razón?
 
 
 ```{r 17a, exercise=TRUE}

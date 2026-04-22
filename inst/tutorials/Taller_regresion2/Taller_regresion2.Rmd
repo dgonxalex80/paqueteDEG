@@ -46,7 +46,7 @@ Donde:
 + $y_{i}$ : variable dependiente, variable que interesa ser estimada por el modelo
 + $\beta_{_{0}}$ : coeficiente constante a estimar. Intercepto que explica la parte de $y$ que no depende del modelo
 + $\beta_{_{1}}$ : coeficiente constante a estimar. Pendiente que explica el incremento (decreciemiento) de $y$ causado por un aumento de una unidad en $x$
-+ $u_{i}$ : los errores corresponden a las variaciones en $y$ generadas por todas aquellas variables que no estan en el modelo y que se suponen no importantes 
++ $u_{i}$ : los errores corresponden a las variaciones en $y$ generadas por todas aquellas variables que no están en el modelo y que se suponen no importantes 
 
 
 La siguiente tabla contiene ayudas de los códigos correspondientes a la estimación de intervalos de confianza utilizando RStudio : 
@@ -70,7 +70,7 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
 #### Recomendaciones :
 
 + Lea el enunciado del problema
-+ Determine el modelo a estimar. Cual es la variable dependiente y cual la independiente.
++ Determine el modelo a estimar. Cuál es la variable dependiente y cual la independiente.
 + Genere el diagrama de dispesión para determinar la relación que hay entre las variables
 + Genere las transformaciones en las variables si es del caso
 + Estime el modelo por Mínimos Cuadrados Ordinarios (MCO)
@@ -78,7 +78,7 @@ La siguiente tabla contiene ayudas de los códigos correspondientes a la estimac
   + El valor esperado de los erores es cero . $E[u] = 0$
   + Los errores son normales. $x ~ norm(0 , \sigma^2)$  
   + Los errores tienen varianza constante (Homoscedasticidad). $V[u] = \sigma^2$
-  + Los errores no estan autocorrelacionados. $Cov[u_i, u_j]=0$
+  + Los errores no están autocorrelacionados. $Cov[u_i, u_j]=0$
   + El modelo está correctamente especificado. 
 + Realice la interpretación de los resultados
 + Realice estimaciones si es del caso
@@ -137,7 +137,7 @@ a. Estime la recta de MCO para estimar la temperatura como función del tiempo, 
 
 b. Realice el anterior procedimiento para los datos obtenidos con los termómetros T2 y T3
 
-c. Se desea calcular una sola recta para calcular la temperatura como función del tiempo. Uno de los investigadores sugiere promediar los tres resultados de las pendientes y tambien promediar los tres estimadores de los intercepto para obtener una sola estimación. Determine la ecuación resulta de obtenida por este método.
+c. Se desea calcular una sola recta para estimar la temperatura como función del tiempo. Uno de los investigadores sugiere promediar los tres resultados de las pendientes y también promediar los tres estimadores de los interceptos para obtener una sola estimación. Determine la ecuación resultante obtenida por este método.
 
 d. Otro de los investigadores sugiere promediar las tres mediciones de la temperatura para cada uno de los tiempos medidos para obtener : $\bar{T} =(T_{1}+T_{2}+T_{3})/3$ . Estime la recta de regresión por MCO usando $\bar{T}$ como valor para la temperatura
 

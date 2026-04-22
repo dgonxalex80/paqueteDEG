@@ -15,7 +15,7 @@ Cnk(n, k)
 Cnk  combinación de n con k
 }
 \description{
-Función que calcula n permutado k
+Función que calcula la combinación de n en k.
 }
 \examples{
 Cnk(10,2)

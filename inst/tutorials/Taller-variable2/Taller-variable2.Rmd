@@ -161,7 +161,7 @@ sumar(___,___)
 
 ```{r funcion-sumar-hint}
 sumar <- function(___,___) {
-  # Aqui debe ir el calculo sumando los dos parámetros 
+  # Aquí debe ir el cálculo sumando los dos parámetros 
   # que debe tener la función para recibir los dos números a sumar
 }
 
