@@ -2,7 +2,7 @@
 % Please edit documentation in R/sizemu.R
 \name{sizemu}
 \alias{sizemu}
-\title{Tamaño de la muestra para la estimación de una media}
+\title{Tamano de la muestra para la estimacion de una media}
 \usage{
 sizemu(perc_normal, varianza, error)
 }
@@ -11,13 +11,13 @@ sizemu(perc_normal, varianza, error)
 
 \item{varianza}{valor de la varianza estimada}
 
-\item{error}{valor del error de muestreo (diferencia entre la media muestral y el parámetro)}
+\item{error}{valor del error de muestreo (diferencia entre la media muestral y el parametro)}
 }
 \value{
-nmu tamaño de muestra para la estimación de una media
+nmu tamano de muestra para la estimacion de una media
 }
 \description{
-Función que calcula el tamaño de la muestra para la estimación de un media
+Funcion que calcula el tamano de la muestra para la estimacion de una media.
 }
 \examples{
 sizemu(1.96,245,2)

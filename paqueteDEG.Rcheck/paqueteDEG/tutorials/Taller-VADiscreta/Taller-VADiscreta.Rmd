@@ -24,16 +24,16 @@ knitr::opts_chunk$set(echo = FALSE,
 knitr::include_graphics("images/banner1.jpg")
 ```
 
-Este taller contiene ejercicios y problemas relacionados con los modelos de probabilidad para variables discreta.La siguente tabla contiene las funciones en R relacionadas con estos modelos:
+Este taller contiene ejercicios y problemas relacionados con los modelos de probabilidad para variables discretas. La siguiente tabla contiene las funciones en R relacionadas con estos modelos:
 
 
 |*modelo*            |  $F(x)$  |  $X_{p}$ |  $f(x)$  | aleatorio   |
 |--------------------|----------|----------|----------|-------------|
 |binomial            | pbinom   | qbinom   | dbinom   | rbinom      |
-|gometrico           | pgeom    | qgeom    | dgeom    | rgeom       |       
-|hipergeometrico     | phyper   | qhyper   | dhyper   | rhyper      |
+|geométrico           | pgeom    | qgeom    | dgeom    | rgeom       |       
+|hipergeométrico     | phyper   | qhyper   | dhyper   | rhyper      |
 |Poisson             | ppois    | qpois    | dpois    | rpois       |
-|binomial negativo   | pnbinom  | qnbinom  | dnbionom | rnbinom     |      
+|binomial negativo   | pnbinom  | qnbinom  | dnbinom | rnbinom     |      
 |                   |          |          |          |             |
 
 

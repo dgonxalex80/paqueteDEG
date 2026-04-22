@@ -15,7 +15,7 @@ Pnk(n, k)
 Pnk  permutacion de n con k
 }
 \description{
-Función que calcula n permutado k
+Función que calcula la permutación de n en k.
 }
 \examples{
 Pnk(10,2)

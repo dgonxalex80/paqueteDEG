@@ -33,37 +33,37 @@ El presente Taller contiene tres situación reales en que se utiliza R que prete
 
 </br>
 
-##### **Que es R** 
+##### **Qué es R** 
 
 ```{r, echo=FALSE, out.width="10%", fig.align = "center"}
 knitr::include_graphics("images/logoR.png")
 ```
 
 
-Es un lenguaje para la computación  estadística, utilizado para el procesamiento de información y generación de modelos estadísticos. Entre las principales caractarísticas  estan:
+Es un lenguaje para la computación estadística, utilizado para el procesamiento de información y generación de modelos estadísticos. Entre las principales características están:
 
    + Licencia (GNU GPL)  abierta y gratis
    
    + Creciente popularidad en Ciencia de Datos
 
-   + Multipalataforma (UNIX, Windows, MacOS)
+   + Multiplataforma (UNIX, Windows, MacOS)
 
-   + Ross Ihaka y Robert Gentieman (U.Auckland - Nueva Zelanda) 1993
+   + Ross Ihaka y Robert Gentleman (U. Auckland - Nueva Zelanda), 1993
 
    + Lenguaje multiparadigma
    
-   + Codigo construido en C y Fortran
+   + Código construido en C y Fortran
    
    + Gran comunidad muy activa 
    
-   + Mas de 7000 paquetes 
+   + Más de 7000 paquetes 
 
 
 </br>
 
 ## Tema 1
 
-### Ejercicios de analisis de datos
+### Ejercicios de análisis de datos
 
 **1. Importar datos en R**  : Se puede realizar de formas diferentes :
  
@@ -74,11 +74,11 @@ Es un lenguaje para la computación  estadística, utilizado para el procesamien
   + Caso formato .csv : *File /Import Dataset/From text (base)*. 
   + Caso formato .xlsx : *File/ Import Dataset/ From Excel*. 
 
-3. Utilizando el paquete `Rcmdr` y `RcomdrMisc` que activa una interfas de R que trabaja con menus y ventanas con un proceso parecido al anterior
+3. Utilizando el paquete `Rcmdr` y `RcmdrMisc`, que activa una interfaz de R que trabaja con menús y ventanas con un proceso parecido al anterior
 
-Los anteriores caso implican que tengamos la base de datos descargada en una carpeta de nuestro PC
+Los casos anteriores implican que tengamos la base de datos descargada en una carpeta de nuestro PC.
 
-4. Podemos importar la base de datos de un repositorio que maneje API que es un permiso a través de un token. En este caso debemos solicitar el token e instalar el paquete RSocrata
+4. Podemos importar la base de datos desde un repositorio que use API. En este caso, debemos solicitar un token e instalar el paquete `RSocrata`.
 
 </br></br>
 
@@ -158,7 +158,7 @@ saveRDS(Colombia, file = "Colombia.RDS")
 
 #### **Problema 1** 
 
-Se fabrican placas rectangulares cuyas longitudes en pulgadas se distribuyen como $N(2.0; 0.01)$ y cuyos anchos se distribuyen $N(3.0; 0.04)$. Suponga que las longitudes y los anchos son independientes. El área de una placa esta dada por $A=XY$.
+Se fabrican placas rectangulares cuyas longitudes en pulgadas se distribuyen como $N(2.0; 0.01)$ y cuyos anchos se distribuyen $N(3.0; 0.04)$. Suponga que las longitudes y los anchos son independientes. El área de una placa está dada por $A=XY$.
 
 ```{r, echo=FALSE, out.width="20%", fig.align = "center"}
 knitr::include_graphics("images/lamina.png")
@@ -240,7 +240,5 @@ d=apply(xy,1,disxy)  # calculo de distancias por punto
 npi=sum(as.numeric(d<=0.25)) # número de distancias que caen dentro de circulo
 format(npi/n*4, nsmall=15 ) # aproximación de pi
 ```
-
-
 
 

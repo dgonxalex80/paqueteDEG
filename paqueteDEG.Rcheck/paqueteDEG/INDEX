@@ -1,5 +1,5 @@
-adjusted_size           Corrección del tamaño de la muestra por el
-                        factor de población finita
+adjusted_size           Correccion del tamano de la muestra por el
+                        factor de poblacion finita
 ausentismo              Ausencias al trabajo
 beer                    Cervezas
 casas                   Pricios y caracteristicas de viviendas.
@@ -10,7 +10,7 @@ intervalo.var           Intervalo de confianza para una varianza
 inventarioPackages      Inventario de paquetes
 Pnk                     Permutación
 simula_tcl              Simulacion del Teorema Central del Limite
-sizemu                  Tamaño de la muestra para la estimación de una
+sizemu                  Tamano de la muestra para la estimacion de una
                         media
-sizep                   Tamaño de la muestra para la estimación de una
-                        proporción
+sizep                   Tamano de la muestra para la estimacion de una
+                        proporcion

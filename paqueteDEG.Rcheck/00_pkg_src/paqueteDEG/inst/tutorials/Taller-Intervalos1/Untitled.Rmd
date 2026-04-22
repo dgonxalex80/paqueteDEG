@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ## Ejercicio 1 
 
-El tiempo en que un cajero de un banco con servicio en el automovil atiende a un cliente es una variable aleatoria con una media $\mu=3.2$ minutos y una desviación estandar de $\sigma=1.6$ minutos. Si se obtiene una muestra de $n=64$ clientes, encuentre la probabilidad de que el tiempo medio con el cajero sea:
+El tiempo en que un cajero de un banco con servicio en el automovil atiende a un cliente es una variable aleatoria con una media $\mu=3.2$ minutos y una desviación estándar de $\sigma=1.6$ minutos. Si se obtiene una muestra de $n=64$ clientes, encuentre la probabilidad de que el tiempo medio con el cajero sea:
 
 a) a lo más de 2.7 minutos
 b) más de 3.5 minutos
@@ -31,7 +31,7 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 ## Ejercicio 2 
 
-Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ?Qué conclusión deberia tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estandar de $s=5$ horas?. Suponga que la duración de las baterías tiene una distribución normal.
+Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ¿Qué conclusión debería tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estándar de $s=5$ horas? Suponga que la duración de las baterías tiene una distribución normal.
 
 ```{r ej2, exercise=TRUE}
 
@@ -41,7 +41,7 @@ Una empresa manufacturera afirma que las baterías que utiliza en sus juegos ele
 
 ## Ejercicio 3 
 
-Un fabricante de barras de cereal bajos en grasas afirma que su cantenido promedio de grasas saturadas es de 0.5 gramos. En una muestra aleatoria de 8 barras del cereal, el contenidio de grasas saturadas fue de : 0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 y 0.2 gramos. ¿Estaría de acuerdo con la afirmación realizada por el fabricante?. Suponga que el contenido de grasas saturadas en la barra es una variable aleatoria que se distribuye de manera normal.
+Un fabricante de barras de cereal bajos en grasas afirma que su contenido promedio de grasas saturadas es de 0.5 gramos. En una muestra aleatoria de 8 barras del cereal, el contenido de grasas saturadas fue de: 0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 y 0.2 gramos. ¿Estaría de acuerdo con la afirmación realizada por el fabricante? Suponga que el contenido de grasas saturadas en la barra es una variable aleatoria que se distribuye de manera normal.
 
 ```{r ej3, exercise=TRUE}
 
@@ -50,7 +50,7 @@ Un fabricante de barras de cereal bajos en grasas afirma que su cantenido promed
 
 ## Ejercicio 4 
 
-La calificación de un examen de admisión a la universidad que se aplica a estudiantes durante los últimos cinco años está distribuido normal con media $\mu=74$ y varianza $\sigma^{2}=8$. En una muestra de $n=20$ estudiantes, se encontro un valor de $s^{2}=20$. Se considera que el valor de 8 para la varianza puede ser aceptado, si el valor de la variable $X^{2}=(n-1)S^{2} /8$, esta entre $\chi^{2}_{0.05;v=19}$ y $\chi^{2}_{0.95;v=19}$.?Que conclusión debe tomar?, en caso contrario se rechaza esta afirmación.
+La calificación de un examen de admisión a la universidad que se aplica a estudiantes durante los últimos cinco años está distribuida normal con media $\mu=74$ y varianza $\sigma^{2}=8$. En una muestra de $n=20$ estudiantes, se encontró un valor de $s^{2}=20$. Se considera que el valor de 8 para la varianza puede ser aceptado si el valor de la variable $X^{2}=(n-1)S^{2}/8$ está entre $\chi^{2}_{0.05;v=19}$ y $\chi^{2}_{0.95;v=19}$. ¿Qué conclusión debe tomar? En caso contrario, se rechaza esta afirmación.
 
 ```{r ej4, exercise=TRUE}
 
@@ -96,9 +96,9 @@ fcea=c(50.1, 55.2, 43.8, 45.1, 55.7, 57.4, 41.4, 47.0, 51.0, 49.9, 58.4, 50.3, 5
 
 ## Ejercicio 8 
 
-En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla nuestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado.
+En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla muestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado.
 
-Si se supone que el muestreo se llevo a cabo sobre dos poblaciones con distribuciones normales e independientes. Obtenga los intervalos de confianza del 90%, 95% y 99% para la diferencia de medias. Con base en los resultados podría concluir que existe una diferencia real entre los promedios de las tensiones de ruptura de los dos materiales?.
+Si se supone que el muestreo se llevó a cabo sobre dos poblaciones con distribuciones normales e independientes, obtenga los intervalos de confianza del 90%, 95% y 99% para la diferencia de medias. Con base en los resultados, ¿podría concluir que existe una diferencia real entre los promedios de las tensiones de ruptura de los dos materiales?
 
 ```{r ej8, exercise=TRUE}
 pro.est= c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
@@ -111,7 +111,7 @@ En este caso se trata de :¿ Una o dos poblaciones?
 
 ## Ejercicio 9 
 
-En una muestra de 400 clientes, el 20% indica preferencia por tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizan da en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?
+En una muestra de 400 clientes, el 20% indica preferencia por tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?
 
 ```{r ej9, exercise=TRUE}
 
@@ -152,6 +152,3 @@ Tomado de Navidi(2006)
 ```{r ej11, exercise=TRUE}
 x=c(7.69, 4.97, 4.56, 6.49, 4.34, 6.24, 4.45)
 ```
-
-
-

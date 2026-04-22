@@ -111,7 +111,7 @@ SIGN.test(x, md = 15,alternative = "greater")
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 ### Problema 2 
 
@@ -142,7 +142,7 @@ SIGN.test(ca,sa,md=0)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 ###  Problema 3 
 
@@ -164,7 +164,7 @@ wilcox.test(g1,g2)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 ### Problema 4 
 
@@ -193,7 +193,7 @@ SIGN.test(m15,M25,md=0)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 ### Problema 5
 
@@ -222,7 +222,7 @@ chisq.test(x = obs,p = esp)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 ###  Problema 6 
 
@@ -240,7 +240,7 @@ shapiro.test(nf)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 
 ### Problema 7 
@@ -266,7 +266,7 @@ runs.test(x8)
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 
 ### Problema 8
@@ -306,7 +306,7 @@ Un investigador desea establecer la relación que puede existir entre la calific
 
 + ¿ Qué tipo de pruebas utilizar? (paramétricas o no paramétricas) ¿Porqué?
 + ¿Cuál es la prueba apropiada en este caso?
-+ ¿Cuales son las hipótesis a contrastar?
++ ¿Cuáles son las hipótesis a contrastar?
 
 
 ```{r p9, exercise=TRUE, exercise.lines=15}
@@ -445,7 +445,7 @@ Se lleva a cobo una investigación en dos ciudades del Valle para determinar la 
 | indeciso           |           85|           77 |
 
 
-A un nivel de significancia del $0.05$ pruebe la hipótesis nula de que las proporciones de votantes que estan a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
+A un nivel de significancia del $0.05$ pruebe la hipótesis nula de que las proporciones de votantes que están a favor del candidato **A**, del candidato **B** o están indecisos son las mismas para cada ciudad.  
 
 ```{r p13, exercise=TRUE, exercise.lines=15}
 
@@ -512,7 +512,7 @@ La siguiente información fue recogia en una bolas que contenia 54 dulces :
 |:----:|:--------:|:----:|:----:|:-------:|:------|
 | 6    |   3      |  10  |  21  |  7      | 7     |
 
-se puede afirmar que los datos obtenidos respaldan la información suministrada por la compañia en su pagina?. Use una prueba de hipótesis apropiada. Adjunte el proceso realizado
+se puede afirmar que los datos obtenidos respaldan la información suministrada por la compañia en su pagina Use una prueba de hipótesis apropiada. Adjunte el proceso realizado
 
 
 ```{r p15, exercise=TRUE, exercise.lines=15}

@@ -2,22 +2,22 @@
 % Please edit documentation in R/sizep.R
 \name{sizep}
 \alias{sizep}
-\title{Tamaño de la muestra para la estimación de una proporción}
+\title{Tamano de la muestra para la estimacion de una proporcion}
 \usage{
 sizep(perc_normal, prob, error)
 }
 \arguments{
 \item{perc_normal}{valor del percentil normal que indica el nivel de confianza}
 
-\item{prob}{valor de la proporción estimada}
+\item{prob}{valor de la proporcion estimada}
 
-\item{error}{valor del error de muestreo (diferencia entre la media muestral y el parámetro)}
+\item{error}{valor del error de muestreo (diferencia entre la media muestral y el parametro)}
 }
 \value{
-sizep tamaño de muestra para la estimación de una proporción
+sizep tamano de muestra para la estimacion de una proporcion
 }
 \description{
-Función que calcula el tamaño de la muestra para la estimación de un media:
+Funcion que calcula el tamano de la muestra para la estimacion de una proporcion.
 }
 \examples{
 sizep(1.96,0.5,0.02)

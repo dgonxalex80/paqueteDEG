@@ -63,7 +63,7 @@ nameEx("adjusted_size")
 flush(stderr()); flush(stdout())
 
 ### Name: adjusted_size
-### Title: Corrección del tamaño de la muestra por el factor de población
+### Title: Correccion del tamano de la muestra por el factor de poblacion
 ###   finita
 ### Aliases: adjusted_size
 
@@ -199,7 +199,7 @@ nameEx("sizemu")
 flush(stderr()); flush(stdout())
 
 ### Name: sizemu
-### Title: Tamaño de la muestra para la estimación de una media
+### Title: Tamano de la muestra para la estimacion de una media
 ### Aliases: sizemu
 
 ### ** Examples
@@ -215,7 +215,7 @@ nameEx("sizep")
 flush(stderr()); flush(stdout())
 
 ### Name: sizep
-### Title: Tamaño de la muestra para la estimación de una proporción
+### Title: Tamano de la muestra para la estimacion de una proporcion
 ### Aliases: sizep
 
 ### ** Examples

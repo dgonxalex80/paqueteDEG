@@ -70,7 +70,7 @@ Cada ejercicio tiene su respuesta para servir de valor de comparación con los r
 
 ### Ejercicio 1 
 
-*El tiempo en que un cajero de un banco con servicio en el automovil atiende a un cliente es una variable aleatoria con una media $\mu=3.2$ minutos y una desviación estandar de $\sigma=1.6$ minutos. Si se obtiene una muestra de $n=64$ clientes, encuentre la probabilidad de que el tiempo medio con el cajero sea:*
+*El tiempo en que un cajero de un banco con servicio en el automovil atiende a un cliente es una variable aleatoria con una media $\mu=3.2$ minutos y una desviación estándar de $\sigma=1.6$ minutos. Si se obtiene una muestra de $n=64$ clientes, encuentre la probabilidad de que el tiempo medio con el cajero sea:*
 
 a) a lo más de 2.7 minutos
 b) más de 3.5 minutos
@@ -82,7 +82,7 @@ c) al menos 3.2 minutos, pero menos de 3.4 minutos
 
 
 ```{r ej1-hint}
-# En este caso la media tiene distribucion normal con media 3.2 y desviacion 1.6/8
+# En este caso la media tiene distribución normal con media 3.2 y desviacion 1.6/8
 # a. 
 pnorm(2.7, 3.2, 1.6/8)
 # b.
@@ -94,7 +94,7 @@ pnorm(3.4, 3.2, 1.6/8) - pnorm(3.2, 3.2, 1.6/8)
 
 ### Ejercicio 2 
 
-*Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ?Qué conclusión deberia tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estandar de $s=5$ horas?. Suponga que la duración de las baterías tiene una distribución normal.*
+*Una empresa manufacturera afirma que las baterías que utiliza en sus juegos electrónicos duran un periodo de 30 horas. Para mantener este promedio, se prueban 16 baterías cada mes. Si el valor $T=(\bar{x}-30)/(s/\sqrt{n})$ cae entre $t_{0.025;v=15}$ y $t_{0.975;v=15}$, la empresa queda satisfecha con su afirmación. ¿Qué conclusión debería tomar la empresa si una muestra presenta una media $\bar{x}=27.5$ horas y una desviación estándar de $s=5$ horas? Suponga que la duración de las baterías tiene una distribución normal.*
 
 ```{r ej2, exercise=TRUE}
 
@@ -111,7 +111,7 @@ c(qt(0.025,15), qt(0.975,15))
 
 ### Ejercicio 3 
 
-*Un fabricante de barras de cereal bajos en grasas afirma que su cantenido promedio de grasas saturadas es de 0.5 gramos. En una muestra aleatoria de 8 barras del cereal, el contenidio de grasas saturadas fue de : 0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 y 0.2 gramos. ¿Estaría de acuerdo con la afirmación realizada por el fabricante?. Suponga que el contenido de grasas saturadas en la barra es una variable aleatoria que se distribuye de manera normal.*
+*Un fabricante de barras de cereal bajos en grasas afirma que su contenido promedio de grasas saturadas es de 0.5 gramos. En una muestra aleatoria de 8 barras del cereal, el contenido de grasas saturadas fue de: 0.6, 0.7, 0.7, 0.3, 0.4, 0.5, 0.4 y 0.2 gramos. ¿Estaría de acuerdo con la afirmación realizada por el fabricante? Suponga que el contenido de grasas saturadas en la barra es una variable aleatoria que se distribuye de manera normal.*
 
 ```{r ej3, exercise=TRUE}
 
@@ -126,7 +126,7 @@ t.test(x3, coef.level= 0.95)$conf.int
 
 ### Ejercicio 4 
 
-*La calificación de un examen de admisión a la universidad que se aplica a estudiantes durante los últimos cinco años está distribuido normal con media $\mu=74$ y varianza $\sigma^{2}=8$. En una muestra de $n=20$ estudiantes, se encontro un valor de $s^{2}=20$. Se considera que el valor de 8 para la varianza puede ser aceptado, si el valor de la variable $X^{2}=(n-1)S^{2} /8$, esta entre $\chi^{2}_{0.05;v=19}$ y $\chi^{2}_{0.95;v=19}$.?Que conclusión debe tomar?, en caso contrario se rechaza esta afirmación.*
+*La calificación de un examen de admisión a la universidad que se aplica a estudiantes durante los últimos cinco años está distribuida normal con media $\mu=74$ y varianza $\sigma^{2}=8$. En una muestra de $n=20$ estudiantes, se encontró un valor de $s^{2}=20$. Se considera que el valor de 8 para la varianza puede ser aceptado si el valor de la variable $X^{2}=(n-1)S^{2}/8$ está entre $\chi^{2}_{0.05;v=19}$ y $\chi^{2}_{0.95;v=19}$. ¿Qué conclusión debe tomar? En caso contrario, se rechaza esta afirmación.*
 
 ```{r ej4, exercise=TRUE}
 
@@ -152,8 +152,8 @@ c(qchisq(0.05,19), qchisq(0.95,19))
 ```{r ej5-hint}
 n=100 # tamaño de muestra
 mx=23500 # media muestral
-sx=3900  # desviacion estandar muestral
-# intervalo de confianza para una media con distribucion normal y varianza desconocida
+sx=3900  # desviación estándar muestral
+# intervalo de confianza para una media con distribución normal y varianza desconocida
 IC= mx + c(qt(0.025,99), qt(0.975,99))* sx/sqrt(100)
 IC
 ```
@@ -169,7 +169,7 @@ IC
 
 ```{r ej6-hint}
 # intervalo de confianza para una media, 
-#  variable con distribucion normal
+#  variable con distribución normal
 #  con varianza desconocida
 x6=c(150,175, 163, 148, 142, 189, 135, 174, 168, 152, 158, 184, 134, 146, 155, 163)
 # IC del 90
@@ -212,9 +212,9 @@ t.test(fic, fcea, var.equal=T)$conf.int
 
 ### Ejercicio 8 
 
-*En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla nuestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado.*
+*En la fabricación de un metal se utiliza un proceso estándar. Se ha desarrollado un nuevo proceso en el que se añade una aleación a la producción del metal. Los fabricantes se encuentran interesados en estimar la verdadera diferencia entre las tensiones de ruptura de los metales producidos por los dos procesos. Para cada metal se seleccionan 12 piezas y cada una de estas muestras es sometida a una tensión hasta que se rompe. La siguiente tabla muestra las tensiones de ruptura de las piezas en kilogramos por centímetro cuadrado.*
 
-*Si se supone que el muestreo se llevo a cabo sobre dos poblaciones con distribuciones normales e independientes. Obtenga los intervalos de confianza del 90%, 95% y 99% para la diferencia de medias. Con base en los resultados podría concluir que existe una diferencia real entre los promedios de las tensiones de ruptura de los dos materiales?.*
+*Si se supone que el muestreo se llevó a cabo sobre dos poblaciones con distribuciones normales e independientes, obtenga los intervalos de confianza del 90%, 95% y 99% para la diferencia de medias. Con base en los resultados, ¿podría concluir que existe una diferencia real entre los promedios de las tensiones de ruptura de los dos materiales?*
 
 ```{r ej8, exercise=TRUE}
 pro.est= c(428, 419, 458, 439, 441, 456, 463, 429, 438, 445, 441, 463)
@@ -238,7 +238,7 @@ t.test(pro.est, pro.nue, var.equal=T)$conf.int
 
 ### Ejercicio 9 
 
-*En una muestra de 400 clientes, el 20% indica preferencia por un tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo a los resultados obtenidos, podría afirmar que la campaña publicitaria fue efectiva?*
+*En una muestra de 400 clientes, el 20% indica preferencia por un tamaño especial de pizza. Con posterioridad a una campaña publicitaria realizada en radio y televisión promoviendo dicho producto, se seleccionó una muestra de igual tamaño. En esta última muestra, el 22% de los clientes manifestaron su preferencia por el producto. De acuerdo con estos resultados, calcule un intervalo de confianza del 95% para la diferencia de proporciones. De acuerdo con los resultados obtenidos, ¿podría afirmar que la campaña publicitaria fue efectiva?*
 
 ```{r ej9, exercise=TRUE}
 
@@ -321,7 +321,7 @@ quantile(medias, c(0.025, 0.975))
 
 ### Ejercicio 12
 
-*Una empresa requiere realizar un estudio para establecer la proporción de fallas en el seguimiento del servicio que presta la empresa . El auditor encargado del estudio decide que la tasa de error máximo tolerable debe ser del 5% y el nivel de confianza del 99%?. Con  esta información una firma de auditores externa presenta una propuesta a la empresa por valor de $ 11.2 millones para realizar el estudio y justifica su costo asi:*
+*Una empresa requiere realizar un estudio para establecer la proporción de fallas en el seguimiento del servicio que presta la empresa . El auditor encargado del estudio decide que la tasa de error máximo tolerable debe ser del 5% y el nivel de confianza del 99% Con  esta información una firma de auditores externa presenta una propuesta a la empresa por valor de $ 11.2 millones para realizar el estudio y justifica su costo asi:*
 
 *Por costos administrativos y de logística corresponde un valor de \$5.4 millones y cada encuesta realizada tiene un valor de \$20 mil pesos. El Director de la empresa le encarga a usted revisar la información darle un concepto sobre la propuesta realizada por la firma de auditores a la mayor brevedad.*
 
@@ -335,4 +335,3 @@ quantile(medias, c(0.025, 0.975))
 z=qnorm(0.995)
 paqueteDEG::sizep(z,0.5,0.05)
 ```
-

@@ -1,5 +1,5 @@
 Package: paqueteDEG
-Title: Paquete curso Probabilidad y Estadistica
+Title: Paquete curso Probabilidad y Estadística
 Version: 0.0.0.1
 Authors@R: person("Daniel Enrique", 
                   "Gonzalez Gomez", , 
@@ -7,8 +7,10 @@ Authors@R: person("Daniel Enrique",
                   role = c("aut", "cre"))
 Author: Daniel Enrique Gonzalez Gomez [aut, cre]
 Maintainer: Daniel Enrique Gonzalez Gomez <dgonzalez@javerianacali.edu.co>
-Description: Paquete creado como apoyo al curso de probabilidad y estadística, Pontificia Universidad Javeriana Cali.
-             Contiene tambien tutoriales  y test como apoyo a las monitorias del curso para  los diferentes módulos.  
+Description: Paquete creado como apoyo al curso de probabilidad y estadística,
+    Pontificia Universidad Javeriana Cali.
+    Contiene también tutoriales y pruebas como apoyo a las monitorías del
+    curso para los diferentes módulos.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -18,5 +20,5 @@ Suggests: learnr, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2026-04-16 15:15:52 UTC; deg
-Built: R 4.5.3; ; 2026-04-16 15:15:59 UTC; unix
+Packaged: 2026-04-22 02:36:06 UTC; deg
+Built: R 4.5.3; ; 2026-04-22 02:36:13 UTC; unix
