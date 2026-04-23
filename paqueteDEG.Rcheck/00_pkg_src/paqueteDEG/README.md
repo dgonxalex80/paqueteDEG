@@ -14,9 +14,59 @@ Este paquete está en construcción y se encuentra alojado en GitHub
 durante su etapa de elaboración.
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("dgonxalex80/paqueteDEG")
+# Opción recomendada (más robusta para GitHub)
+install.packages("pak")
+pak::pak("dgonxalex80/paqueteDEG")
 ```
+
+También puedes instalar desde una copia local del repositorio:
+
+``` r
+devtools::install_local("/ruta/a/paqueteDEG", dependencies = TRUE)
+```
+
+## Solución de problemas de instalación
+
+Si aparece un error al abrir `https://api.github.com/...`, el problema suele
+ser de conectividad o autenticación con GitHub.
+
+``` r
+# Diagnóstico rápido de red
+curl::has_internet()
+download.file("https://api.github.com", tempfile(), quiet = FALSE)
+```
+
+Si tienes acceso a internet pero falla la descarga desde GitHub, configura un
+token personal:
+
+``` r
+usethis::create_github_token()
+gitcreds::gitcreds_set()
+```
+
+## Uso de tutoriales
+
+El paquete incluye tutoriales interactivos (formato `learnr`) en
+`inst/tutorials`.
+
+Algunos tutoriales disponibles son: `Modelos`, `Taller-bases`,
+`Taller-sumatoria`, `Taller_regresion1` y `Taller-Intervalos2`.
+
+``` r
+# Si no tienes learnr instalado
+install.packages("learnr")
+
+# Listar tutoriales disponibles del paquete
+tuts <- learnr::available_tutorials(package = "paqueteDEG")
+tuts[, c("name", "title")]
+
+# Ejecutar tutoriales específicos
+learnr::run_tutorial(name = "Modelos", package = "paqueteDEG")
+learnr::run_tutorial(name = "Taller-bases", package = "paqueteDEG")
+learnr::run_tutorial(name = "Taller-Intervalos2", package = "paqueteDEG")
+```
+
+También puedes abrirlos desde RStudio en la pestaña **Tutorial**.
 
 ## Ejemplo
 

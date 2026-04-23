@@ -335,3 +335,562 @@ quantile(medias, c(0.025, 0.975))
 z=qnorm(0.995)
 paqueteDEG::sizep(z,0.5,0.05)
 ```
+
+## Cuestionario de opción múltiple (contexto administración)
+
+### Nivel bajo (15 preguntas)
+
+```{r q1}
+question(
+  "1) En una empresa de logística se desea estimar el tiempo promedio de entrega (en horas) y no se conoce la varianza poblacional. ¿Qué distribución se usa para el intervalo de confianza de la media?",
+  answer("Normal estándar (z)", message = "No es la opción adecuada cuando la varianza poblacional es desconocida y la muestra es pequeña."),
+  answer("t de Student", correct = TRUE, message = "Correcto. Para estimar la media con sigma desconocida se usa t de Student."),
+  answer("Chi-cuadrado", message = "Chi-cuadrado se usa para inferencia sobre varianza, no para media en este caso."),
+  answer("F de Fisher", message = "F se usa para comparar varianzas."),
+  allow_retry = TRUE
+)
+```
+
+```{r q1-hint}
+# Codigo de ayuda q1: IC para media con sigma desconocida
+x <- c(22, 25, 24, 27, 26, 25, 23, 28)
+n <- length(x)
+media <- mean(x)
+s <- sd(x)
+error <- qt(0.975, df = n - 1) * s / sqrt(n)
+c(inf = media - error, sup = media + error)
+```
+
+```{r q2}
+question(
+  "2) Si en un estudio de satisfacción de clientes el nivel de confianza sube de 90% a 99% (con n y s fijos), el intervalo para la media:",
+  answer("Se hace más estrecho", message = "No. Un mayor nivel de confianza exige mayor amplitud."),
+  answer("No cambia", message = "Sí cambia, porque cambia el valor crítico."),
+  answer("Se hace más amplio", correct = TRUE, message = "Correcto. Mayor confianza implica intervalo más ancho."),
+  answer("Se vuelve simétrico solo si n>30", message = "No aplica. La simetría depende de la forma del estimador y del método."),
+  allow_retry = TRUE
+)
+```
+
+```{r q2-hint}
+# Codigo de ayuda q2: comparar amplitud al cambiar nivel de confianza
+x <- c(70, 75, 80, 73, 78, 76, 74, 77, 79, 72)
+n <- length(x)
+s <- sd(x)
+ancho90 <- diff(mean(x) + c(-1, 1) * qt(0.95, df = n - 1) * s / sqrt(n))
+ancho99 <- diff(mean(x) + c(-1, 1) * qt(0.995, df = n - 1) * s / sqrt(n))
+c(ancho90 = ancho90, ancho99 = ancho99)
+```
+
+```{r q3}
+question(
+  "3) En una cadena de tiendas se desea estimar la proporción de clientes que usan la app de fidelización. ¿Qué función de R es apropiada para un IC de una proporción?",
+  answer("t.test()", message = "t.test() es para medias."),
+  answer("prop.test()", correct = TRUE, message = "Correcto. prop.test() permite estimar IC para proporciones."),
+  answer("var.test()", message = "var.test() compara varianzas."),
+  answer("lm()", message = "lm() estima modelos de regresión, no es el método directo aquí."),
+  allow_retry = TRUE
+)
+```
+
+```{r q3-hint}
+# Codigo de ayuda q3: IC para una proporcion
+n <- 300
+x <- 198
+prop.test(x, n, conf.level = 0.95)$conf.int
+```
+
+```{r q4}
+question(
+  "4) El IC del 95% para la diferencia de medias (mu_A - mu_B) entre dos procesos administrativos fue (1.2, 4.5). ¿Qué conclusión es correcta?",
+  answer("No hay diferencia porque 95% es insuficiente", message = "Incorrecto. El nivel 95% es estándar para inferencia."),
+  answer("Hay evidencia de que mu_A > mu_B", correct = TRUE, message = "Correcto. Todo el intervalo es positivo."),
+  answer("Hay evidencia de que mu_A < mu_B", message = "No, porque el intervalo no contiene valores negativos."),
+  answer("No se puede concluir nada sin p-valor", message = "Sí se puede concluir dirección con el IC."),
+  allow_retry = TRUE
+)
+```
+
+```{r q4-hint}
+# Codigo de ayuda q4: interpretar el signo del IC de (mu_A - mu_B)
+ic <- c(1.2, 4.5)
+ic
+# Si ambos limites son positivos, mu_A > mu_B
+```
+
+```{r q5}
+question(
+  "5) En un call center se toman mediciones antes y después de una capacitación sobre los mismos asesores. ¿Qué tipo de comparación corresponde?",
+  answer("Muestras independientes", message = "No, son las mismas personas medidas dos veces."),
+  answer("Muestras pareadas", correct = TRUE, message = "Correcto. Es un diseño antes-después con pares."),
+  answer("Comparación de proporciones", message = "No se está trabajando con proporciones."),
+  answer("ANOVA de dos vías", message = "Es un método innecesario para este caso simple."),
+  allow_retry = TRUE
+)
+```
+
+```{r q5-hint}
+# Codigo de ayuda q5: prueba pareada (antes vs despues)
+antes <- c(50, 48, 52, 47, 49, 51, 53, 50)
+despues <- c(46, 45, 49, 44, 46, 48, 50, 47)
+t.test(antes, despues, paired = TRUE)$conf.int
+```
+
+```{r q6}
+question(
+  "6) Si el tamaño de muestra en un estudio de costos operativos aumenta, manteniendo todo lo demás constante, el margen de error del IC de la media:",
+  answer("Aumenta", message = "No. A mayor n, menor error estándar."),
+  answer("Disminuye", correct = TRUE, message = "Correcto. El error estándar baja con 1/sqrt(n)."),
+  answer("No cambia", message = "Sí cambia porque depende de n."),
+  answer("Se vuelve cero", message = "No, solo tendería a reducirse, no a cero exacto en práctica."),
+  allow_retry = TRUE
+)
+```
+
+```{r q6-hint}
+# Codigo de ayuda q6: efecto de n sobre el margen de error
+s <- 12
+me_n25 <- qt(0.975, df = 24) * s / sqrt(25)
+me_n100 <- qt(0.975, df = 99) * s / sqrt(100)
+c(margen_n25 = me_n25, margen_n100 = me_n100)
+```
+
+```{r q7}
+question(
+  "7) Para construir un IC del promedio de ventas diarias cuando sigma poblacional es conocida, el estadístico usa:",
+  answer("t crítico", message = "Con sigma conocida se usa z."),
+  answer("z crítico", correct = TRUE, message = "Correcto. Con sigma conocida se usa la normal estándar."),
+  answer("F crítico", message = "F no corresponde para este IC."),
+  answer("Chi-cuadrado crítico", message = "Chi-cuadrado se usa para varianza."),
+  allow_retry = TRUE
+)
+```
+
+```{r q7-hint}
+# Codigo de ayuda q7: IC con sigma conocida (usa z)
+media <- 120
+sigma <- 15
+n <- 64
+error <- qnorm(0.975) * sigma / sqrt(n)
+c(inf = media - error, sup = media + error)
+```
+
+```{r q8}
+question(
+  "8) Un IC de 95% para la proporción de órdenes entregadas a tiempo fue (0.88, 0.94). ¿Cuál interpretación es correcta?",
+  answer("El 95% de las órdenes está en ese intervalo", message = "No. El intervalo es para el parámetro poblacional, no para datos individuales."),
+  answer("Con 95% de confianza, la proporción poblacional está entre 0.88 y 0.94", correct = TRUE, message = "Correcto. Esa es la interpretación inferencial del IC."),
+  answer("Hay 95% de probabilidad de que la muestra esté en ese rango", message = "La muestra ya ocurrió; la interpretación correcta es sobre el parámetro."),
+  answer("El proceso garantiza mínimo 94% de cumplimiento", message = "No se puede afirmar garantía; el IC es un rango de estimación."),
+  allow_retry = TRUE
+)
+```
+
+```{r q8-hint}
+# Codigo de ayuda q8: IC de proporcion y lectura gerencial
+n <- 500
+x <- 455
+ic <- prop.test(x, n)$conf.int
+ic
+```
+
+```{r q9}
+question(
+  "9) En dos sedes de una empresa se comparan varianzas del tiempo de atención para decidir si asumir varianzas iguales. ¿Qué función de R apoya esta verificación?",
+  answer("prop.test()", message = "No compara varianzas."),
+  answer("var.test()", correct = TRUE, message = "Correcto. var.test() evalúa razón de varianzas."),
+  answer("t.test(paired = TRUE)", message = "Esto es para medias pareadas."),
+  answer("cor.test()", message = "cor.test() evalúa correlación."),
+  allow_retry = TRUE
+)
+```
+
+```{r q9-hint}
+# Codigo de ayuda q9: comparar varianzas entre dos sedes
+sede_a <- c(15, 18, 20, 19, 17, 16, 22, 21)
+sede_b <- c(12, 14, 13, 11, 15, 16, 12, 14)
+var.test(sede_a, sede_b)$conf.int
+```
+
+```{r q10}
+question(
+  "10) En control de inventarios, para estimar la media de rotación mensual con n=12 y datos aproximadamente normales, la opción más adecuada es:",
+  answer("IC con z", message = "Con n pequeña y sigma desconocida, z no es la primera opción."),
+  answer("IC con t", correct = TRUE, message = "Correcto. Con n pequeña y sigma desconocida se usa t."),
+  answer("IC de proporción", message = "No se trata de proporciones."),
+  answer("IC bootstrap obligatorio", message = "Bootstrap puede usarse, pero no es obligatorio si la normalidad es razonable."),
+  allow_retry = TRUE
+)
+```
+
+```{r q10-hint}
+# Codigo de ayuda q10: IC para media con n pequena y sigma desconocida
+x <- c(34, 37, 35, 32, 39, 36, 31, 38, 34, 35, 33, 37)
+t.test(x, conf.level = 0.95)$conf.int
+```
+
+```{r q11}
+question(
+  "11) En un informe gerencial, un IC muy ancho para el margen promedio por cliente sugiere principalmente:",
+  answer("Alta precisión de la estimación", message = "Es lo contrario: mayor amplitud implica menor precisión."),
+  answer("Baja precisión de la estimación", correct = TRUE, message = "Correcto. Un IC ancho refleja mayor incertidumbre."),
+  answer("Error de digitación seguro", message = "No necesariamente."),
+  answer("Que no se puede usar estadística inferencial", message = "Sí se puede usar, pero con menor precisión."),
+  allow_retry = TRUE
+)
+```
+
+```{r q11-hint}
+# Codigo de ayuda q11: amplitud del IC como medida de precision
+x <- c(95, 101, 98, 104, 97, 99, 103, 100)
+ic <- t.test(x)$conf.int
+amplitud <- diff(ic)
+list(IC = ic, amplitud = amplitud)
+```
+
+```{r q12}
+question(
+  "12) Si en una evaluación de proveedores el IC de 95% para (p_nuevo - p_actual) en entregas sin defectos es (-0.03, 0.07), entonces:",
+  answer("El nuevo proveedor es claramente mejor", message = "No, el intervalo incluye 0."),
+  answer("El proveedor actual es claramente mejor", message = "No, tampoco hay evidencia concluyente de inferioridad del nuevo."),
+  answer("No hay evidencia concluyente de diferencia", correct = TRUE, message = "Correcto. Al incluir 0, la diferencia puede ser nula."),
+  answer("Debe repetirse todo el estudio porque es inválido", message = "No necesariamente; el resultado puede ser válido e inconcluso."),
+  allow_retry = TRUE
+)
+```
+
+```{r q12-hint}
+# Codigo de ayuda q12: IC que incluye 0 para diferencia de proporciones
+n1 <- 250; x1 <- 215
+n2 <- 250; x2 <- 205
+prop.test(c(x1, x2), c(n1, n2))$conf.int
+```
+
+```{r q13}
+question(
+  "13) ¿Qué parámetro se estima con un IC construido mediante `prop.test(c(x1,x2), c(n1,n2))$conf.int`?",
+  answer("La diferencia de medias", message = "No, aquí se trabaja con proporciones."),
+  answer("La diferencia de proporciones", correct = TRUE, message = "Correcto. Estima p1 - p2."),
+  answer("La varianza poblacional", message = "No corresponde."),
+  answer("La correlación entre variables", message = "No corresponde a esa función."),
+  allow_retry = TRUE
+)
+```
+
+```{r q13-hint}
+# Codigo de ayuda q13: parametro estimado por prop.test en dos grupos
+n1 <- 180; x1 <- 126
+n2 <- 200; x2 <- 130
+prop.test(c(x1, x2), c(n1, n2))$conf.int
+# Interpreta como p1 - p2
+```
+
+```{r q14}
+question(
+  "14) En un análisis de tiempos de respuesta del área de cartera, si se desea reducir el margen de error sin cambiar el nivel de confianza, conviene:",
+  answer("Disminuir el tamaño muestral", message = "Eso aumentaría el margen de error."),
+  answer("Aumentar el tamaño muestral", correct = TRUE, message = "Correcto. Más observaciones reducen el error estándar."),
+  answer("Usar un nivel de confianza mayor", message = "Eso hace el intervalo más ancho."),
+  answer("Eliminar observaciones al azar", message = "No es una práctica adecuada ni mejora precisión."),
+  allow_retry = TRUE
+)
+```
+
+```{r q14-hint}
+# Codigo de ayuda q14: reducir margen de error aumentando n
+s <- 9
+me_36 <- qt(0.975, df = 35) * s / sqrt(36)
+me_144 <- qt(0.975, df = 143) * s / sqrt(144)
+c(margen_n36 = me_36, margen_n144 = me_144)
+```
+
+```{r q15}
+question(
+  "15) En la estimación de la varianza del tiempo de ciclo de producción bajo normalidad, el estadístico de referencia para el IC es:",
+  answer("Normal estándar", message = "No es el estadístico para varianza."),
+  answer("t de Student", message = "t es para media con sigma desconocida."),
+  answer("Chi-cuadrado", correct = TRUE, message = "Correcto. El IC de varianza se basa en chi-cuadrado."),
+  answer("Poisson", message = "Poisson es un modelo de conteos."),
+  allow_retry = TRUE
+)
+```
+
+```{r q15-hint}
+# Codigo de ayuda q15: IC para varianza usando chi-cuadrado
+x <- c(20, 25, 22, 24, 23, 27, 21, 26, 25, 24)
+n <- length(x)
+s2 <- var(x)
+alpha <- 0.05
+li <- (n - 1) * s2 / qchisq(1 - alpha / 2, df = n - 1)
+ls <- (n - 1) * s2 / qchisq(alpha / 2, df = n - 1)
+c(inf = li, sup = ls)
+```
+
+### Nivel intermedio (5 preguntas)
+
+```{r q16}
+question(
+  "16) Una empresa compara ticket promedio entre canal web y tienda física (muestras independientes). Antes de elegir el IC para mu_web - mu_tienda, ¿qué revisión es más pertinente?",
+  answer("Verificar igualdad de varianzas para definir versión de t.test", correct = TRUE, message = "Correcto. Esa revisión orienta si usar var.equal = TRUE o FALSE."),
+  answer("Verificar si ambas medias son iguales con prop.test", message = "prop.test no aplica para medias."),
+  answer("Calcular una regresión logística obligatoria", message = "No es obligatoria para este objetivo."),
+  answer("Usar siempre paired = TRUE", message = "No, eso solo aplica para datos pareados."),
+  allow_retry = TRUE
+)
+```
+
+```{r q16-hint}
+# Codigo de ayuda q16: verificar varianzas y luego IC de diferencia de medias
+web <- c(58, 62, 60, 65, 59, 63, 61, 64)
+tienda <- c(55, 57, 54, 56, 58, 53, 57, 55)
+var.test(web, tienda)$p.value
+t.test(web, tienda, var.equal = FALSE)$conf.int
+```
+
+```{r q17}
+question(
+  "17) Para un IC de la media mensual de recaudo, se obtuvo (48, 52) miles de USD al 95%. ¿Cuál decisión gerencial es más consistente si la meta mínima es 50?",
+  answer("Concluir cumplimiento asegurado de la meta", message = "No está asegurado porque el IC incluye valores menores a 50."),
+  answer("Concluir incumplimiento asegurado", message = "Tampoco; el IC también incluye valores superiores a 50."),
+  answer("Reconocer incertidumbre y monitorear más datos", correct = TRUE, message = "Correcto. El IC cruza la meta y no permite una afirmación contundente."),
+  answer("Eliminar el límite inferior del análisis", message = "No es una práctica válida."),
+  allow_retry = TRUE
+)
+```
+
+```{r q17-hint}
+# Codigo de ayuda q17: comparar IC con una meta gerencial
+ic <- c(48, 52)
+meta <- 50
+list(IC = ic, meta = meta, cruza_meta = (ic[1] <= meta && meta <= ic[2]))
+```
+
+```{r q18}
+question(
+  "18) En dos campañas comerciales se estimó un IC del 95% para (p_A - p_B) = (0.01, 0.09). ¿Qué lectura es correcta?",
+  answer("No hay diferencia porque el intervalo es pequeño", message = "Sí hay evidencia de diferencia: el intervalo no contiene 0."),
+  answer("La campaña A supera a B entre 1 y 9 puntos porcentuales", correct = TRUE, message = "Correcto. Todo el intervalo es positivo."),
+  answer("La campaña B supera a A", message = "No, eso requeriría intervalo negativo."),
+  answer("La diferencia exacta es 5 puntos", message = "5 puntos es un valor central posible, no exacto."),
+  allow_retry = TRUE
+)
+```
+
+```{r q18-hint}
+# Codigo de ayuda q18: IC de (pA - pB) totalmente positivo
+nA <- 500; xA <- 290
+nB <- 500; xB <- 260
+prop.test(c(xA, xB), c(nA, nB))$conf.int
+```
+
+```{r q19}
+question(
+  "19) En auditoría interna, la distribución de montos observados es claramente asimétrica y n es pequeña. Para estimar un IC de la media, una alternativa robusta es:",
+  answer("Usar solo z por simplicidad", message = "No es recomendable sin supuestos apropiados."),
+  answer("Aplicar bootstrap para construir el IC", correct = TRUE, message = "Correcto. Bootstrap ayuda cuando la forma poblacional es desconocida."),
+  answer("Usar var.test para la media", message = "var.test no estima IC de la media."),
+  answer("No estimar intervalo porque n es pequeña", message = "Sí se puede estimar con métodos adecuados."),
+  allow_retry = TRUE
+)
+```
+
+```{r q19-hint}
+# Codigo de ayuda q19: IC bootstrap para media en datos asimetricos
+set.seed(123)
+x <- c(120, 95, 80, 160, 210, 75, 130, 300)
+B <- 2000
+medias_boot <- replicate(B, mean(sample(x, replace = TRUE)))
+quantile(medias_boot, c(0.025, 0.975))
+```
+
+```{r q20}
+question(
+  "20) En planeación financiera se comparan dos áreas con tamaños muestrales distintos y varianzas diferentes. Para IC de diferencia de medias conviene usar:",
+  answer("t.test con var.equal = TRUE", message = "No es ideal si las varianzas son diferentes."),
+  answer("t.test con var.equal = FALSE", correct = TRUE, message = "Correcto. La versión de Welch maneja varianzas desiguales."),
+  answer("prop.test", message = "prop.test es para proporciones."),
+  answer("qchisq directamente", message = "No es el procedimiento para diferencia de medias."),
+  allow_retry = TRUE
+)
+```
+
+```{r q20-hint}
+# Codigo de ayuda q20: IC de diferencia de medias con Welch
+area1 <- c(72, 68, 75, 70, 69, 74, 71, 73, 67, 76)
+area2 <- c(65, 66, 64, 63, 67, 62, 68, 61, 66, 64, 69, 63)
+t.test(area1, area2, var.equal = FALSE)$conf.int
+```
+
+
+<!-- BLOQUE_EVALUACION_ADM_MKT:INICIO -->
+## Introduccion aplicada a administracion y mercadeo
+
+En este modulo se conectan los conceptos estadisticos con decisiones de administracion y mercadeo: servicio al cliente, conversion comercial, eficiencia operativa, presupuesto y control de calidad. El objetivo es interpretar resultados cuantitativos para sustentar decisiones de negocio con criterio estadistico.
+
+## Cuestionario de opcion multiple (respuesta unica)
+
+### Nivel basico
+
+```{r adm_taller_intervalos1_q1}
+question(
+  "1) En una empresa de retail se quiere estimar la proporcion de clientes que recompran. ¿Que metodo en R es mas apropiado para un intervalo de confianza de una proporcion?",
+  answer("t.test()", message = "t.test() se usa para medias, no para proporciones."),
+  answer("prop.test()", correct = TRUE, message = "Correcto. prop.test() permite estimar intervalos para proporciones."),
+  answer("var.test()", message = "var.test() compara varianzas."),
+  answer("lm()", message = "lm() ajusta regresion; no es el metodo directo para este caso."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 1)</summary>
+
+```r
+n <- 500
+x <- 310
+prop.test(x, n, conf.level = 0.95)
+```
+
+</details>
+
+```{r adm_taller_intervalos1_q2}
+question(
+  "2) Si en un estudio de tiempos de entrega se aumenta el nivel de confianza de 90% a 99%, manteniendo la misma muestra, el intervalo de confianza:",
+  answer("Se hace mas estrecho", message = "No. Mayor confianza implica mayor amplitud."),
+  answer("Permanece igual", message = "No. Cambia el valor critico."),
+  answer("Se hace mas amplio", correct = TRUE, message = "Correcto. A mayor confianza, intervalo mas ancho."),
+  answer("Solo cambia si n < 30", message = "No depende solo de esa condicion."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 2)</summary>
+
+```r
+x <- c(70, 72, 75, 68, 74, 71, 69, 73, 76, 70)
+n <- length(x)
+s <- sd(x)
+ancho90 <- diff(mean(x) + c(-1,1)*qt(0.95, n-1)*s/sqrt(n))
+ancho99 <- diff(mean(x) + c(-1,1)*qt(0.995, n-1)*s/sqrt(n))
+c(ancho90 = ancho90, ancho99 = ancho99)
+```
+
+</details>
+
+```{r adm_taller_intervalos1_q3}
+question(
+  "3) En un call center se mide el tiempo de atencion antes y despues de una capacitacion sobre los mismos asesores. ¿Que comparacion corresponde?",
+  answer("Muestras independientes", message = "No. Son las mismas personas en dos momentos."),
+  answer("Muestras pareadas", correct = TRUE, message = "Correcto. Es un diseno antes-despues pareado."),
+  answer("Comparacion de proporciones", message = "Aqui se comparan medias de tiempo."),
+  answer("Prueba de varianzas", message = "No es el objetivo principal en este caso."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 3)</summary>
+
+```r
+antes <- c(52, 49, 55, 50, 48, 53, 51, 54)
+despues <- c(48, 46, 50, 47, 45, 49, 48, 50)
+t.test(antes, despues, paired = TRUE)
+```
+
+</details>
+
+```{r adm_taller_intervalos1_q4}
+question(
+  "4) Para estimar la media de ventas con varianza poblacional desconocida y n pequena, se utiliza tipicamente:",
+  answer("Normal z", message = "No es la opcion principal cuando sigma es desconocida y n es pequena."),
+  answer("t de Student", correct = TRUE, message = "Correcto. Se usa t para la media con sigma desconocida."),
+  answer("Chi-cuadrado", message = "Chi-cuadrado se usa para varianza."),
+  answer("F de Fisher", message = "F se usa para comparacion de varianzas."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 4)</summary>
+
+```r
+ventas <- c(120, 118, 125, 130, 122, 119, 127, 121, 124, 126)
+t.test(ventas, conf.level = 0.95)
+```
+
+</details>
+
+```{r adm_taller_intervalos1_q5}
+question(
+  "5) En mercadeo, el IC del 95% para (p_campanaA - p_campanaB) fue (-0.02, 0.06). ¿Que conclusion es correcta?",
+  answer("La campana A es claramente superior", message = "No. El intervalo incluye 0."),
+  answer("La campana B es claramente superior", message = "No hay evidencia concluyente de superioridad."),
+  answer("No hay evidencia concluyente de diferencia", correct = TRUE, message = "Correcto. Al incluir 0, la diferencia puede ser nula."),
+  answer("La campana A supera a B en 4 puntos exactos", message = "No. Ese valor puede estar dentro, pero no es exacto."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 5)</summary>
+
+```r
+n1 <- 400; x1 <- 168
+n2 <- 400; x2 <- 160
+prop.test(c(x1, x2), c(n1, n2))$conf.int
+```
+
+</details>
+
+### Nivel intermedio
+
+```{r adm_taller_intervalos1_q6}
+question(
+  "6) Dos canales de venta tienen tamanos muestrales distintos y varianzas aparentemente diferentes. Para IC de diferencia de medias conviene usar:",
+  answer("t.test(..., var.equal = TRUE)", message = "No es recomendable si las varianzas son distintas."),
+  answer("t.test(..., var.equal = FALSE)", correct = TRUE, message = "Correcto. Welch es apropiado con varianzas desiguales."),
+  answer("prop.test()", message = "prop.test() es para proporciones."),
+  answer("cor.test()", message = "cor.test() evalua asociacion, no diferencia de medias."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 6)</summary>
+
+```r
+canal_web <- c(58, 62, 60, 59, 64, 61, 63, 57)
+canal_tienda <- c(55, 52, 57, 54, 53, 56, 58, 51, 59, 50)
+var.test(canal_web, canal_tienda)
+t.test(canal_web, canal_tienda, var.equal = FALSE)
+```
+
+</details>
+
+```{r adm_taller_intervalos1_q7}
+question(
+  "7) Un IC de 95% para el ticket promedio mensual de una unidad es (48, 52) y la meta minima es 50. ¿Que decision gerencial es mas prudente?",
+  answer("Concluir cumplimiento asegurado", message = "No. El limite inferior es menor a 50."),
+  answer("Concluir incumplimiento asegurado", message = "No. El limite superior supera 50."),
+  answer("Reconocer incertidumbre y ampliar monitoreo", correct = TRUE, message = "Correcto. El intervalo cruza la meta."),
+  answer("Descartar el estudio", message = "No. El estudio es util para decidir con cautela."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 7)</summary>
+
+```r
+ic <- c(48, 52)
+meta <- 50
+list(IC = ic, meta = meta, cruza_meta = (ic[1] <= meta && meta <= ic[2]))
+```
+
+</details>
+
+### Comentario final
+
+Revise en cada caso el parametro estimado, los supuestos del modelo y la interpretacion gerencial de los intervalos de confianza antes de tomar decisiones de administracion y mercadeo.
+<!-- BLOQUE_EVALUACION_ADM_MKT:FIN -->

@@ -20,9 +20,10 @@
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘paqueteDEG’ can be installed ... OK
 * checking installed package size ... INFO
-  installed size is 94.0Mb
+  installed size is 124.2Mb
   sub-directories of 1Mb or more:
-    tutorials  93.3Mb
+    tutorials      93.4Mb
+    tutorials-pdf  30.1Mb
 * checking package directory ... OK
 * checking DESCRIPTION meta-information ... OK
 * checking top-level files ... OK

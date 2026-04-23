@@ -112,3 +112,177 @@ quiz(
   )
 )
 ```
+
+
+<!-- BLOQUE_EVALUACION_ADM_MKT:INICIO -->
+## Introduccion aplicada a administracion y mercadeo
+
+En este modulo se conectan los conceptos estadisticos con decisiones de administracion y mercadeo: servicio al cliente, conversion comercial, eficiencia operativa, presupuesto y control de calidad. El objetivo es interpretar resultados cuantitativos para sustentar decisiones de negocio con criterio estadistico.
+
+## Cuestionario de opcion multiple (respuesta unica)
+
+### Nivel basico
+
+```{r adm_taller_indicadores_q1}
+question(
+  "1) En una empresa de retail se quiere estimar la proporcion de clientes que recompran. ¿Que metodo en R es mas apropiado para un intervalo de confianza de una proporcion?",
+  answer("t.test()", message = "t.test() se usa para medias, no para proporciones."),
+  answer("prop.test()", correct = TRUE, message = "Correcto. prop.test() permite estimar intervalos para proporciones."),
+  answer("var.test()", message = "var.test() compara varianzas."),
+  answer("lm()", message = "lm() ajusta regresion; no es el metodo directo para este caso."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 1)</summary>
+
+```r
+n <- 500
+x <- 310
+prop.test(x, n, conf.level = 0.95)
+```
+
+</details>
+
+```{r adm_taller_indicadores_q2}
+question(
+  "2) Si en un estudio de tiempos de entrega se aumenta el nivel de confianza de 90% a 99%, manteniendo la misma muestra, el intervalo de confianza:",
+  answer("Se hace mas estrecho", message = "No. Mayor confianza implica mayor amplitud."),
+  answer("Permanece igual", message = "No. Cambia el valor critico."),
+  answer("Se hace mas amplio", correct = TRUE, message = "Correcto. A mayor confianza, intervalo mas ancho."),
+  answer("Solo cambia si n < 30", message = "No depende solo de esa condicion."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 2)</summary>
+
+```r
+x <- c(70, 72, 75, 68, 74, 71, 69, 73, 76, 70)
+n <- length(x)
+s <- sd(x)
+ancho90 <- diff(mean(x) + c(-1,1)*qt(0.95, n-1)*s/sqrt(n))
+ancho99 <- diff(mean(x) + c(-1,1)*qt(0.995, n-1)*s/sqrt(n))
+c(ancho90 = ancho90, ancho99 = ancho99)
+```
+
+</details>
+
+```{r adm_taller_indicadores_q3}
+question(
+  "3) En un call center se mide el tiempo de atencion antes y despues de una capacitacion sobre los mismos asesores. ¿Que comparacion corresponde?",
+  answer("Muestras independientes", message = "No. Son las mismas personas en dos momentos."),
+  answer("Muestras pareadas", correct = TRUE, message = "Correcto. Es un diseno antes-despues pareado."),
+  answer("Comparacion de proporciones", message = "Aqui se comparan medias de tiempo."),
+  answer("Prueba de varianzas", message = "No es el objetivo principal en este caso."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 3)</summary>
+
+```r
+antes <- c(52, 49, 55, 50, 48, 53, 51, 54)
+despues <- c(48, 46, 50, 47, 45, 49, 48, 50)
+t.test(antes, despues, paired = TRUE)
+```
+
+</details>
+
+```{r adm_taller_indicadores_q4}
+question(
+  "4) Para estimar la media de ventas con varianza poblacional desconocida y n pequena, se utiliza tipicamente:",
+  answer("Normal z", message = "No es la opcion principal cuando sigma es desconocida y n es pequena."),
+  answer("t de Student", correct = TRUE, message = "Correcto. Se usa t para la media con sigma desconocida."),
+  answer("Chi-cuadrado", message = "Chi-cuadrado se usa para varianza."),
+  answer("F de Fisher", message = "F se usa para comparacion de varianzas."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 4)</summary>
+
+```r
+ventas <- c(120, 118, 125, 130, 122, 119, 127, 121, 124, 126)
+t.test(ventas, conf.level = 0.95)
+```
+
+</details>
+
+```{r adm_taller_indicadores_q5}
+question(
+  "5) En mercadeo, el IC del 95% para (p_campanaA - p_campanaB) fue (-0.02, 0.06). ¿Que conclusion es correcta?",
+  answer("La campana A es claramente superior", message = "No. El intervalo incluye 0."),
+  answer("La campana B es claramente superior", message = "No hay evidencia concluyente de superioridad."),
+  answer("No hay evidencia concluyente de diferencia", correct = TRUE, message = "Correcto. Al incluir 0, la diferencia puede ser nula."),
+  answer("La campana A supera a B en 4 puntos exactos", message = "No. Ese valor puede estar dentro, pero no es exacto."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 5)</summary>
+
+```r
+n1 <- 400; x1 <- 168
+n2 <- 400; x2 <- 160
+prop.test(c(x1, x2), c(n1, n2))$conf.int
+```
+
+</details>
+
+### Nivel intermedio
+
+```{r adm_taller_indicadores_q6}
+question(
+  "6) Dos canales de venta tienen tamanos muestrales distintos y varianzas aparentemente diferentes. Para IC de diferencia de medias conviene usar:",
+  answer("t.test(..., var.equal = TRUE)", message = "No es recomendable si las varianzas son distintas."),
+  answer("t.test(..., var.equal = FALSE)", correct = TRUE, message = "Correcto. Welch es apropiado con varianzas desiguales."),
+  answer("prop.test()", message = "prop.test() es para proporciones."),
+  answer("cor.test()", message = "cor.test() evalua asociacion, no diferencia de medias."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 6)</summary>
+
+```r
+canal_web <- c(58, 62, 60, 59, 64, 61, 63, 57)
+canal_tienda <- c(55, 52, 57, 54, 53, 56, 58, 51, 59, 50)
+var.test(canal_web, canal_tienda)
+t.test(canal_web, canal_tienda, var.equal = FALSE)
+```
+
+</details>
+
+```{r adm_taller_indicadores_q7}
+question(
+  "7) Un IC de 95% para el ticket promedio mensual de una unidad es (48, 52) y la meta minima es 50. ¿Que decision gerencial es mas prudente?",
+  answer("Concluir cumplimiento asegurado", message = "No. El limite inferior es menor a 50."),
+  answer("Concluir incumplimiento asegurado", message = "No. El limite superior supera 50."),
+  answer("Reconocer incertidumbre y ampliar monitoreo", correct = TRUE, message = "Correcto. El intervalo cruza la meta."),
+  answer("Descartar el estudio", message = "No. El estudio es util para decidir con cautela."),
+  allow_retry = TRUE
+)
+```
+
+<details>
+<summary>Ayuda de codigo (pregunta 7)</summary>
+
+```r
+ic <- c(48, 52)
+meta <- 50
+list(IC = ic, meta = meta, cruza_meta = (ic[1] <= meta && meta <= ic[2]))
+```
+
+</details>
+
+### Comentario final
+
+Revise en cada caso el parametro estimado, los supuestos del modelo y la interpretacion gerencial de los intervalos de confianza antes de tomar decisiones de administracion y mercadeo.
+<!-- BLOQUE_EVALUACION_ADM_MKT:FIN -->

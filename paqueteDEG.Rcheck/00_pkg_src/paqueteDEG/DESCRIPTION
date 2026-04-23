@@ -20,4 +20,4 @@ Suggests: learnr, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2026-04-22 02:36:06 UTC; deg
+Packaged: 2026-04-23 11:08:10 UTC; deg
