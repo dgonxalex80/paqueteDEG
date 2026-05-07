@@ -141,3 +141,57 @@ intervalo.var(c(3,4,3,2,3,4,5),0.95)
 #>   lim_inf   lim_sup
 #> 0.2972862 4.6816520
 ```
+
+## Pruebas de hipótesis con datos resumidos
+
+El paquete incluye pruebas cuando no se tienen datos crudos, sino
+estadísticos resumen (media, desviación estándar y tamaño de muestra).
+
+``` r
+library(paqueteDEG)
+
+# Una media
+test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+
+# Diferencia de medias (Welch por defecto)
+test.mus(
+  media1 = 80, n1 = 25, sd1 = 10,
+  media2 = 74, n2 = 22, sd2 = 12
+)
+
+# Una varianza
+test.var(sd = 12, n = 30, sigma20 = 100)
+
+# Razón de varianzas
+test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18, ratio0 = 1)
+```
+
+## Resumen numérico y gráfico
+
+`resumen_num()` genera indicadores descriptivos y, opcionalmente, un gráfico
+acompañante (`histograma` o `cajas`) con los indicadores al lado.
+
+``` r
+library(paqueteDEG)
+
+x <- c(12, 15, 18, NA, 22, 25, 30)
+
+# Tabla de indicadores (2 decimales por defecto)
+resumen_num(x, na.rm = TRUE, graficar = FALSE)
+
+# Indicadores + histograma
+resumen_num(x, na.rm = TRUE, grafico = "histograma", decimals = 2)
+
+# Indicadores + diagrama de cajas
+resumen_num(x, na.rm = TRUE, grafico = "cajas", decimals = 3)
+```
+
+## App Shiny integrada
+
+La app Shiny del paquete reúne pruebas tradicionales, pruebas resumidas y
+resumen descriptivo.
+
+``` r
+library(paqueteDEG)
+run_pruebas_app()
+```
