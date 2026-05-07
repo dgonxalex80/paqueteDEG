@@ -2,8 +2,6 @@
 
 # paqueteDEG
 
-dgonzalez80
-
 <!-- badges: start -->
 <!-- badges: end -->
 
@@ -12,20 +10,40 @@ que se utilizan en el curso de Probabilidad y Estadística.
 
 ## Instalación
 
-Este paquete está en construcción y se encuentra alojado en GitHub
-durante su etapa de elaboración.
+Este paquete se descarga desde GitHub, desde el usuario `dgonxalex80`.
+El nombre del paquete en R es `paqueteDEG`.
 
 ``` r
-# Opción recomendada (más robusta para GitHub)
+# Opción 1: instalación con devtools
+install.packages("devtools")
+devtools::install_github("dgonxalex80/paqueteDEG", dependencies = NA)
+
+# Cargar el paquete
+library(paqueteDEG)
+```
+
+También puedes instalarlo con `pak`:
+
+``` r
+# Opción 2: instalación con pak
 install.packages("pak")
-pak::pak("dgonxalex80/paqueteDEG")
+pak::pak("dgonxalex80/paqueteDEG", dependencies = NA)
+
+# Cargar el paquete
+library(paqueteDEG)
 ```
 
 También puedes instalar desde una copia local del repositorio:
 
 ``` r
-devtools::install_local("/ruta/a/paqueteDEG", dependencies = TRUE)
+devtools::install_local("/ruta/a/paqueteDEG", dependencies = NA)
 ```
+
+`dependencies = NA` instala solo lo necesario para que el paquete cargue y sus
+funciones básicas trabajen. Las dependencias opcionales para tutoriales y apps
+(`learnr` y `shiny`) se instalan aparte solo cuando se necesiten; esto evita
+fallas frecuentes en Windows o en versiones antiguas de R por paquetes
+opcionales pesados.
 
 ## Solución de problemas de instalación
 
@@ -126,15 +144,74 @@ Cnk(10,2)
 
 ## Código básico para calcular el tamaño de muestra para la estimación de la media con una confianza del 95%, una varianza estimada de 428 y un error de muestreo de 2: sizemu(perc_normal, varianza, error)
 sizemu(1.96,428,2)
-#> [1] 411.0512
+#> Tamano de muestra
+#> -----------------
+#> estimacion: media
+#> percentil_normal: 1.96
+#> nivel_confianza: 0.950004
+#> varianza: 428
+#> error_muestreo: 2
+#> poblacion_finita: FALSE
+#> tamano_poblacion: No aplica
+#> tamano_muestra_inicial: 411.051
+#> tamano_muestra_final: 411.051
+#> resultado_final: 412
+
+## También se puede incorporar población finita en el cálculo inicial
+sizemu(1.96,428,2,pob_size = 1000)
+#> Tamano de muestra
+#> -----------------
+#> estimacion: media
+#> percentil_normal: 1.96
+#> nivel_confianza: 0.950004
+#> varianza: 428
+#> error_muestreo: 2
+#> poblacion_finita: TRUE
+#> tamano_poblacion: 1000
+#> tamano_muestra_inicial: 411.051
+#> tamano_muestra_final: 291.515
+#> resultado_final: 292
 
 ## Código básico para calcular el tamaño de muestra para la estimación de una proporción con un nivel de confianza del 95%, prop = 0.5 y un error de muestreo de 0.05: sizep(perc_normal, prop, error)
 sizep(1.96,0.5,0.05)
-#> [1] 384.16
+#> Tamano de muestra
+#> -----------------
+#> estimacion: proporcion
+#> percentil_normal: 1.96
+#> nivel_confianza: 0.950004
+#> proporcion: 0.5
+#> varianza: 0.25
+#> error_muestreo: 0.05
+#> poblacion_finita: FALSE
+#> tamano_poblacion: No aplica
+#> tamano_muestra_inicial: 384.16
+#> tamano_muestra_final: 384.16
+#> resultado_final: 385
 
 ## Corrección del tamaño de la muestra cuando n/N > 0.05: adjusted_size(n, N)
 adjusted_size(385,1000)
-#> [1] 278.1792
+#> Tamano de muestra
+#> -----------------
+#> poblacion_finita: TRUE
+#> tamano_poblacion: 1000
+#> tamano_muestra_inicial: 385
+#> fraccion_muestreo: 0.385
+#> requiere_correccion: TRUE
+#> tamano_muestra_final: 278.179
+#> resultado_final: 279
+
+## Distribución muestral para muestreo estratificado usando porcentajes de estratos: strata_size(n, porcentajes, estratos)
+strata_size(385,c(40,35,25),c("Estrato A","Estrato B","Estrato C"))
+#> Distribucion muestral estratificada
+#> -----------------------------------
+#> tamano_muestra_total: 385
+#> escala_suministrada: porcentaje
+#> suma_porcentajes_suministrados: 100
+#>
+#>    estrato porcentaje_suministrado porcentaje tamano_muestra_exacto tamano_muestra
+#>  Estrato A                      40         40                154.00            154
+#>  Estrato B                      35         35                134.75            135
+#>  Estrato C                      25         25                 96.25             96
 
 ## Estimación del intervalo de confianza para una varianza: intervalo.var(x, 0.95)
 intervalo.var(c(3,4,3,2,3,4,5),0.95)

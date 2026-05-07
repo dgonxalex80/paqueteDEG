@@ -9,8 +9,21 @@ ic.var                  Intervalo de confianza para una varianza
 intervalo.var           Intervalo de confianza para una varianza
 inventarioPackages      Inventario de paquetes
 Pnk                     Permutación
+resumen_num             Resumen numerico con histogram y diagrama de
+                        cajas
+run_pruebas_app         Ejecutar App Shiny de Pruebas de Hipotesis
 simula_tcl              Simulacion del Teorema Central del Limite
 sizemu                  Tamano de la muestra para la estimacion de una
                         media
 sizep                   Tamano de la muestra para la estimacion de una
                         proporcion
+strata_size             Distribucion muestral para muestreo
+                        estratificado
+test.mu                 Prueba de hipotesis para una media con datos
+                        resumidos
+test.mus                Prueba de hipotesis para diferencia de medias
+                        con datos resumidos
+test.var                Prueba de hipotesis para una varianza con datos
+                        resumidos
+test.vars               Prueba de hipotesis para razon de dos varianzas
+                        con datos resumidos

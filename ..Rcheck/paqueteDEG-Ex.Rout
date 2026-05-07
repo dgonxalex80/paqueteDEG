@@ -485,12 +485,57 @@ resultado_final: 707
 > 
 > 
 > 
+> cleanEx()
+> nameEx("strata_size")
+> ### * strata_size
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: strata_size
+> ### Title: Distribucion muestral para muestreo estratificado
+> ### Aliases: strata_size
+> 
+> ### ** Examples
+> 
+> strata_size(385, c(40, 35, 25), c("Norte", "Centro", "Sur"))
+Distribucion muestral estratificada
+-----------------------------------
+tamano_muestra_total: 385
+escala_suministrada: porcentaje
+suma_porcentajes_suministrados: 100
+
+ estrato porcentaje_suministrado porcentaje tamano_muestra_exacto
+   Norte                      40         40                154.00
+  Centro                      35         35                134.75
+     Sur                      25         25                 96.25
+ tamano_muestra
+            154
+            135
+             96
+> strata_size(100, c(0.5, 0.3, 0.2))
+Distribucion muestral estratificada
+-----------------------------------
+tamano_muestra_total: 100
+escala_suministrada: proporcion
+suma_porcentajes_suministrados: 1
+
+   estrato porcentaje_suministrado porcentaje tamano_muestra_exacto
+ Estrato_1                     0.5         50                    50
+ Estrato_2                     0.3         30                    30
+ Estrato_3                     0.2         20                    20
+ tamano_muestra
+             50
+             30
+             20
+> 
+> 
+> 
 > ### * <FOOTER>
 > ###
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.104 0.018 0.125 0 0 
+Time elapsed:  0.094 0.018 0.112 0 0 
 > grDevices::dev.off()
 null device 
           1 

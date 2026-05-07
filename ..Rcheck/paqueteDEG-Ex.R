@@ -226,6 +226,23 @@ sizep(1.96,0.5,0.02, pob_size = 1000)
 
 
 
+cleanEx()
+nameEx("strata_size")
+### * strata_size
+
+flush(stderr()); flush(stdout())
+
+### Name: strata_size
+### Title: Distribucion muestral para muestreo estratificado
+### Aliases: strata_size
+
+### ** Examples
+
+strata_size(385, c(40, 35, 25), c("Norte", "Centro", "Sur"))
+strata_size(100, c(0.5, 0.3, 0.2))
+
+
+
 ### * <FOOTER>
 ###
 cleanEx()

@@ -8,3 +8,9 @@
 ^\.\.Rcheck$
 ^.*\.Rcheck$
 ^paqueteDEG_.*\.tar\.gz$
+^inst/tutorials-pdf$
+^inst/tutorials/.*/.*\.html$
+^inst/tutorials/.*/.*_files$
+^inst/tutorials/.*/skeleton\.html$
+^inst/tutorials/(Modelos|Taller-bases|Taller-indicadores|Taller-Intervalos1|Taller-Intervalos2|Taller-metodologia|Taller-productoria|Taller-sumatoria|Taller-VAContinua|Taller-VADiscreta|Taller-variable2|Taller-variable3|Taller-variable4|Taller_pruebas1|Taller_pruebas2|Taller_regresion1|Taller_regresion2)/img$
+^inst/tutorials/Taller-Intervalos1/images/bosque1\.jpg$

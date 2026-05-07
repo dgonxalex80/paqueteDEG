@@ -2,7 +2,7 @@
 #' @description Funcion que corrige el tamano de la muestra cuando n/N>0.05
 #' @param samp_size valor del tamano de la muestra inicial
 #' @param pob_size valor del tamano de la poblacion
-#' @return n0 tamano de muestra ajustado
+#' @return Lista con la informacion suministrada y el tamano de muestra ajustado
 #' @export adjusted_size
 #' @examples  adjusted_size(385,500)
 # '
@@ -15,5 +15,16 @@ adjusted_size=function(samp_size,pob_size){
     stop("`pob_size` debe ser un numero positivo.", call. = FALSE)
   }
   adjusted_size=(pob_size*samp_size)/(pob_size+samp_size-1)
-  return(adjusted_size)
+  resultado=list(
+    poblacion_finita=TRUE,
+    tamano_poblacion=pob_size,
+    tamano_muestra_inicial=samp_size,
+    fraccion_muestreo=samp_size/pob_size,
+    requiere_correccion=samp_size/pob_size>0.05,
+    tamano_muestra_final=adjusted_size,
+    tamano_muestra_final_redondeado=ceiling(adjusted_size)
+  )
+
+  class(resultado)="sample_size_result"
+  return(resultado)
 }

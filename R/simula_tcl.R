@@ -91,7 +91,7 @@ simula_tcl <- function(generador,
 
   if (isTRUE(mostrar)) {
     oldpar <- graphics::par(no.readonly = TRUE)
-    on.exit(graphics::par(oldpar), add = TRUE)
+    on.exit(graphics::par(oldpar))
     if (isTRUE(par_original)) {
       graphics::par(
         cex = 0.5,

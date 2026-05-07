@@ -175,6 +175,22 @@ data(inventarioPackages)
 
 
 cleanEx()
+nameEx("resumen_num")
+### * resumen_num
+
+flush(stderr()); flush(stdout())
+
+### Name: resumen_num
+### Title: Resumen numerico con histogram y diagrama de cajas
+### Aliases: resumen_num
+
+### ** Examples
+
+resumen_num(c(12, 15, 18, 20, 22, 25, 30))
+
+
+
+cleanEx()
 nameEx("simula_tcl")
 ### * simula_tcl
 
@@ -205,6 +221,7 @@ flush(stderr()); flush(stdout())
 ### ** Examples
 
 sizemu(1.96,245,2)
+sizemu(1.96,245,2, pob_size = 1000)
 
 
 
@@ -221,6 +238,90 @@ flush(stderr()); flush(stdout())
 ### ** Examples
 
 sizep(1.96,0.5,0.02)
+sizep(1.96,0.5,0.02, pob_size = 1000)
+
+
+
+cleanEx()
+nameEx("strata_size")
+### * strata_size
+
+flush(stderr()); flush(stdout())
+
+### Name: strata_size
+### Title: Distribucion muestral para muestreo estratificado
+### Aliases: strata_size
+
+### ** Examples
+
+strata_size(385, c(40, 35, 25), c("Norte", "Centro", "Sur"))
+strata_size(100, c(0.5, 0.3, 0.2))
+
+
+
+cleanEx()
+nameEx("test.mu")
+### * test.mu
+
+flush(stderr()); flush(stdout())
+
+### Name: test.mu
+### Title: Prueba de hipotesis para una media con datos resumidos
+### Aliases: test.mu
+
+### ** Examples
+
+test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+
+
+
+cleanEx()
+nameEx("test.mus")
+### * test.mus
+
+flush(stderr()); flush(stdout())
+
+### Name: test.mus
+### Title: Prueba de hipotesis para diferencia de medias con datos
+###   resumidos
+### Aliases: test.mus
+
+### ** Examples
+
+test.mus(80, 25, 10, 74, 22, 12)
+
+
+
+cleanEx()
+nameEx("test.var")
+### * test.var
+
+flush(stderr()); flush(stdout())
+
+### Name: test.var
+### Title: Prueba de hipotesis para una varianza con datos resumidos
+### Aliases: test.var
+
+### ** Examples
+
+test.var(sd = 12, n = 30, sigma20 = 100)
+
+
+
+cleanEx()
+nameEx("test.vars")
+### * test.vars
+
+flush(stderr()); flush(stdout())
+
+### Name: test.vars
+### Title: Prueba de hipotesis para razon de dos varianzas con datos
+###   resumidos
+### Aliases: test.vars
+
+### ** Examples
+
+test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
 
 
 

@@ -14,3 +14,5 @@ sizemu                  Tamano de la muestra para la estimacion de una
                         media
 sizep                   Tamano de la muestra para la estimacion de una
                         proporcion
+strata_size             Distribucion muestral para muestreo
+                        estratificado

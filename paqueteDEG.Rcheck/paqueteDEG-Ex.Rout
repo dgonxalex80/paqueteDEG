@@ -1,5 +1,5 @@
 
-R version 4.5.3 (2026-03-11) -- "Reassured Reassurer"
+R version 4.6.0 (2026-04-24) -- "Because it was There"
 Copyright (C) 2026 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu
 
@@ -89,7 +89,15 @@ Type 'q()' to quit R.
 > ### ** Examples
 > 
 >  adjusted_size(385,500)
-[1] 217.7602
+Tamano de muestra
+-----------------
+poblacion_finita: TRUE
+tamano_poblacion: 500
+tamano_muestra_inicial: 385
+fraccion_muestreo: 0.77
+requiere_correccion: TRUE
+tamano_muestra_final: 217.76
+resultado_final: 218
 > 
 > 
 > 
@@ -376,6 +384,40 @@ nivel de confianza : 95 %
 > 
 > 
 > cleanEx()
+> nameEx("resumen_num")
+> ### * resumen_num
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: resumen_num
+> ### Title: Resumen numerico con histogram y diagrama de cajas
+> ### Aliases: resumen_num
+> 
+> ### ** Examples
+> 
+> resumen_num(c(12, 15, 18, 20, 22, 25, 30))
+          valor
+nbr.total  7.00
+nbr.na     0.00
+pct.na     0.00
+nbr.valid  7.00
+min       12.00
+q1        16.50
+median    20.00
+mean      20.29
+q3        23.50
+max       30.00
+range     18.00
+iqr        7.00
+var       36.90
+sd         6.07
+cv         0.30
+skewness   0.19
+kurtosis  -1.43
+> 
+> 
+> 
+> cleanEx()
 > nameEx("simula_tcl")
 > ### * simula_tcl
 > 
@@ -406,7 +448,31 @@ nivel de confianza : 95 %
 > ### ** Examples
 > 
 > sizemu(1.96,245,2)
-[1] 235.298
+Tamano de muestra
+-----------------
+estimacion: media
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+varianza: 245
+error_muestreo: 2
+poblacion_finita: FALSE
+tamano_poblacion: No aplica
+tamano_muestra_inicial: 235.298
+tamano_muestra_final: 235.298
+resultado_final: 236
+> sizemu(1.96,245,2, pob_size = 1000)
+Tamano de muestra
+-----------------
+estimacion: media
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+varianza: 245
+error_muestreo: 2
+poblacion_finita: TRUE
+tamano_poblacion: 1000
+tamano_muestra_inicial: 235.298
+tamano_muestra_final: 190.633
+resultado_final: 191
 > 
 > 
 > 
@@ -423,7 +489,192 @@ nivel de confianza : 95 %
 > ### ** Examples
 > 
 > sizep(1.96,0.5,0.02)
-[1] 2401
+Tamano de muestra
+-----------------
+estimacion: proporcion
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+proporcion: 0.5
+varianza: 0.25
+error_muestreo: 0.02
+poblacion_finita: FALSE
+tamano_poblacion: No aplica
+tamano_muestra_inicial: 2401
+tamano_muestra_final: 2401
+resultado_final: 2401
+> sizep(1.96,0.5,0.02, pob_size = 1000)
+Tamano de muestra
+-----------------
+estimacion: proporcion
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+proporcion: 0.5
+varianza: 0.25
+error_muestreo: 0.02
+poblacion_finita: TRUE
+tamano_poblacion: 1000
+tamano_muestra_inicial: 2401
+tamano_muestra_final: 706.176
+resultado_final: 707
+> 
+> 
+> 
+> cleanEx()
+> nameEx("strata_size")
+> ### * strata_size
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: strata_size
+> ### Title: Distribucion muestral para muestreo estratificado
+> ### Aliases: strata_size
+> 
+> ### ** Examples
+> 
+> strata_size(385, c(40, 35, 25), c("Norte", "Centro", "Sur"))
+Distribucion muestral estratificada
+-----------------------------------
+tamano_muestra_total: 385
+escala_suministrada: porcentaje
+suma_porcentajes_suministrados: 100
+
+ estrato porcentaje_suministrado porcentaje tamano_muestra_exacto
+   Norte                      40         40                154.00
+  Centro                      35         35                134.75
+     Sur                      25         25                 96.25
+ tamano_muestra
+            154
+            135
+             96
+> strata_size(100, c(0.5, 0.3, 0.2))
+Distribucion muestral estratificada
+-----------------------------------
+tamano_muestra_total: 100
+escala_suministrada: proporcion
+suma_porcentajes_suministrados: 1
+
+   estrato porcentaje_suministrado porcentaje tamano_muestra_exacto
+ Estrato_1                     0.5         50                    50
+ Estrato_2                     0.3         30                    30
+ Estrato_3                     0.2         20                    20
+ tamano_muestra
+             50
+             30
+             20
+> 
+> 
+> 
+> cleanEx()
+> nameEx("test.mu")
+> ### * test.mu
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: test.mu
+> ### Title: Prueba de hipotesis para una media con datos resumidos
+> ### Aliases: test.mu
+> 
+> ### ** Examples
+> 
+> test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+
+	One Sample t-test (summary stats)
+
+data:  summary: mean = 52, sd = 8, n = 36
+t = 1.5, df = 35, p-value = 0.1426
+alternative hypothesis: true mean is not equal to 50
+95 percent confidence interval:
+ 49.29319 54.70681
+sample estimates:
+mean of x 
+       52 
+
+> 
+> 
+> 
+> cleanEx()
+> nameEx("test.mus")
+> ### * test.mus
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: test.mus
+> ### Title: Prueba de hipotesis para diferencia de medias con datos
+> ###   resumidos
+> ### Aliases: test.mus
+> 
+> ### ** Examples
+> 
+> test.mus(80, 25, 10, 74, 22, 12)
+
+	Welch Two Sample t-test (summary stats)
+
+data:  summary x: mean = 80, sd = 10, n = 25 and summary y: mean = 74, sd = 12, n = 22
+t = 1.8476, df = 41.084, p-value = 0.07186
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.5578026 12.5578026
+sample estimates:
+mean of x mean of y 
+       80        74 
+
+> 
+> 
+> 
+> cleanEx()
+> nameEx("test.var")
+> ### * test.var
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: test.var
+> ### Title: Prueba de hipotesis para una varianza con datos resumidos
+> ### Aliases: test.var
+> 
+> ### ** Examples
+> 
+> test.var(sd = 12, n = 30, sigma20 = 100)
+
+	Chi-squared test for one variance (summary stats)
+
+data:  summary: sd = 12, n = 30
+X-squared = 41.76, df = 29, p-value = 0.118
+alternative hypothesis: true variance is not equal to 100
+95 percent confidence interval:
+  91.33402 260.23440
+sample estimates:
+sample variance 
+            144 
+
+> 
+> 
+> 
+> cleanEx()
+> nameEx("test.vars")
+> ### * test.vars
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: test.vars
+> ### Title: Prueba de hipotesis para razon de dos varianzas con datos
+> ###   resumidos
+> ### Aliases: test.vars
+> 
+> ### ** Examples
+> 
+> test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+
+	F test to compare two variances (summary stats)
+
+data:  summary x: sd = 15, n = 20 and summary y: sd = 10, n = 18
+F = 2.25, num.df = 19, den.df = 17, p-value = 0.09871
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.8544963 5.7757352
+sample estimates:
+ratio of variances 
+              2.25 
+
 > 
 > 
 > 
@@ -432,7 +683,7 @@ nivel de confianza : 95 %
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.087 0.009 0.097 0 0 
+Time elapsed:  0.094 0.021 0.116 0 0 
 > grDevices::dev.off()
 null device 
           1 

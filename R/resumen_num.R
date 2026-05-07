@@ -34,7 +34,7 @@ resumen_num <- function(x, na.rm = TRUE, graficar = TRUE, grafico = c("histogram
   x0 <- x
   if (isTRUE(na.rm)) {
     x0 <- x0[!is.na(x0)]
-  } else if (anyNA(x0)) {
+  } else if (any(is.na(x0))) {
     stop("`x` contiene NA. Usa `na.rm = TRUE` para removerlos.", call. = FALSE)
   }
 
@@ -79,7 +79,7 @@ resumen_num <- function(x, na.rm = TRUE, graficar = TRUE, grafico = c("histogram
 
   if (isTRUE(graficar)) {
     oldpar <- graphics::par(no.readonly = TRUE)
-    on.exit(graphics::par(oldpar), add = TRUE)
+    on.exit(graphics::par(oldpar))
     graphics::layout(matrix(c(1, 2), nrow = 1, byrow = TRUE), widths = c(1.25, 1))
 
     graphics::par(mar = c(4, 4, 3, 1))
