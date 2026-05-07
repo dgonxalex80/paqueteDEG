@@ -4,7 +4,7 @@
 \alias{sizep}
 \title{Tamano de la muestra para la estimacion de una proporcion}
 \usage{
-sizep(perc_normal, prob, error)
+sizep(perc_normal, prob, error, pob_size = NULL)
 }
 \arguments{
 \item{perc_normal}{valor del percentil normal que indica el nivel de confianza}
@@ -12,13 +12,16 @@ sizep(perc_normal, prob, error)
 \item{prob}{valor de la proporcion estimada}
 
 \item{error}{valor del error de muestreo (diferencia entre la media muestral y el parametro)}
+
+\item{pob_size}{valor opcional del tamano de la poblacion finita}
 }
 \value{
-sizep tamano de muestra para la estimacion de una proporcion
+Lista con la informacion suministrada y el tamano de muestra final
 }
 \description{
 Funcion que calcula el tamano de la muestra para la estimacion de una proporcion.
 }
 \examples{
 sizep(1.96,0.5,0.02)
+sizep(1.96,0.5,0.02, pob_size = 1000)
 }

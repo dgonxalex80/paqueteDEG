@@ -1,5 +1,5 @@
 
-R version 4.5.3 (2026-03-11) -- "Reassured Reassurer"
+R version 4.6.0 (2026-04-24) -- "Because it was There"
 Copyright (C) 2026 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu
 
@@ -82,14 +82,22 @@ Type 'q()' to quit R.
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: adjusted_size
-> ### Title: Corrección del tamaño de la muestra por el factor de población
+> ### Title: Correccion del tamano de la muestra por el factor de poblacion
 > ###   finita
 > ### Aliases: adjusted_size
 > 
 > ### ** Examples
 > 
 >  adjusted_size(385,500)
-[1] 217.7602
+Tamano de muestra
+-----------------
+poblacion_finita: TRUE
+tamano_poblacion: 500
+tamano_muestra_inicial: 385
+fraccion_muestreo: 0.77
+requiere_correccion: TRUE
+tamano_muestra_final: 217.76
+resultado_final: 218
 > 
 > 
 > 
@@ -353,7 +361,8 @@ nivel de confianza : 95 %
 > ### ** Examples
 > 
 > intervalo.var(c(3,4,3,2,3,4,5),0.95)
-[1] 1.028930 1.110042
+  lim_inf   lim_sup 
+0.3954694 4.6181859 
 > 
 > 
 > 
@@ -399,13 +408,37 @@ nivel de confianza : 95 %
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: sizemu
-> ### Title: Tamaño de la muestra para la estimación de una media
+> ### Title: Tamano de la muestra para la estimacion de una media
 > ### Aliases: sizemu
 > 
 > ### ** Examples
 > 
 > sizemu(1.96,245,2)
-[1] 235.298
+Tamano de muestra
+-----------------
+estimacion: media
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+varianza: 245
+error_muestreo: 2
+poblacion_finita: FALSE
+tamano_poblacion: No aplica
+tamano_muestra_inicial: 235.298
+tamano_muestra_final: 235.298
+resultado_final: 236
+> sizemu(1.96,245,2, pob_size = 1000)
+Tamano de muestra
+-----------------
+estimacion: media
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+varianza: 245
+error_muestreo: 2
+poblacion_finita: TRUE
+tamano_poblacion: 1000
+tamano_muestra_inicial: 235.298
+tamano_muestra_final: 190.633
+resultado_final: 191
 > 
 > 
 > 
@@ -416,13 +449,39 @@ nivel de confianza : 95 %
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: sizep
-> ### Title: Tamaño de la muestra para la estimación de una proporción
+> ### Title: Tamano de la muestra para la estimacion de una proporcion
 > ### Aliases: sizep
 > 
 > ### ** Examples
 > 
 > sizep(1.96,0.5,0.02)
-[1] 2401
+Tamano de muestra
+-----------------
+estimacion: proporcion
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+proporcion: 0.5
+varianza: 0.25
+error_muestreo: 0.02
+poblacion_finita: FALSE
+tamano_poblacion: No aplica
+tamano_muestra_inicial: 2401
+tamano_muestra_final: 2401
+resultado_final: 2401
+> sizep(1.96,0.5,0.02, pob_size = 1000)
+Tamano de muestra
+-----------------
+estimacion: proporcion
+percentil_normal: 1.96
+nivel_confianza: 0.950004
+proporcion: 0.5
+varianza: 0.25
+error_muestreo: 0.02
+poblacion_finita: TRUE
+tamano_poblacion: 1000
+tamano_muestra_inicial: 2401
+tamano_muestra_final: 706.176
+resultado_final: 707
 > 
 > 
 > 
@@ -431,7 +490,7 @@ nivel de confianza : 95 %
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.087 0.009 0.097 0 0 
+Time elapsed:  0.104 0.018 0.125 0 0 
 > grDevices::dev.off()
 null device 
           1 

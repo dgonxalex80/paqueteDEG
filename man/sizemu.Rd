@@ -4,7 +4,7 @@
 \alias{sizemu}
 \title{Tamano de la muestra para la estimacion de una media}
 \usage{
-sizemu(perc_normal, varianza, error)
+sizemu(perc_normal, varianza, error, pob_size = NULL)
 }
 \arguments{
 \item{perc_normal}{valor del percentil normal que indica el nivel de confianza}
@@ -12,13 +12,16 @@ sizemu(perc_normal, varianza, error)
 \item{varianza}{valor de la varianza estimada}
 
 \item{error}{valor del error de muestreo (diferencia entre la media muestral y el parametro)}
+
+\item{pob_size}{valor opcional del tamano de la poblacion finita}
 }
 \value{
-nmu tamano de muestra para la estimacion de una media
+Lista con la informacion suministrada y el tamano de muestra final
 }
 \description{
 Funcion que calcula el tamano de la muestra para la estimacion de una media.
 }
 \examples{
 sizemu(1.96,245,2)
+sizemu(1.96,245,2, pob_size = 1000)
 }

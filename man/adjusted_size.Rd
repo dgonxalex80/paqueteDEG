@@ -12,7 +12,7 @@ adjusted_size(samp_size, pob_size)
 \item{pob_size}{valor del tamano de la poblacion}
 }
 \value{
-n0 tamano de muestra ajustado
+Lista con la informacion suministrada y el tamano de muestra ajustado
 }
 \description{
 Funcion que corrige el tamano de la muestra cuando n/N>0.05
