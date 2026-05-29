@@ -8,7 +8,8 @@
 #' @param mu0 media poblacional bajo la hipotesis nula.
 #' @param alternative tipo de hipotesis alternativa: "two.sided", "less" o "greater".
 #' @param conf.level nivel de confianza para el intervalo de confianza.
-#' @return Lista con estadistico, gl, p.value, intervalo de confianza y conclusion.
+#' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
+#'   intervalo de confianza en `conf.int`, estimacion e hipotesis alternativa.
 #' @examples
 #' test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
 #' @export
@@ -59,8 +60,6 @@ test.mu <- function(media,
     tcrit <- stats::qt(conf.level, df = gl)
     conf.int <- c(media - tcrit * se, Inf)
   }
-  names(conf.int) <- c("lim_inf", "lim_sup")
-
   attr(conf.int, "conf.level") <- conf.level
 
   out <- list(
@@ -92,7 +91,8 @@ test.mu <- function(media,
 #' @param alternative tipo de hipotesis alternativa: "two.sided", "less" o "greater".
 #' @param var.equal si `TRUE`, usa varianzas iguales (pooled); si `FALSE`, Welch.
 #' @param conf.level nivel de confianza para el intervalo de confianza.
-#' @return Lista con estadistico, gl, p.value, intervalo de confianza y estimacion.
+#' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
+#'   intervalo de confianza en `conf.int`, estimacion e hipotesis alternativa.
 #' @examples
 #' test.mus(80, 25, 10, 74, 22, 12)
 #' @export
@@ -168,8 +168,6 @@ test.mus <- function(media1,
     tcrit <- stats::qt(conf.level, df = gl)
     conf.int <- c(diff_est - tcrit * se, Inf)
   }
-  names(conf.int) <- c("lim_inf", "lim_sup")
-
   attr(conf.int, "conf.level") <- conf.level
 
   out <- list(

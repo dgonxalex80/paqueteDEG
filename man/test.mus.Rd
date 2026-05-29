@@ -39,7 +39,8 @@ test.mus(
 \item{conf.level}{nivel de confianza para el intervalo de confianza.}
 }
 \value{
-Lista con estadistico, gl, p.value, intervalo de confianza y estimacion.
+Objeto clase \code{htest}, con estadistico, grados de libertad, p-value,
+intervalo de confianza en \code{conf.int}, estimacion e hipotesis alternativa.
 }
 \description{
 Realiza una prueba t para la diferencia de medias usando solo
