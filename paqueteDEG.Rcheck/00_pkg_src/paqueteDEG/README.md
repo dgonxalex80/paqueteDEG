@@ -2,8 +2,6 @@
 
 # paqueteDEG
 
-dgonzalez80
-
 <!-- badges: start -->
 <!-- badges: end -->
 
@@ -12,13 +10,27 @@ que se utilizan en el curso de Probabilidad y Estadística.
 
 ## Instalación
 
-Este paquete está en construcción y se encuentra alojado en GitHub
-durante su etapa de elaboración.
+Este paquete se descarga desde GitHub, desde el usuario `dgonxalex80`.
+El nombre del paquete en R es `paqueteDEG`.
 
 ``` r
-# Opción recomendada (más robusta para GitHub)
+# Opción 1: instalación con devtools
+install.packages("devtools")
+devtools::install_github("dgonxalex80/paqueteDEG", dependencies = NA)
+
+# Cargar el paquete
+library(paqueteDEG)
+```
+
+También puedes instalarlo con `pak`:
+
+``` r
+# Opción 2: instalación con pak
 install.packages("pak")
 pak::pak("dgonxalex80/paqueteDEG", dependencies = NA)
+
+# Cargar el paquete
+library(paqueteDEG)
 ```
 
 También puedes instalar desde una copia local del repositorio:
@@ -229,6 +241,22 @@ test.var(sd = 12, n = 30, sigma20 = 100)
 
 # Razón de varianzas
 test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18, ratio0 = 1)
+```
+
+Las funciones devuelven objetos de clase `htest`, por lo que al imprimir el
+resultado se ve el intervalo como en las pruebas convencionales de R. Para
+extraerlo directamente se puede usar `$int.conf`, que es un alias de
+`$conf.int`:
+
+``` r
+res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res$int.conf
+#> [1] 49.29319 54.70681
+#> attr(,"conf.level")
+#> [1] 0.95
+
+identical(res$int.conf, res$conf.int)
+#> [1] TRUE
 ```
 
 ## Resumen numérico y gráfico

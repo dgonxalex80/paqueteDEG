@@ -576,19 +576,11 @@ suma_porcentajes_suministrados: 1
 > 
 > ### ** Examples
 > 
-> test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
-
-	One Sample t-test (summary stats)
-
-data:  summary: mean = 52, sd = 8, n = 36
-t = 1.5, df = 35, p-value = 0.1426
-alternative hypothesis: true mean is not equal to 50
-95 percent confidence interval:
- 49.29319 54.70681
-sample estimates:
-mean of x 
-       52 
-
+> res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+> res$int.conf
+[1] 49.29319 54.70681
+attr(,"conf.level")
+[1] 0.95
 > 
 > 
 > 
@@ -605,19 +597,11 @@ mean of x
 > 
 > ### ** Examples
 > 
-> test.mus(80, 25, 10, 74, 22, 12)
-
-	Welch Two Sample t-test (summary stats)
-
-data:  summary x: mean = 80, sd = 10, n = 25 and summary y: mean = 74, sd = 12, n = 22
-t = 1.8476, df = 41.084, p-value = 0.07186
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -0.5578026 12.5578026
-sample estimates:
-mean of x mean of y 
-       80        74 
-
+> res <- test.mus(80, 25, 10, 74, 22, 12)
+> res$int.conf
+[1] -0.5578026 12.5578026
+attr(,"conf.level")
+[1] 0.95
 > 
 > 
 > 
@@ -633,19 +617,11 @@ mean of x mean of y
 > 
 > ### ** Examples
 > 
-> test.var(sd = 12, n = 30, sigma20 = 100)
-
-	Chi-squared test for one variance (summary stats)
-
-data:  summary: sd = 12, n = 30
-X-squared = 41.76, df = 29, p-value = 0.118
-alternative hypothesis: true variance is not equal to 100
-95 percent confidence interval:
-  91.33402 260.23440
-sample estimates:
-sample variance 
-            144 
-
+> res <- test.var(sd = 12, n = 30, sigma20 = 100)
+> res$int.conf
+[1]  91.33402 260.23440
+attr(,"conf.level")
+[1] 0.95
 > 
 > 
 > 
@@ -662,19 +638,11 @@ sample variance
 > 
 > ### ** Examples
 > 
-> test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
-
-	F test to compare two variances (summary stats)
-
-data:  summary x: sd = 15, n = 20 and summary y: sd = 10, n = 18
-F = 2.25, num.df = 19, den.df = 17, p-value = 0.09871
-alternative hypothesis: true ratio of variances is not equal to 1
-95 percent confidence interval:
- 0.8544963 5.7757352
-sample estimates:
-ratio of variances 
-              2.25 
-
+> res <- test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+> res$int.conf
+[1] 0.8544963 5.7757352
+attr(,"conf.level")
+[1] 0.95
 > 
 > 
 > 
@@ -683,7 +651,7 @@ ratio of variances
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.094 0.021 0.116 0 0 
+Time elapsed:  0.134 0.023 0.16 0 0 
 > grDevices::dev.off()
 null device 
           1 

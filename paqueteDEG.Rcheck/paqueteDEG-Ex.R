@@ -271,7 +271,8 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res$int.conf
 
 
 
@@ -288,7 +289,8 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-test.mus(80, 25, 10, 74, 22, 12)
+res <- test.mus(80, 25, 10, 74, 22, 12)
+res$int.conf
 
 
 
@@ -304,7 +306,8 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-test.var(sd = 12, n = 30, sigma20 = 100)
+res <- test.var(sd = 12, n = 30, sigma20 = 100)
+res$int.conf
 
 
 
@@ -321,7 +324,8 @@ flush(stderr()); flush(stdout())
 
 ### ** Examples
 
-test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+res <- test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+res$int.conf
 
 
 
