@@ -236,6 +236,9 @@ test.mus(
   media2 = 74, n2 = 22, sd2 = 12
 )
 
+# Forma abreviada: n, media y sd para los dos grupos
+test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+
 # Una varianza
 test.var(sd = 12, n = 30, sigma20 = 100)
 

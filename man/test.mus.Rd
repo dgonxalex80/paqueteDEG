@@ -8,9 +8,9 @@ test.mus(
   media1,
   n1,
   sd1,
-  media2,
-  n2,
-  sd2,
+  media2 = NULL,
+  n2 = NULL,
+  sd2 = NULL,
   delta0 = 0,
   alternative = c("two.sided", "less", "greater"),
   var.equal = FALSE,
@@ -45,8 +45,14 @@ intervalo de confianza en \code{conf.int} y alias \code{int.conf}, estimacion e 
 \description{
 Realiza una prueba t para la diferencia de medias usando solo
 estadisticas resumidas de dos muestras independientes.
+
+Tambien acepta la forma abreviada \code{test.mus(n, media, sd)}, donde
+cada argumento es un vector de longitud 2 para los dos grupos.
 }
 \examples{
 res <- test.mus(80, 25, 10, 74, 22, 12)
 res$int.conf
+
+res2 <- test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+res2$int.conf
 }

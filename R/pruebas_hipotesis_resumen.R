@@ -83,6 +83,9 @@ test.mu <- function(media,
 #' @description
 #' Realiza una prueba t para la diferencia de medias usando solo
 #' estadisticas resumidas de dos muestras independientes.
+#'
+#' Tambien acepta la forma abreviada `test.mus(n, media, sd)`, donde
+#' cada argumento es un vector de longitud 2 para los dos grupos.
 #' @param media1 media muestral del grupo 1.
 #' @param n1 tamano de muestra del grupo 1.
 #' @param sd1 desviacion estandar del grupo 1.
@@ -98,19 +101,43 @@ test.mu <- function(media,
 #' @examples
 #' res <- test.mus(80, 25, 10, 74, 22, 12)
 #' res$int.conf
+#'
+#' res2 <- test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+#' res2$int.conf
 #' @export
 
 test.mus <- function(media1,
                      n1,
                      sd1,
-                     media2,
-                     n2,
-                     sd2,
+                     media2 = NULL,
+                     n2 = NULL,
+                     sd2 = NULL,
                      delta0 = 0,
                      alternative = c("two.sided", "less", "greater"),
                      var.equal = FALSE,
                      conf.level = 0.95) {
   alternative <- match.arg(alternative)
+
+  if (is.null(media2) && is.null(n2) && is.null(sd2) &&
+      is.numeric(media1) && is.numeric(n1) && is.numeric(sd1) &&
+      length(media1) == 2 && length(n1) == 2 && length(sd1) == 2) {
+    if (all(media1 > 1) && all(media1 == as.integer(media1))) {
+      n_vec <- media1
+      media_vec <- n1
+    } else if (all(n1 > 1) && all(n1 == as.integer(n1))) {
+      media_vec <- media1
+      n_vec <- n1
+    } else {
+      stop("En la forma abreviada use test.mus(n, media, sd) o test.mus(media, n, sd), con n entero.", call. = FALSE)
+    }
+
+    media1 <- media_vec[1]
+    media2 <- media_vec[2]
+    n1 <- n_vec[1]
+    n2 <- n_vec[2]
+    sd2 <- sd1[2]
+    sd1 <- sd1[1]
+  }
 
   if (!is.numeric(media1) || length(media1) != 1 || !is.numeric(media2) || length(media2) != 1) {
     stop("`media1` y `media2` deben ser numeros.", call. = FALSE)
