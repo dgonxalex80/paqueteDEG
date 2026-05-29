@@ -24,12 +24,14 @@ test.var(
 \item{conf.level}{nivel de confianza para el intervalo de confianza.}
 }
 \value{
-Objeto clase \code{htest}, similar a \code{varTest}/\code{t.test}.
+Objeto clase \code{htest}, con estadistico, grados de libertad, p-value,
+intervalo de confianza en \code{conf.int} y alias \code{int.conf}, estimacion e hipotesis alternativa.
 }
 \description{
 Realiza una prueba chi-cuadrado para una varianza cuando solo se dispone
 de la desviacion estandar muestral y el tamano de muestra.
 }
 \examples{
-test.var(sd = 12, n = 30, sigma20 = 100)
+res <- test.var(sd = 12, n = 30, sigma20 = 100)
+res$int.conf
 }

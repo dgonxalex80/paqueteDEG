@@ -30,12 +30,14 @@ test.vars(
 \item{conf.level}{nivel de confianza para el intervalo de confianza.}
 }
 \value{
-Objeto clase \code{htest}, similar a \code{var.test}.
+Objeto clase \code{htest}, con estadistico, grados de libertad, p-value,
+intervalo de confianza en \code{conf.int} y alias \code{int.conf}, estimacion e hipotesis alternativa.
 }
 \description{
 Realiza una prueba F para comparar dos varianzas poblacionales
 independientes usando desviaciones estandar y tamanos muestrales.
 }
 \examples{
-test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+res <- test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+res$int.conf
 }

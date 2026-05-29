@@ -28,12 +28,13 @@ test.mu(
 }
 \value{
 Objeto clase \code{htest}, con estadistico, grados de libertad, p-value,
-intervalo de confianza en \code{conf.int}, estimacion e hipotesis alternativa.
+intervalo de confianza en \code{conf.int} y alias \code{int.conf}, estimacion e hipotesis alternativa.
 }
 \description{
 Realiza una prueba t para una media cuando solo se dispone de la media
 muestral, la desviacion estandar muestral y el tamano de muestra.
 }
 \examples{
-test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res$int.conf
 }

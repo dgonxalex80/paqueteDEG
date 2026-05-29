@@ -243,6 +243,22 @@ test.var(sd = 12, n = 30, sigma20 = 100)
 test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18, ratio0 = 1)
 ```
 
+Las funciones devuelven objetos de clase `htest`, por lo que al imprimir el
+resultado se ve el intervalo como en las pruebas convencionales de R. Para
+extraerlo directamente se puede usar `$int.conf`, que es un alias de
+`$conf.int`:
+
+``` r
+res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+res$int.conf
+#> [1] 49.29319 54.70681
+#> attr(,"conf.level")
+#> [1] 0.95
+
+identical(res$int.conf, res$conf.int)
+#> [1] TRUE
+```
+
 ## Resumen numérico y gráfico
 
 `resumen_num()` genera indicadores descriptivos y, opcionalmente, un gráfico

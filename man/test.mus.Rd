@@ -40,12 +40,13 @@ test.mus(
 }
 \value{
 Objeto clase \code{htest}, con estadistico, grados de libertad, p-value,
-intervalo de confianza en \code{conf.int}, estimacion e hipotesis alternativa.
+intervalo de confianza en \code{conf.int} y alias \code{int.conf}, estimacion e hipotesis alternativa.
 }
 \description{
 Realiza una prueba t para la diferencia de medias usando solo
 estadisticas resumidas de dos muestras independientes.
 }
 \examples{
-test.mus(80, 25, 10, 74, 22, 12)
+res <- test.mus(80, 25, 10, 74, 22, 12)
+res$int.conf
 }

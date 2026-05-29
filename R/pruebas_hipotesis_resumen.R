@@ -9,9 +9,10 @@
 #' @param alternative tipo de hipotesis alternativa: "two.sided", "less" o "greater".
 #' @param conf.level nivel de confianza para el intervalo de confianza.
 #' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
-#'   intervalo de confianza en `conf.int`, estimacion e hipotesis alternativa.
+#'   intervalo de confianza en `conf.int` y alias `int.conf`, estimacion e hipotesis alternativa.
 #' @examples
-#' test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+#' res <- test.mu(media = 52, n = 36, sd = 8, mu0 = 50)
+#' res$int.conf
 #' @export
 
 test.mu <- function(media,
@@ -67,6 +68,7 @@ test.mu <- function(media,
     parameter = c(df = gl),
     p.value = p.value,
     conf.int = conf.int,
+    int.conf = conf.int,
     estimate = c("mean of x" = media),
     null.value = c("mean" = mu0),
     alternative = alternative,
@@ -92,9 +94,10 @@ test.mu <- function(media,
 #' @param var.equal si `TRUE`, usa varianzas iguales (pooled); si `FALSE`, Welch.
 #' @param conf.level nivel de confianza para el intervalo de confianza.
 #' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
-#'   intervalo de confianza en `conf.int`, estimacion e hipotesis alternativa.
+#'   intervalo de confianza en `conf.int` y alias `int.conf`, estimacion e hipotesis alternativa.
 #' @examples
-#' test.mus(80, 25, 10, 74, 22, 12)
+#' res <- test.mus(80, 25, 10, 74, 22, 12)
+#' res$int.conf
 #' @export
 
 test.mus <- function(media1,
@@ -175,6 +178,7 @@ test.mus <- function(media1,
     parameter = c(df = gl),
     p.value = p.value,
     conf.int = conf.int,
+    int.conf = conf.int,
     estimate = c("mean of x" = media1, "mean of y" = media2),
     null.value = c("difference in means" = delta0),
     alternative = alternative,
@@ -197,9 +201,11 @@ test.mus <- function(media1,
 #' @param sigma20 varianza poblacional bajo H0.
 #' @param alternative tipo de hipotesis alternativa: "two.sided", "less" o "greater".
 #' @param conf.level nivel de confianza para el intervalo de confianza.
-#' @return Objeto clase `htest`, similar a `varTest`/`t.test`.
+#' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
+#'   intervalo de confianza en `conf.int` y alias `int.conf`, estimacion e hipotesis alternativa.
 #' @examples
-#' test.var(sd = 12, n = 30, sigma20 = 100)
+#' res <- test.var(sd = 12, n = 30, sigma20 = 100)
+#' res$int.conf
 #' @export
 test.var <- function(sd,
                      n,
@@ -254,6 +260,7 @@ test.var <- function(sd,
     parameter = c(df = gl),
     p.value = p.value,
     conf.int = conf.int,
+    int.conf = conf.int,
     estimate = c("sample variance" = s2),
     null.value = c("variance" = sigma20),
     alternative = alternative,
@@ -275,9 +282,11 @@ test.var <- function(sd,
 #' @param ratio0 razon bajo H0 (var1/var2), por defecto 1.
 #' @param alternative tipo de hipotesis alternativa: "two.sided", "less" o "greater".
 #' @param conf.level nivel de confianza para el intervalo de confianza.
-#' @return Objeto clase `htest`, similar a `var.test`.
+#' @return Objeto clase `htest`, con estadistico, grados de libertad, p-value,
+#'   intervalo de confianza en `conf.int` y alias `int.conf`, estimacion e hipotesis alternativa.
 #' @examples
-#' test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+#' res <- test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18)
+#' res$int.conf
 #' @export
 test.vars <- function(sd1,
                       n1,
@@ -343,6 +352,7 @@ test.vars <- function(sd1,
     parameter = c(num.df = gl1, den.df = gl2),
     p.value = p.value,
     conf.int = conf.int,
+    int.conf = conf.int,
     estimate = c("ratio of variances" = v1 / v2),
     null.value = c("ratio of variances" = ratio0),
     alternative = alternative,
