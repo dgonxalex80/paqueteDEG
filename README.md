@@ -244,6 +244,12 @@ test.var(sd = 12, n = 30, sigma20 = 100)
 
 # Razón de varianzas
 test.vars(sd1 = 15, n1 = 20, sd2 = 10, n2 = 18, ratio0 = 1)
+
+# Prueba z para una proporción (n > 30)
+test.prop(x = 45, n = 100, p = 0.5)
+
+# Prueba z para diferencia de dos proporciones (n1 y n2 > 30)
+test.prop(x = c(56, 42), n = c(120, 110))
 ```
 
 Las funciones devuelven objetos de clase `htest`, por lo que al imprimir el

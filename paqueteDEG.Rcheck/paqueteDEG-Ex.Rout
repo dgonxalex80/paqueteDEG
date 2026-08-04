@@ -1,5 +1,5 @@
 
-R version 4.6.0 (2026-04-24) -- "Because it was There"
+R version 4.6.1 (2026-06-24) -- "Happy Hop"
 Copyright (C) 2026 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu
 
@@ -327,6 +327,24 @@ resultado_final: 218
 > 
 > 
 > cleanEx()
+> nameEx("descargar_beer")
+> ### * descargar_beer
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: descargar_beer
+> ### Title: Descargar la base de cervezas en formato CSV
+> ### Aliases: descargar_beer
+> 
+> ### ** Examples
+> 
+> ## Not run: 
+> ##D descargar_beer("beer.csv")
+> ## End(Not run)
+> 
+> 
+> 
+> cleanEx()
 > nameEx("ic.var")
 > ### * ic.var
 > 
@@ -603,6 +621,38 @@ attr(,"conf.level")
 attr(,"conf.level")
 [1] 0.95
 > 
+> res2 <- test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+> res2$int.conf
+[1]  0.4754542 10.1245458
+attr(,"conf.level")
+[1] 0.95
+> 
+> 
+> 
+> cleanEx()
+> nameEx("test.prop")
+> ### * test.prop
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: test.prop
+> ### Title: Prueba z de hipotesis para proporciones con datos resumidos
+> ### Aliases: test.prop
+> 
+> ### ** Examples
+> 
+> res <- test.prop(x = 45, n = 100, p = 0.5)
+> res$int.conf
+[1] 0.352493 0.547507
+attr(,"conf.level")
+[1] 0.95
+> 
+> res2 <- test.prop(x = c(56, 42), n = c(120, 110))
+> res2$int.conf
+[1] -0.04247119  0.21216816
+attr(,"conf.level")
+[1] 0.95
+> 
 > 
 > 
 > cleanEx()
@@ -651,7 +701,7 @@ attr(,"conf.level")
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  0.134 0.023 0.16 0 0 
+Time elapsed:  0.151 0.026 0.177 0 0 
 > grDevices::dev.off()
 null device 
           1 

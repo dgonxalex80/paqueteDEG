@@ -5,6 +5,7 @@ beer                    Cervezas
 casas                   Pricios y caracteristicas de viviendas.
 Cnk                     Combinación
 Colombia23              Colombia 2023
+descargar_beer          Descargar la base de cervezas en formato CSV
 ic.var                  Intervalo de confianza para una varianza
 intervalo.var           Intervalo de confianza para una varianza
 inventarioPackages      Inventario de paquetes
@@ -23,6 +24,8 @@ test.mu                 Prueba de hipotesis para una media con datos
                         resumidos
 test.mus                Prueba de hipotesis para diferencia de medias
                         con datos resumidos
+test.prop               Prueba z de hipotesis para proporciones con
+                        datos resumidos
 test.var                Prueba de hipotesis para una varianza con datos
                         resumidos
 test.vars               Prueba de hipotesis para razon de dos varianzas

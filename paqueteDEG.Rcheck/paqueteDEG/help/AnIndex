@@ -4,6 +4,7 @@ beer	beer
 casas	casas
 Cnk	Cnk
 Colombia23	Colombia23
+descargar_beer	descargar_beer
 ic.var	ic.var
 intervalo.var	intervalo.var
 inventarioPackages	inventarioPackages
@@ -16,5 +17,6 @@ sizep	sizep
 strata_size	strata_size
 test.mu	test.mu
 test.mus	test.mus
+test.prop	test.prop
 test.var	test.var
 test.vars	test.vars

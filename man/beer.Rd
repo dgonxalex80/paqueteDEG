@@ -5,14 +5,14 @@
 \alias{beer}
 \title{Cervezas}
 \format{
-Data compuesta por 69 marcas de cerveza y 6 variables
+Data frame con 69 marcas de cerveza y 6 variables
 \describe{
 \item{marca}{marca de la cerveza}
 \item{precio}{precio de presentación de 6 botellas de 12 onzas}
-\item{calorias}{cantidad de caloroas por unidad de 12 onzas}
-\item{poralcoh}{porcentaje de alcohol por 12 onzas de contenido}
+\item{calorias}{cantidad de calorías por unidad de 12 onzas}
+\item{poralcoh}{porcentaje de alcohol por volumen}
 \item{tipo}{1 lager artesanal, 2 clara artesanal, 3 lager importada, 4 cerveza normal y helada, y 5 cerveza baja en calorías y sin alcohol}
-\item{origen}{1 nacional, 2 importada}
+\item{origen}{0 importada, 1 nacional}
 }
 }
 \usage{

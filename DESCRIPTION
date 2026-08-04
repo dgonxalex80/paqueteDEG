@@ -19,5 +19,5 @@ Suggests:
     learnr,
     shiny
 Depends: 
-    R (>= 3.0.0)
+    R (>= 3.5.0)
 Config/roxygen2/version: 8.0.0

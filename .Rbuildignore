@@ -4,6 +4,9 @@
 ^\.git$
 ^\.gitignore$
 ^\.Rhistory$
+^LICENSE\.md$
+^Untitled$
+^check\.sh$
 ^\.Rcheck$
 ^\.\.Rcheck$
 ^.*\.Rcheck$

@@ -1,12 +1,12 @@
 * using log directory ‘/home/deg/Documentos/JAVERIANA/repository/paqueteDEG/paqueteDEG.Rcheck’
-* using R version 4.6.0 (2026-04-24)
+* using R version 4.6.1 (2026-06-24)
 * using platform: x86_64-pc-linux-gnu
 * R was compiled by
     x86_64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
     GNU Fortran (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
 * running under: Ubuntu 24.04.4 LTS
 * using session charset: UTF-8
-* current time: 2026-05-29 22:52:57 UTC
+* current time: 2026-08-04 04:08:51 UTC
 * using option ‘--no-manual’
 * checking for file ‘paqueteDEG/DESCRIPTION’ ... OK
 * this is package ‘paqueteDEG’ version ‘0.0.0.1’

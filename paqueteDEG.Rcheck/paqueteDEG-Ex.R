@@ -125,6 +125,24 @@ casas
 
 
 cleanEx()
+nameEx("descargar_beer")
+### * descargar_beer
+
+flush(stderr()); flush(stdout())
+
+### Name: descargar_beer
+### Title: Descargar la base de cervezas en formato CSV
+### Aliases: descargar_beer
+
+### ** Examples
+
+## Not run: 
+##D descargar_beer("beer.csv")
+## End(Not run)
+
+
+
+cleanEx()
 nameEx("ic.var")
 ### * ic.var
 
@@ -291,6 +309,29 @@ flush(stderr()); flush(stdout())
 
 res <- test.mus(80, 25, 10, 74, 22, 12)
 res$int.conf
+
+res2 <- test.mus(c(42, 39), c(68.4, 63.1), c(10.2, 11.5))
+res2$int.conf
+
+
+
+cleanEx()
+nameEx("test.prop")
+### * test.prop
+
+flush(stderr()); flush(stdout())
+
+### Name: test.prop
+### Title: Prueba z de hipotesis para proporciones con datos resumidos
+### Aliases: test.prop
+
+### ** Examples
+
+res <- test.prop(x = 45, n = 100, p = 0.5)
+res$int.conf
+
+res2 <- test.prop(x = c(56, 42), n = c(120, 110))
+res2$int.conf
 
 
 
