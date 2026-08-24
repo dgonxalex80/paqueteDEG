@@ -87,11 +87,15 @@ muestra_bolas <- function(n, colores, probabilidades) {
   x <- columna + (max_por_fila - elementos_por_fila[fila]) / 2
   y <- numero_filas - fila + 1L
 
-  margen <- 0.7
+  old_par <- graphics::par(c("mar", "oma"))
+  on.exit(graphics::par(old_par), add = TRUE)
+  graphics::par(mar = rep(0, 4), oma = rep(0, 4))
+
+  margen <- 0.35
   graphics::plot.new()
   graphics::plot.window(
-    xlim = c(1 - margen, max_por_fila + margen),
-    ylim = c(1 - margen, numero_filas + margen),
+    xlim = range(x) + c(-margen, margen),
+    ylim = range(y) + c(-margen, margen),
     xaxs = "i",
     yaxs = "i"
   )

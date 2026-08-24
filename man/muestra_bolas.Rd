@@ -10,11 +10,10 @@ muestra_bolas(n, colores, probabilidades)
 \item{n}{Tamano de la muestra. Debe ser un entero positivo.}
 
 \item{colores}{Vector de colores reconocidos por R, por ejemplo
-\code{c("white", "red", "blue")} o
-\code{c("#FFFFFF", "#FF0000", "#0000FF")}.}
+\code{c("white", "red", "blue")} o \code{c("#FFFFFF", "#FF0000", "#0000FF")}.}
 
 \item{probabilidades}{Vector numerico no negativo, con una probabilidad por
-+cada elemento de \code{colores}. No es necesario que sume uno.}
+cada elemento de \code{colores}. No es necesario que sume uno.}
 }
 \value{
 Invisiblemente, un \code{data.frame} con la posicion, la fila, la columna
