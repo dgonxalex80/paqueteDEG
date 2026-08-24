@@ -2,34 +2,41 @@
 % Please edit documentation in R/simula_dados.R
 \name{simula_dados}
 \alias{simula_dados}
-\title{Simular dos dados y calcular operaciones con sus resultados}
+\title{Simular dos dados y calcular una operacion con sus resultados}
 \usage{
-simula_dados(n = 1, caras = 6)
+simula_dados(
+  n = 1,
+  caras = 6,
+  operacion = c("suma", "multiplicacion", "resta", "division")
+)
 }
 \arguments{
 \item{n}{Numero de lanzamientos. Debe ser un entero positivo.}
 
 \item{caras}{Numero de caras de cada dado. Debe ser un entero mayor o igual
 a dos.}
+
+\item{operacion}{Operacion que se aplicara a los dados: \code{"suma"},
+\code{"multiplicacion"}, \code{"resta"} o \code{"division"}.}
 }
 \value{
-Un \code{data.frame} con una fila por lanzamiento y las columnas
-\code{dado_1}, \code{dado_2}, \code{suma}, \code{multiplicacion}, \code{resta} y \code{division}.
+Un \code{data.frame} con una fila por lanzamiento, las columnas \code{dado_1}
+y \code{dado_2}, y una tercera columna cuyo nombre corresponde a la operacion.
 La resta se calcula como \code{dado_1 - dado_2} y la division como
 \code{dado_1 / dado_2}.
 }
 \description{
 Simula lanzamientos independientes de dos dados y calcula, para cada
-lanzamiento, la suma, la multiplicacion, la resta y la division de los
-valores obtenidos.
+lanzamiento, la operacion seleccionada con los valores obtenidos.
 }
 \examples{
 set.seed(123)
 simula_dados()
 
 set.seed(123)
-simula_dados(n = 10)
+simula_dados(n = 10, operacion = "suma")
+simula_dados(n = 10, operacion = "division")
 
 # Dados de ocho caras
-simula_dados(n = 5, caras = 8)
+simula_dados(n = 5, caras = 8, operacion = "multiplicacion")
 }

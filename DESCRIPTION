@@ -1,6 +1,6 @@
 Package: paqueteDEG
 Title: Paquete curso Probabilidad y Estadística
-Version: 0.0.0.3
+Version: 0.0.0.4
 Authors@R: person("Daniel Enrique", 
                   "Gonzalez Gomez", , 
                   "dgonzalez@javerianacali.edu.co", 
